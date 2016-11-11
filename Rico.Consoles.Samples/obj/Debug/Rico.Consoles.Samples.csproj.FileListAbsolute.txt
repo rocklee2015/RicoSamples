@@ -1,0 +1,11 @@
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Rico.Consoles.Samples.exe.config
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Rico.Consoles.Samples.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Rico.Consoles.Samples.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Microsoft.VisualStudio.TextTemplating.14.0.dll
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.dll
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.dll
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Microsoft.VisualStudio.TextTemplating.14.0.xml
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.11.0.xml
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\bin\Debug\Microsoft.VisualStudio.TextTemplating.Interfaces.10.0.xml
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\obj\Debug\Rico.Consoles.Samples.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.Samples\obj\Debug\Rico.Consoles.Samples.pdb

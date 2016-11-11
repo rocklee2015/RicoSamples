@@ -1,0 +1,4 @@
+H:\Github\rocklee2015\RicoSamples\Rico.IPWarm\obj\Debug\IPWarmInitial.csprojResolveAssemblyReference.cache
+H:\Github\rocklee2015\RicoSamples\Rico.IPWarm\obj\Debug\IPWarmInitial.Form1.resources
+H:\Github\rocklee2015\RicoSamples\Rico.IPWarm\obj\Debug\IPWarmInitial.Properties.Resources.resources
+H:\Github\rocklee2015\RicoSamples\Rico.IPWarm\obj\Debug\IPWarmInitial.csproj.GenerateResource.Cache

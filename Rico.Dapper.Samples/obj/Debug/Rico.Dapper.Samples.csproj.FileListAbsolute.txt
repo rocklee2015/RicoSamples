@@ -1,0 +1,8 @@
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\bin\Debug\Rico.Dapper.Samples.exe.config
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\bin\Debug\Rico.Dapper.Samples.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\bin\Debug\Rico.Dapper.Samples.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\bin\Debug\Dapper.dll
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\bin\Debug\Dapper.xml
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\obj\Debug\Rico.Dapper.Samples.csprojResolveAssemblyReference.cache
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\obj\Debug\Rico.Dapper.Samples.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Dapper.Samples\obj\Debug\Rico.Dapper.Samples.pdb

@@ -1,0 +1,6 @@
+H:\Github\rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\Sodao.Spider.exe.config
+H:\Github\rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\Sodao.Spider.exe
+H:\Github\rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\Sodao.Spider.pdb
+H:\Github\rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\NSoup.dll
+H:\Github\rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Spider.exe
+H:\Github\rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Spider.pdb

@@ -1,0 +1,5 @@
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EFCore\bin\Debug\Rico.Consoles.EFCore.exe.config
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EFCore\bin\Debug\Rico.Consoles.EFCore.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EFCore\bin\Debug\Rico.Consoles.EFCore.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EFCore\obj\Debug\Rico.Consoles.EFCore.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EFCore\obj\Debug\Rico.Consoles.EFCore.pdb

@@ -1,0 +1,15 @@
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Rico.ActiveMQ.Consumer.exe.config
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Rico.ActiveMQ.Consumer.exe
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Rico.ActiveMQ.Consumer.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Apache.NMS.ActiveMQ.dll
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Apache.NMS.dll
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Apache.NMS.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Apache.NMS.xml
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Apache.NMS.ActiveMQ.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\bin\Debug\Apache.NMS.ActiveMQ.xml
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\obj\Debug\Rico.ActiveMQ.Consumer.csprojResolveAssemblyReference.cache
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\obj\Debug\Rico.ActiveMQ.Consumer.Form1.resources
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\obj\Debug\Rico.ActiveMQ.Consumer.Properties.Resources.resources
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\obj\Debug\Rico.ActiveMQ.Consumer.csproj.GenerateResource.Cache
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\obj\Debug\Rico.ActiveMQ.Consumer.exe
+H:\Github\rocklee2015\RicoSamples\Rico.ActiveMQ.Consumer\obj\Debug\Rico.ActiveMQ.Consumer.pdb

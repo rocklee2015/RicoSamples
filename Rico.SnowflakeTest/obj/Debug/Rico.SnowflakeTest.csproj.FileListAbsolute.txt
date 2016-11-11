@@ -1,0 +1,9 @@
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Rico.SnowflakeTest.dll
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Rico.SnowflakeTest.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Snowflake.dll
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Snowflake.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.csprojResolveAssemblyReference.cache
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.dll
+H:\Github\rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.pdb

@@ -1,0 +1,5 @@
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.ThriftClient\bin\Debug\Rico.Consoles.ThriftClient.exe.config
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.ThriftClient\bin\Debug\Rico.Consoles.ThriftClient.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.ThriftClient\bin\Debug\Rico.Consoles.ThriftClient.pdb
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.ThriftClient\obj\Debug\Rico.Consoles.ThriftClient.exe
+H:\Github\rocklee2015\RicoSamples\Rico.Consoles.ThriftClient\obj\Debug\Rico.Consoles.ThriftClient.pdb

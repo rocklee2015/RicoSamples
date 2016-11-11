@@ -1,0 +1,2 @@
+﻿1 log4net的文件一定要设置“始终复制”
+2 不知为何，服务名设置成“Rico.Windows.Samples”就是不能启动，而设置成和命名空间(Sodao.WindowService.Samples)一样的名就可以了！

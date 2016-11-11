@@ -1,0 +1,14 @@
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\Sodao.Spider.Tmall.exe.config
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\Sodao.Spider.Tmall.exe
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\Sodao.Spider.Tmall.pdb
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\ICSharpCode.SharpZipLib.dll
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\NPOI.dll
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\NPOI.OOXML.dll
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\NPOI.OpenXml4Net.dll
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\NPOI.OpenXmlFormats.dll
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\bin\Debug\NPOI.xml
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\obj\Debug\Sodao.Spider.Tmall.Form1.resources
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\obj\Debug\Sodao.Spider.Tmall.Properties.Resources.resources
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\obj\Debug\Sodao.Spider.Tmall.csproj.GenerateResource.Cache
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\obj\Debug\Sodao.Spider.Tmall.exe
+H:\Github\rocklee2015\RicoSamples\Sodao.Spider.Tmall\obj\Debug\Sodao.Spider.Tmall.pdb
