@@ -5,3 +5,10 @@ H:\Github\rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Thrift.pdb
 H:\Github\rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.csprojResolveAssemblyReference.cache
 H:\Github\rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.dll
 H:\Github\rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Rico.ThriftModel.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Rico.ThriftModel.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Thrift.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Thrift.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.csprojResolveAssemblyReference.cache
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.pdb

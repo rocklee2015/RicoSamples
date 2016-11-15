@@ -6,3 +6,11 @@ H:\Github\rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\bin\Debug\Snowflake
 H:\Github\rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\obj\Debug\Snowflake.ConsoleTest.csprojResolveAssemblyReference.cache
 H:\Github\rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\obj\Debug\Snowflake.ConsoleTest.exe
 H:\Github\rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\obj\Debug\Snowflake.ConsoleTest.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\bin\Debug\Snowflake.ConsoleTest.exe.config
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\bin\Debug\Snowflake.ConsoleTest.exe
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\bin\Debug\Snowflake.ConsoleTest.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\bin\Debug\Snowflake.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\bin\Debug\Snowflake.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\obj\Debug\Snowflake.ConsoleTest.csprojResolveAssemblyReference.cache
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\obj\Debug\Snowflake.ConsoleTest.exe
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake.ConsoleTest\obj\Debug\Snowflake.ConsoleTest.pdb

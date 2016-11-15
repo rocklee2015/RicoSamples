@@ -3,3 +3,8 @@ H:\Github\rocklee2015\RicoSamples\Rico.Csharp.Samples\bin\Debug\Rico.Csharp.Samp
 H:\Github\rocklee2015\RicoSamples\Rico.Csharp.Samples\bin\Debug\Rico.Csharp.Samples.pdb
 H:\Github\rocklee2015\RicoSamples\Rico.Csharp.Samples\obj\Debug\Rico.Csharp.Samples.exe
 H:\Github\rocklee2015\RicoSamples\Rico.Csharp.Samples\obj\Debug\Rico.Csharp.Samples.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.Samples\bin\Debug\Rico.Csharp.Samples.exe.config
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.Samples\bin\Debug\Rico.Csharp.Samples.exe
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.Samples\bin\Debug\Rico.Csharp.Samples.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.Samples\obj\Debug\Rico.Csharp.Samples.exe
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.Samples\obj\Debug\Rico.Csharp.Samples.pdb

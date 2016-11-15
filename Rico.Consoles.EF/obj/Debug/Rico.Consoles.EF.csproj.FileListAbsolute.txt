@@ -10,3 +10,15 @@ H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.Sql
 H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EF\obj\Debug\Rico.Consoles.EF.csprojResolveAssemblyReference.cache
 H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EF\obj\Debug\Rico.Consoles.EF.exe
 H:\Github\rocklee2015\RicoSamples\Rico.Consoles.EF\obj\Debug\Rico.Consoles.EF.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\Rico.Consoles.EF.exe.config
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\Rico.Consoles.EF.exe
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\Rico.Consoles.EF.pdb
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.Extended.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.SqlServer.dll
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.xml
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.Extended.xml
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\bin\Debug\EntityFramework.SqlServer.xml
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\obj\Debug\Rico.Consoles.EF.csprojResolveAssemblyReference.cache
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\obj\Debug\Rico.Consoles.EF.exe
+G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.EF\obj\Debug\Rico.Consoles.EF.pdb
