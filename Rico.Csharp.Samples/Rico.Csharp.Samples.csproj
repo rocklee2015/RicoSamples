@@ -43,13 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="01_Expression\ExpressionLamda.cs" />
-    <Compile Include="Method\ClassA.cs" />
+    <Compile Include="ExpressionSample\ExpressionLamda.cs" />
+    <Compile Include="MemoryAssignAndSize\MemorySample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringSample\StringIntern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IOSample\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

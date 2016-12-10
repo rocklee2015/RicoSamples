@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rico.Csharp.Samples._01_Expression
+namespace Rico.Csharp.Samples.ExpressionSample
 {
     public class ExpressionLamda
     {

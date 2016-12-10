@@ -4,3 +4,5 @@ D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\bin\D
 D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\obj\Debug\Baitu.Consoles.SocialInsurance.csprojResolveAssemblyReference.cache
 D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\obj\Debug\Baitu.Consoles.SocialInsurance.exe
 D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\obj\Debug\Baitu.Consoles.SocialInsurance.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\bin\Debug\Rico.Csharp.Samples.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\bin\Debug\Rico.Csharp.Samples.pdb
