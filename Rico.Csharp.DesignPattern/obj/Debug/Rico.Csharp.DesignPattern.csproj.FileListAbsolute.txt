@@ -1,5 +1,0 @@
-D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.DesignPattern\bin\Debug\Rico.Csharp.DesignPattern.exe.config
-D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.DesignPattern\bin\Debug\Rico.Csharp.DesignPattern.exe
-D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.DesignPattern\bin\Debug\Rico.Csharp.DesignPattern.pdb
-D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.DesignPattern\obj\Debug\Rico.Csharp.DesignPattern.exe
-D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Csharp.DesignPattern\obj\Debug\Rico.Csharp.DesignPattern.pdb
