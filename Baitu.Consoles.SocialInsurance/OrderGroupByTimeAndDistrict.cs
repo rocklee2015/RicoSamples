@@ -114,6 +114,6 @@ namespace Baitu.Consoles.SocialInsurance
     public class DistrictSummary
     {
         public DateTime Time { get; set; }
-        public 
+        public List<string> Columns { get; set; } 
     }
 }
