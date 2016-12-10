@@ -39,32 +39,39 @@ namespace Baitu.Consoles.SocialInsurance
                 new Order() {Distict = "西湖区", Fee = 36, CreateTime = new DateTime(2016, 12, 7)},
                 new Order() {Distict = "余杭区", Fee = 37, CreateTime = new DateTime(2016, 12, 9)}
             };
-            //第一种写法
+
+            #region  第一种写法
+            /*
             var timeGroups = (from a in orders
-                              orderby a.CreateTime
-                              group a by a.CreateTime
+                orderby a.CreateTime
+                group a by a.CreateTime
                 into timeGroup
-                              select new OrderGroupTime
-                              {
-                                  CreateTime = timeGroup.Key,
-                                  Orders = timeGroup.ToList(),
-                              }).ToList();
+                select new OrderGroupTime
+                {
+                    CreateTime = timeGroup.Key,
+                    Orders = timeGroup.ToList(),
+                }).ToList();
             timeGroups.ForEach(timeGroup =>
             {
                 var districtGroups = (from a in timeGroup.Orders
-                                      group a by a.Distict
-                   into districGroup
-                                      select new
-                                      {
-                                          Name = districGroup.Key,
-                                          Total = districGroup.Sum(b => b.Fee)
-                                      }).ToList();
+                    group a by a.Distict
+                    into districGroup
+                    select new
+                    {
+                        Name = districGroup.Key,
+                        Total = districGroup.Sum(b => b.Fee)
+                    }).ToList();
                 Console.WriteLine("Key：{0}", timeGroup.CreateTime);
                 districtGroups.ForEach(a =>
                 {
                     Console.WriteLine("地区：{0},总数{1}", a.Name, a.Total);
                 });
             });
+            */
+            #endregion
+
+            var districts = orders.GroupBy(a => a.Distict).Select(a => a.Key).ToList();
+            districts.ForEach(a => { Console.WriteLine("地区：{0}", a); });
             Console.WriteLine(string.Empty.PadLeft(30, '-') + "我是分割线");
             //第二种写法
             var timeGroupSecond = orders.OrderBy(a => a.CreateTime)
@@ -102,5 +109,11 @@ namespace Baitu.Consoles.SocialInsurance
     {
         public string Name { get; set; }
         public decimal Total { get; set; }
+    }
+
+    public class DistrictSummary
+    {
+        public DateTime Time { get; set; }
+        public 
     }
 }

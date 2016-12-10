@@ -13,6 +13,8 @@ namespace Baitu.Consoles.SocialInsurance
             //2016-12-10
             var orderGroup = new OrderGroupByTimeAndDistrict();
             orderGroup.Excute();
+
+            Console.ReadKey();
         }
     }
 
