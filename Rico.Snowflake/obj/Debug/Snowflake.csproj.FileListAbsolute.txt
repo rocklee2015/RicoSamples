@@ -8,3 +8,8 @@ G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\bin\Debug\Snowflake.p
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\obj\Debug\Snowflake.csprojResolveAssemblyReference.cache
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\obj\Debug\Snowflake.dll
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\obj\Debug\Snowflake.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\bin\Debug\Snowflake.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\bin\Debug\Snowflake.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\obj\Debug\Snowflake.csprojResolveAssemblyReference.cache
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\obj\Debug\Snowflake.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Snowflake\obj\Debug\Snowflake.pdb

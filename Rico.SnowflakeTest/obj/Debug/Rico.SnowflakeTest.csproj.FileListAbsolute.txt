@@ -16,3 +16,12 @@ G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\zh-Hans
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.csprojResolveAssemblyReference.cache
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.dll
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Rico.SnowflakeTest.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Rico.SnowflakeTest.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Snowflake.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\Snowflake.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\bin\Debug\zh-Hans\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.csprojResolveAssemblyReference.cache
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.SnowflakeTest\obj\Debug\Rico.SnowflakeTest.pdb

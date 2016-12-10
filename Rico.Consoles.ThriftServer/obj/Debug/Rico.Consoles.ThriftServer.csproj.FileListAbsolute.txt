@@ -9,3 +9,9 @@ G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\bin\Debug
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\obj\Debug\Rico.Consoles.ThriftServer.csprojResolveAssemblyReference.cache
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\obj\Debug\Rico.Consoles.ThriftServer.exe
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\obj\Debug\Rico.Consoles.ThriftServer.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\bin\Debug\Rico.Consoles.ThriftServer.exe.config
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\bin\Debug\Rico.Consoles.ThriftServer.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\bin\Debug\Rico.Consoles.ThriftServer.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\obj\Debug\Rico.Consoles.ThriftServer.csprojResolveAssemblyReference.cache
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\obj\Debug\Rico.Consoles.ThriftServer.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.Consoles.ThriftServer\obj\Debug\Rico.Consoles.ThriftServer.pdb

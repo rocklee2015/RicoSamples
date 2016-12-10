@@ -11,3 +11,10 @@ G:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\NSoup.dll
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Nsoup.csprojResolveAssemblyReference.cache
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Spider.exe
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Spider.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\Sodao.Spider.exe.config
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\Sodao.Spider.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\Sodao.Spider.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\bin\Debug\NSoup.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Nsoup.csprojResolveAssemblyReference.cache
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Spider.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Sodao.Nsoup\obj\Debug\Sodao.Spider.pdb

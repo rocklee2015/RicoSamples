@@ -12,3 +12,10 @@ G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Thrift.pd
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.csprojResolveAssemblyReference.cache
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.dll
 G:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Rico.ThriftModel.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Rico.ThriftModel.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Thrift.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\bin\Debug\Thrift.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.csprojResolveAssemblyReference.cache
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.dll
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Rico.ThriftModel\obj\Debug\Rico.ThriftModel.pdb
