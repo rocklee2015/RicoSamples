@@ -1,0 +1,6 @@
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\bin\Debug\Baitu.Consoles.SocialInsurance.exe.config
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\bin\Debug\Baitu.Consoles.SocialInsurance.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\bin\Debug\Baitu.Consoles.SocialInsurance.pdb
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\obj\Debug\Baitu.Consoles.SocialInsurance.csprojResolveAssemblyReference.cache
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\obj\Debug\Baitu.Consoles.SocialInsurance.exe
+D:\Coding\Github\05-Rocklee2015\RicoSamples\Baitu.Consoles.SocialInsurance\obj\Debug\Baitu.Consoles.SocialInsurance.pdb
