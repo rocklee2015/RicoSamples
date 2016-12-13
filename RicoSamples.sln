@@ -84,6 +84,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RicoNugetSamples", "RicoNug
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RicoNugetTest", "RicoNugetTest\RicoNugetTest.csproj", "{93DB8241-38F8-4BEC-B863-8277BD4560F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RicoNugetServerUseTest", "RicoNugetServerUseTest\RicoNugetServerUseTest.csproj", "{96DC016B-50EB-4867-BE75-7B5698B053A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -178,6 +180,10 @@ Global
 		{93DB8241-38F8-4BEC-B863-8277BD4560F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93DB8241-38F8-4BEC-B863-8277BD4560F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93DB8241-38F8-4BEC-B863-8277BD4560F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96DC016B-50EB-4867-BE75-7B5698B053A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96DC016B-50EB-4867-BE75-7B5698B053A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96DC016B-50EB-4867-BE75-7B5698B053A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96DC016B-50EB-4867-BE75-7B5698B053A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -213,5 +219,6 @@ Global
 		{A856DCF4-3071-41E0-B456-35F7E588FCFE} = {0E0E5E38-08F8-4E1D-8DEA-25208045D331}
 		{175A83A5-8755-4E2F-BED7-D415A75DC6EA} = {A856DCF4-3071-41E0-B456-35F7E588FCFE}
 		{93DB8241-38F8-4BEC-B863-8277BD4560F2} = {A856DCF4-3071-41E0-B456-35F7E588FCFE}
+		{96DC016B-50EB-4867-BE75-7B5698B053A0} = {A856DCF4-3071-41E0-B456-35F7E588FCFE}
 	EndGlobalSection
 EndGlobal
