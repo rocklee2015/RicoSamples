@@ -1,0 +1,2 @@
+﻿2016-12-13：首次安装2.11.2 版本时,nuget.server 不能自动引用，导致项目不能编译通过；所以选择安装2.10.1版本;
+nugetserver搭建：http://www.cnblogs.com/davidzhou/p/5370170.html
