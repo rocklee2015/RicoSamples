@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InterfaceSample\IRepository.cs" />
     <Compile Include="LamdaExpression\ExpressionLamda.cs" />
     <Compile Include="MemoryAssignAndSize\MemorySample.cs" />
     <Compile Include="Program.cs" />
