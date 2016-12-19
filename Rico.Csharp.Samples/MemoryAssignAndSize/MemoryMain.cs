@@ -9,7 +9,7 @@ namespace Rico.Csharp.Samples.MemoryAssignAndSize
     /// <summary>
     /// 内存占用
     /// </summary>
-    public class MemorySample
+    public class MemoryMain
     {
         /// <summary>
         /// 内存起始位置
@@ -32,7 +32,7 @@ namespace Rico.Csharp.Samples.MemoryAssignAndSize
             return useMemory;
         }
 
-        public void Samples1()
+        public void Test()
         {
             long start = GC.GetTotalMemory(true);
             //计算代码

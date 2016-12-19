@@ -1,44 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Rico.Csharp.Samples.ExpressionSample
+namespace Rico.Csharp.Samples.LamdaExpression
 {
-    public class ExpressionLamda
+    public class LamdaExpressionMain
     {
-        public void LamdaExpression_Create()
+        public static void LamdaExpression_Create()
         {
             //1 要创建表达式树只能使用Expression类提供的静态方法
             //2 用Expression的节点组合 或者 直接从C#、VB的Lambda表达式生成。不管使用的是那种方法，最后我们得到的是一个内存中树状结构的数据
-            ParameterExpression expA_double = Expression.Parameter(typeof(double), "a");
-            ParameterExpression expB_double = Expression.Parameter(typeof(double), "b");
+            ParameterExpression expADouble = Expression.Parameter(typeof(double), "a");
+            ParameterExpression expBDouble = Expression.Parameter(typeof(double), "b");
 
 
-            ParameterExpression expA_int = Expression.Parameter(typeof(int), "a");
-            ParameterExpression expB_int = Expression.Parameter(typeof(int), "b");
+            ParameterExpression expAInt = Expression.Parameter(typeof(int), "a");
+            ParameterExpression expBInt = Expression.Parameter(typeof(int), "b");
 
 
-            ParameterExpression expA_array = Expression.Parameter(typeof(int[]), "a");
-            ParameterExpression expI_int = Expression.Parameter(typeof(int), "i");
+            ParameterExpression expAArray = Expression.Parameter(typeof(int[]), "a");
+            ParameterExpression expIInt = Expression.Parameter(typeof(int), "i");
 
-            ParameterExpression expA_String = Expression.Parameter(typeof(string), "a");
+            ParameterExpression expAString = Expression.Parameter(typeof(string), "a");
 
             //-a            
-            var g1 = Expression.Negate(expA_double);
+            var g1 = Expression.Negate(expADouble);
             Console.WriteLine(g1.ToString());
 
             //a + b * 2
-            var g2 = Expression.Add(expA_int, Expression.Multiply(expB_int, Expression.Constant(2)));
+            var g2 = Expression.Add(expAInt, Expression.Multiply(expBInt, Expression.Constant(2)));
             Console.Write(g2.ToString());
-            var g2result = Expression.Lambda<Func<int, int, int>>(g2, expA_int, expB_int).Compile();
+            var g2result = Expression.Lambda<Func<int, int, int>>(g2, expAInt, expBInt).Compile();
             Console.WriteLine("=" + g2result(3, 2));
             //Math.Sin(x) + Math.Cos(y)
-            var g3 = Expression.Add(Expression.Call(null, typeof(Math).GetMethod("Sin", BindingFlags.Public | BindingFlags.Static), expA_double),
-                                    Expression.Call(null, typeof(Math).GetMethod("Cos", BindingFlags.Public | BindingFlags.Static), expB_double));
+            var g3 = Expression.Add(Expression.Call(null, typeof(Math).GetMethod("Sin", BindingFlags.Public | BindingFlags.Static), expADouble),
+                                    Expression.Call(null, typeof(Math).GetMethod("Cos", BindingFlags.Public | BindingFlags.Static), expBDouble));
             Console.WriteLine(g3.ToString());
 
             //new StringBuilder(“Hello”)
@@ -46,25 +44,25 @@ namespace Rico.Csharp.Samples.ExpressionSample
             Console.WriteLine(g4.ToString());
 
             //new int[] { a, b, a + b}
-            var g5 = Expression.NewArrayInit(typeof(int), expA_int, expB_int, Expression.Add(expA_int, expB_int));
+            var g5 = Expression.NewArrayInit(typeof(int), expAInt, expBInt, Expression.Add(expAInt, expBInt));
             Console.WriteLine(g5);
 
             //a[i – 1] * i
-            var g6 = Expression.Multiply(Expression.ArrayAccess(expA_array, Expression.Subtract(expI_int, Expression.Constant(1))), expI_int);
+            var g6 = Expression.Multiply(Expression.ArrayAccess(expAArray, Expression.Subtract(expIInt, Expression.Constant(1))), expIInt);
             Console.WriteLine(g6);
 
             //a.Length > b | b >= 0            
-            var g7 = Expression.Or(Expression.GreaterThan(Expression.Property(expA_String, "Length"), expB_int), Expression.GreaterThanOrEqual(expB_int, Expression.Constant(0)));
+            var g7 = Expression.Or(Expression.GreaterThan(Expression.Property(expAString, "Length"), expBInt), Expression.GreaterThanOrEqual(expBInt, Expression.Constant(0)));
 
-            var g7result = Expression.Lambda<Func<string, int, bool>>(g7, expA_String, expB_int).Compile();
+            var g7result = Expression.Lambda<Func<string, int, bool>>(g7, expAString, expBInt).Compile();
             Console.WriteLine("G7：" + g7result("sadf", 2));
 
             //new System.Windows.Point() { X = Math.Sin(a), Y = Math.Cos(a) }
 
             var g8 = Expression.MemberInit(
                 Expression.New(typeof(Point)), new MemberBinding[]{
-                Expression.Bind(typeof(Point).GetProperty("X"),Expression.Call(null, typeof(Math).GetMethod("Sin", BindingFlags.Public | BindingFlags.Static), expA_double)),
-                Expression.Bind(typeof(Point).GetProperty("Y"), Expression.Convert(Expression.Call(null, typeof(Math).GetMethod("Cos", BindingFlags.Public | BindingFlags.Static), expA_double),typeof(int)))
+                Expression.Bind(typeof(Point).GetProperty("X"),Expression.Call(null, typeof(Math).GetMethod("Sin", BindingFlags.Public | BindingFlags.Static), expADouble)),
+                Expression.Bind(typeof(Point).GetProperty("Y"), Expression.Convert(Expression.Call(null, typeof(Math).GetMethod("Cos", BindingFlags.Public | BindingFlags.Static), expADouble),typeof(int)))
                  });
 
             Console.WriteLine(g8.ToString());
@@ -176,3 +174,4 @@ namespace Rico.Csharp.Samples.ExpressionSample
         }
     }
 }
+

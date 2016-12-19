@@ -7,10 +7,15 @@ using Newtonsoft.Json;
 
 namespace Rico.Csharp.Samples.Serialize
 {
-    public class SerializeSample
+    public class SerializeMain
     {
-        public void SerializeDicnary()
+        /// <summary>
+        /// 序列化Dictionnary为对象数组
+        /// 目的：为BootstrapTable 动态生成列所用，将行结果转换为列结果
+        /// </summary>
+        public static void SerializeDictionnary()
         {
+            //效果：[{name:'Jerry',age:12},{name:'Tom',age:13}]
             var source = new SerializeSource();
             source.Total = 10;
 
@@ -38,7 +43,7 @@ namespace Rico.Csharp.Samples.Serialize
     {
         public SerializeSource()
         {
-            Rows=new List<Dictionary<string, string>>();
+            Rows = new List<Dictionary<string, string>>();
         }
 
         public decimal Total { get; set; }
