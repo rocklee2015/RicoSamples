@@ -50,6 +50,7 @@ namespace Rico.Consoles.EF
                 //EntityFramework Entended --Update
                 //已过时,改成对IQuerable扩展了
                 //context.Users.Update( u => u.Id==1002, u2 => new User { UserName = "SS" });
+                //context.Users.FindAsync(1002).Update(p2 => new User() { Age = p2.Age * 10, Address = p2.Address * 10 });
                 context.Users.Where(p => p.Id == 1002).Update(p2 => new User() { Age = p2.Age * 10, Address = p2.Address * 10 });
                 //context.SaveChanges();--无需SaveChanges
             }

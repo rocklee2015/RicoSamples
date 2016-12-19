@@ -94,6 +94,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.JavaScriptSamples", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.AngularSamples", "Rico.AngularSamples\Rico.AngularSamples.csproj", "{88BB3693-172A-4DE6-9D9C-6C0C2A80B78B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.IOC.UnitySample", "Rico.IOC.UnitySample\Rico.IOC.UnitySample.csproj", "{5687156B-3D87-4A8B-993A-F791C89D82F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -204,6 +206,10 @@ Global
 		{88BB3693-172A-4DE6-9D9C-6C0C2A80B78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88BB3693-172A-4DE6-9D9C-6C0C2A80B78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88BB3693-172A-4DE6-9D9C-6C0C2A80B78B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5687156B-3D87-4A8B-993A-F791C89D82F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5687156B-3D87-4A8B-993A-F791C89D82F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5687156B-3D87-4A8B-993A-F791C89D82F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5687156B-3D87-4A8B-993A-F791C89D82F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -243,5 +249,6 @@ Global
 		{476CD882-2B68-44D1-B1C2-654A5982028D} = {2A6A5DBD-0ECB-4CF3-B293-A0FD5E968607}
 		{E019FBBC-0823-4BEC-A46C-46593B65C952} = {CB1638B7-EB40-433F-B8C0-1307521989EE}
 		{88BB3693-172A-4DE6-9D9C-6C0C2A80B78B} = {CB1638B7-EB40-433F-B8C0-1307521989EE}
+		{5687156B-3D87-4A8B-993A-F791C89D82F4} = {2B5E3865-A5AD-4546-8444-7BCEBCA746E1}
 	EndGlobalSection
 EndGlobal
