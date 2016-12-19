@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Practices.Unity;
+using Rico.IOC.UnitySample.Unity1;
+using Rico.IOC.UnitySample.Unity2;
 
 namespace Rico.IOC.UnitySample
 {
@@ -11,16 +8,16 @@ namespace Rico.IOC.UnitySample
     {
         static void Main(string[] args)
         {
-            //创建容器  
-            IUnityContainer container = new UnityContainer();
-            //注册映射  
-            container.RegisterType<IKiss, Boy>();
-            //得到Boy的实例  
-            var boy = container.Resolve<IKiss>();
+            //-------Sample One-------
+            //Unity1Main.SimpleTest();
+            //Unity1Main.TypeMapTest();
+            Unity1Main.SinglePatternTest();
+            Unity1Main.DependencyInjectionSingleConstructorTest();
+            Unity1Main.DependencyInjectionMultipleConstructorTest();
+            Unity1Main.DependencyInjectionPropertyInjectionTest();
 
-            Lily lily = new Lily(boy);
-            lily.Kiss();
-
+            //Sample Two
+            //Unity2Main.SimpleTest();
             Console.ReadKey();
         }
     }

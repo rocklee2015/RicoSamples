@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Rico.IOC.UnitySample
+namespace Rico.IOC.UnitySample.Unity2
 {
     public interface IKiss
     {  

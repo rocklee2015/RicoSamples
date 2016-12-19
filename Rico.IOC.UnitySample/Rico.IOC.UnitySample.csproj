@@ -59,9 +59,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IKiss.cs" />
+    <Compile Include="Unity1\CommonOrder.cs" />
+    <Compile Include="Unity1\IOrder.cs" />
+    <Compile Include="Unity1\IOrderWithLogging.cs" />
+    <Compile Include="Unity1\DependencyInjection\MultipleConstructor.cs" />
+    <Compile Include="Unity1\DependencyInjection\PropertyInjection.cs" />
+    <Compile Include="Unity1\DependencyInjection\SingleConstructor.cs" />
+    <Compile Include="Unity1\VipOrder.cs" />
+    <Compile Include="Unity2\IKiss.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unity1\ConsoleLogger.cs" />
+    <Compile Include="Unity1\ILogger.cs" />
+    <Compile Include="Unity1\NullLogger.cs" />
+    <Compile Include="Unity1\Unity1Main.cs" />
+    <Compile Include="Unity2\Unity2Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
