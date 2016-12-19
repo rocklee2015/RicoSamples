@@ -11,9 +11,8 @@ namespace Baitu.Consoles.SocialInsurance
         static void Main(string[] args)
         {
             //2016-12-10
-            var orderGroup = new OrderGroupByTimeAndDistrict();
-            orderGroup.Excute();
-
+            OrderGroupByTimeAndDistrict.ExtensionMethod();
+            OrderGroupByTimeAndDistrict.LinqToSqlMethod();
             Console.ReadKey();
         }
     }
