@@ -6,12 +6,105 @@ using System.Text;
 
 namespace Rico.Csharp.Samples.LamdaExpression
 {
+    /// <summary>
+    /// 
+    /// source:http://www.cnblogs.com/Ninputer/archive/2009/08/28/expression_tree1.html
+    /// </summary>
     public class LamdaExpressionMain
     {
-        public static void LamdaExpression_Create()
+        #region 入门  http://www.cnblogs.com/liqingwen/archive/2016/09/18/5868688.html
+
+        /// <summary>
+        /// 1.Lambda 表达式创建表达式树
+        /// </summary>
+        public static void CreateExpressionByLamda()
         {
-            //1 要创建表达式树只能使用Expression类提供的静态方法
-            //2 用Expression的节点组合 或者 直接从C#、VB的Lambda表达式生成。不管使用的是那种方法，最后我们得到的是一个内存中树状结构的数据
+            Expression<Action<int>> actionExpression = n => Console.WriteLine(n);
+            Expression<Func<int, bool>> funcExpression1 = (n) => n < 0;
+            Expression<Func<int, int, bool>> funcExpression2 = (n, m) => n - m == 0;
+        }
+        /// <summary>
+        /// 2.API 创建表达式树
+        /// </summary>
+        public static void CreateExpressionByApi()
+        {
+            //通过 Expression 类创建表达式树
+            //lambda：num => num == 0
+            ParameterExpression pExpression = Expression.Parameter(typeof(int));    //参数：num
+            ConstantExpression cExpression = Expression.Constant(0);    //常量：0
+            BinaryExpression bExpression = Expression.MakeBinary(ExpressionType.Equal, pExpression, cExpression);   //表达式：num == 0
+            Expression<Func<int, bool>> lambda = Expression.Lambda<Func<int, bool>>(bExpression, pExpression);  //lambda 表达式：num => num == 0
+        }
+        /// <summary>
+        /// 3.解析表达式树
+        /// </summary>
+        public static void ResolveExpression()
+        {
+            Expression<Func<int, bool>> funcExpression = num => num == 0;
+
+            //开始解析
+            ParameterExpression pExpression = funcExpression.Parameters[0]; //lambda 表达式参数
+            BinaryExpression body = (BinaryExpression)funcExpression.Body;  //lambda 表达式主体：num == 0
+
+            Console.WriteLine($"解析：{pExpression.Name} => {body.Left} {body.NodeType} {body.Right}");
+        }
+        /// <summary>
+        /// 4.编译表达式树
+        /// </summary>
+        public static void CompileExpression()
+        {
+            //创建表达式树
+            Expression<Func<string, int>> funcExpression = msg => msg.Length;
+            //表达式树编译成委托
+            var lambda = funcExpression.Compile();
+            //调用委托
+            Console.WriteLine(lambda("Hello, World!"));
+
+            //语法简化
+            Console.WriteLine(funcExpression.Compile()("Hello, World!"));
+        }
+        /// <summary>
+        /// 5.执行表达式树
+        /// </summary>
+        public static void ExcuteExpression()
+        {
+            const int n = 1;
+            const int m = 2;
+
+            //待执行的表达式树
+            BinaryExpression bExpression = Expression.Add(Expression.Constant(n), Expression.Constant(m));
+            //创建 lambda 表达式
+            Expression<Func<int>> funcExpression = Expression.Lambda<Func<int>>(bExpression);
+            //编译 lambda 表达式
+            Func<int> func = funcExpression.Compile();
+
+            //执行 lambda 表达式
+            Console.WriteLine($"{n} + {m} = {func()}");
+        }
+        /// <summary>
+        /// 6.修改表达式树 
+        /// </summary>
+        public static void UpdateExpression()
+        {
+            Expression<Func<int, bool>> funcExpression = num => num == 0;
+            Console.WriteLine($"Source: {funcExpression}");
+
+            //ExpressionVisitor 类，通过 Visit 方法间接调用 VisitBinary 方法将 != 替换成 ==。
+            var visitor = new NotEqualExpressionVisitor();
+            var expression = visitor.Visit(funcExpression);
+
+            Console.WriteLine($"Modify: {expression}");
+
+        }
+
+        #endregion
+        #region 进阶  http://www.cnblogs.com/Ninputer/archive/2009/08/28/expression_tree1.html
+
+        /// <summary>
+        /// 构建复杂的表达式树
+        /// </summary>
+        public static void CreateComplexLamdaExpression()
+        {
             ParameterExpression expADouble = Expression.Parameter(typeof(double), "a");
             ParameterExpression expBDouble = Expression.Parameter(typeof(double), "b");
 
@@ -34,6 +127,7 @@ namespace Rico.Csharp.Samples.LamdaExpression
             Console.Write(g2.ToString());
             var g2result = Expression.Lambda<Func<int, int, int>>(g2, expAInt, expBInt).Compile();
             Console.WriteLine("=" + g2result(3, 2));
+
             //Math.Sin(x) + Math.Cos(y)
             var g3 = Expression.Add(Expression.Call(null, typeof(Math).GetMethod("Sin", BindingFlags.Public | BindingFlags.Static), expADouble),
                                     Expression.Call(null, typeof(Math).GetMethod("Cos", BindingFlags.Public | BindingFlags.Static), expBDouble));
@@ -53,12 +147,12 @@ namespace Rico.Csharp.Samples.LamdaExpression
 
             //a.Length > b | b >= 0            
             var g7 = Expression.Or(Expression.GreaterThan(Expression.Property(expAString, "Length"), expBInt), Expression.GreaterThanOrEqual(expBInt, Expression.Constant(0)));
+            Console.WriteLine(g7);
 
-            var g7result = Expression.Lambda<Func<string, int, bool>>(g7, expAString, expBInt).Compile();
-            Console.WriteLine("G7：" + g7result("sadf", 2));
+            var g7Result = Expression.Lambda<Func<string, int, bool>>(g7, expAString, expBInt).Compile();
+            Console.WriteLine("G7：" + g7Result("sadf", 2));
 
             //new System.Windows.Point() { X = Math.Sin(a), Y = Math.Cos(a) }
-
             var g8 = Expression.MemberInit(
                 Expression.New(typeof(Point)), new MemberBinding[]{
                 Expression.Bind(typeof(Point).GetProperty("X"),Expression.Call(null, typeof(Math).GetMethod("Sin", BindingFlags.Public | BindingFlags.Static), expADouble)),
@@ -68,110 +162,25 @@ namespace Rico.Csharp.Samples.LamdaExpression
             Console.WriteLine(g8.ToString());
         }
         /// <summary>
-        /// 表达式树分析
+        /// 分析表达式树逻辑
         /// </summary>
-        public void LamdaExpression_Analyze()
+        public static void AnalyzeLamdaExpression()
         {
-            //3 Expression Tree的基本功能：1)分析表达式的逻辑
             Expression<Func<double, double, double, double, double>> myExp =
              (a, b, m, n) => m * a * a + n * b * b;
 
             var calc = new BinaryExpressionCalculator(myExp);
             Console.WriteLine(calc.Calculate(1, Math.Sin(30), 3, 4));
             Console.ReadKey();
-            //3 Expression Tree的基本功能：2)保存和传输表达式 【表达式序列化是大问题】
 
-            //1. 生成表达式的程序与解析表达式的程序不在同一进程内（例如在客户端生成表达式，在服务端解析）。
-            //2. 需要储存或缓存表达式，为以后多次使用做准备。
-            //3. 需要用其他非.NET技术处理或生成表达式树。
-
-            //3 Expression Tree的基本功能：3)以及重新编译表达式
         }
+        #endregion
     }
     public class Point
     {
         public double X { get; set; }
         public int Y { get; set; }
     }
-    public class BinaryExpressionCalculator
-    {
-        Dictionary<ParameterExpression, double> m_argDict;
-        LambdaExpression m_exp;
 
-
-        public BinaryExpressionCalculator(LambdaExpression exp)
-        {
-            m_exp = exp;
-        }
-
-        public double Calculate(params double[] args)
-        {
-            //从ExpressionExpression中提取参数，和传输的实参对应起来。
-            //生成的字典可以方便我们在后面查询参数的值
-            m_argDict = new Dictionary<ParameterExpression, double>();
-
-            for (int i = 0; i < m_exp.Parameters.Count; i++)
-            {
-                //就不检查数目和类型了，大家理解哈
-                m_argDict[m_exp.Parameters[i]] = args[i];
-            }
-
-            //提取树根
-            Expression rootExp = m_exp.Body as Expression;
-
-            //计算！
-            return InternalCalc(rootExp);
-        }
-
-        double InternalCalc(Expression exp)
-        {
-            ConstantExpression cexp = exp as ConstantExpression;
-            if (cexp != null) return (double)cexp.Value;
-
-            ParameterExpression pexp = exp as ParameterExpression;
-            if (pexp != null)
-            {
-                return m_argDict[pexp];
-            }
-            #region 支持方法
-            var methodExpression = exp as MethodCallExpression;
-            if (methodExpression != null)
-            {
-                object instance = null;
-                //实例方法调用
-                if (methodExpression.Object != null)
-                {
-                    var newExpression = methodExpression.Object as NewExpression;
-                    var objects = new object[newExpression.Arguments.Count];
-                    for (var i = 0; i < newExpression.Arguments.Count; i++)
-                    {
-                        objects[i] = InternalCalc(newExpression.Arguments[i]);
-                    }
-                    instance = newExpression.Constructor.Invoke(objects);
-
-                }
-                //如果Instance为Null，表明是静态方法调用，如果不为null，表明是实例方法调用
-                return (double)methodExpression.Method.Invoke(instance, new object[] { InternalCalc(methodExpression.Arguments[0]) });
-
-            }
-            #endregion
-            BinaryExpression bexp = exp as BinaryExpression;
-            if (bexp == null) throw new ArgumentException("不支持表达式的类型", "exp");
-
-            switch (bexp.NodeType)
-            {
-                case ExpressionType.Add:
-                    return InternalCalc(bexp.Left) + InternalCalc(bexp.Right);
-                case ExpressionType.Divide:
-                    return InternalCalc(bexp.Left) / InternalCalc(bexp.Right);
-                case ExpressionType.Multiply:
-                    return InternalCalc(bexp.Left) * InternalCalc(bexp.Right);
-                case ExpressionType.Subtract:
-                    return InternalCalc(bexp.Left) - InternalCalc(bexp.Right);
-                default:
-                    throw new ArgumentException("不支持表达式的类型", "exp");
-            }
-        }
-    }
 }
 
