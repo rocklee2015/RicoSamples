@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Bootstrap案例</title>
@@ -9,7 +9,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @Styles.Render("~/Content/css/bootstrap")
-   
+
 
     @Styles.Render("~/Content/bootstrap-table/css")
 
@@ -39,8 +39,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Export-导出", "Export", "Bootstrap")</li>
-                            <li>@Html.ActionLink("Export-导出", "Export", "Bootstrap")</li>
-                            <li>@Html.ActionLink("Export-导出", "Export", "Bootstrap")</li>
+                            <li>@Html.ActionLink("合并单元格", "GroupColumns", "Bootstrap")</li>
+                            <li>@Html.ActionLink("编辑Table", "EditTable", "Bootstrap")</li>
                             <li>@Html.ActionLink("Export-导出", "Export", "Bootstrap")</li>
                             <li>@Html.ActionLink("Export-导出", "Export", "Bootstrap")</li>
                             <li>@Html.ActionLink("Export-导出", "Export", "Bootstrap")</li>
@@ -84,7 +84,7 @@
         </footer>
     </div>
 
-   
+
 
 
     @RenderSection("scripts", required: false)
