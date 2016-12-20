@@ -43,12 +43,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BehavioralPattern\ChainOfResponsibility\ChainOfResponsibilityPattern.cs" />
+    <Compile Include="BehavioralPattern\Interpreter\InterpreterPattern.cs" />
+    <Compile Include="BehavioralPattern\Mediator\MediatorPattern.cs" />
+    <Compile Include="BehavioralPattern\Memento\MementoPattern.cs" />
+    <Compile Include="BehavioralPattern\State\StatePattern.cs" />
+    <Compile Include="BehavioralPattern\Visitor\VisitorPattern.cs" />
+    <Compile Include="CreationalPattern\FactoryMethod\AddFactory.cs" />
+    <Compile Include="CreationalPattern\FactoryMethod\DivFactory.cs" />
+    <Compile Include="CreationalPattern\FactoryMethod\IFactory.cs" />
+    <Compile Include="CreationalPattern\FactoryMethod\MulFactory.cs" />
+    <Compile Include="CreationalPattern\FactoryMethod\SubFactory.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\Operation.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationAdd.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationDiv.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationFactory.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationMul.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationReverse.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationSqr.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationSqrt.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\OperationSub.cs" />
+    <Compile Include="CreationalPattern\Singleton\SingletonDelayInitialize.cs" />
+    <Compile Include="CreationalPattern\Singleton\SingletonDoubleLock.cs" />
+    <Compile Include="CreationalPattern\Singleton\SingletonSimple.cs" />
+    <Compile Include="CreationalPattern\Singleton\SingletonStaticInitialize.cs" />
+    <Compile Include="CreationalPattern\Singleton\SingletonThreadSafe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CreationalPattern\AbstractFactory\AbstractFactoryPattern.cs" />
+    <Compile Include="StructuralPattern\Adapter\AdapterPattern.cs" />
+    <Compile Include="StructuralPattern\Bridge\BridgePattern.cs" />
+    <Compile Include="CreationalPattern\Builder\BuilderPattern.cs" />
+    <Compile Include="BehavioralPattern\Command\CommandPattern.cs" />
+    <Compile Include="StructuralPattern\Composite\CompositePattern.cs" />
+    <Compile Include="StructuralPattern\Decorator\DecoratorPattern.cs" />
+    <Compile Include="CreationalPattern\FactoryMethod\FactoryMethodPattern.cs" />
+    <Compile Include="StructuralPattern\Façade\FaçadePattern.cs" />
+    <Compile Include="StructuralPattern\Flyweight\FlyweightPattern.cs" />
+    <Compile Include="BehavioralPattern\Iterator\IteratorPattern.cs" />
+    <Compile Include="BehavioralPattern\Observer\ObserverPattern.cs" />
+    <Compile Include="CreationalPattern\Prototype\PrototypePattern.cs" />
+    <Compile Include="StructuralPattern\Proxy\ProxyPattern.cs" />
+    <Compile Include="CreationalPattern\SimpleFactory\SimpleFactoryPattern.cs" />
+    <Compile Include="CreationalPattern\Singleton\SingletonPattern.cs" />
+    <Compile Include="BehavioralPattern\Strategy\StrategyPattern.cs" />
+    <Compile Include="BehavioralPattern\TemplateMethod\TemplateMethodPattern.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
