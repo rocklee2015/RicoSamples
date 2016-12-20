@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "form_dropzone";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section StyleRef{
+<link href="~/Content/Scripts/chosen-bootstrap/chosen/chosen.css" rel="stylesheet" />
+    
+<link href="~/Content/Scripts/fullcalendar/css/bootstrap-fullcalendar.css" rel="stylesheet" />
+<link href="~/Content/Scripts/dropzone/css/dropzone.css" rel="stylesheet" />
+}
+<div class="row-fluid">
+    <div class="span12">
+        <form action="assets/dropzone/upload.php" class="dropzone" id="my-awesome-dropzone"></form>
+    </div>
+</div>
+@section JavascriptRef{
+<script src="~/Content/Scripts/dropzone/dropzone.js"></script>
+    <script src="~/Content/Scripts/chosen-bootstrap/chosen/chosen.jquery.js"></script>
+    
+<script src="~/Content/Scripts/jquery-slimscroll/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="~/Content/Scripts/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+}
+
+@section JavascriptInline{
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.setPage('calendar');
+            App.init();
+        });
+    </script>
+}
+
+
