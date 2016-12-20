@@ -25,9 +25,17 @@ namespace Rico.Csharp.Samples
 
 
             //**********String 字符串操作
+            StringIntern.Test10();
 
 
             Console.ReadKey();
+        }
+
+         static void Test2()
+        {
+            string str = "ab";
+            str += "c";
+            Console.WriteLine(string.IsInterned(str) ?? "null");  //null
         }
     }
 }
