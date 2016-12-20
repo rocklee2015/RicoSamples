@@ -142,5 +142,17 @@ namespace Rico.IOC.UnitySample.Unity1
             orderWithLogging.Output();
 
         }
+
+        public static void UnityLifeTime()
+        {
+            //Unity内置了6种生存期管理模型，其中有2种即负责对象实例的创建也负责对象实例的销毁（Disposing）。
+            //TransientLifetimeManager - 为每次请求生成新的类型对象实例。 (默认行为)
+            //ContainerControlledLifetimeManager - 实现Singleton对象实例。 当容器被Disposed后，对象实例也被Disposed。
+            //HierarchicalifetimeManager - 实现Singleton对象实例。但子容器并不共享父容器实例，而是创建针对字容器的Singleton对象实例。当容器被Disposed后，对象实例也被Disposed。
+            //ExternallyControlledLifetimeManager - 实现Singleton对象实例，但容器仅持有该对象的弱引用（WeakReference），所以该对象的生存期由外部引用控制。
+            //PerThreadLifetimeManager - 为每个线程生成Singleton的对象实例，通过ThreadStatic实现。
+            //PerResolveLifetimeManager - 实现与TransientLifetimeManager类似的行为，为每次请求生成新的类型对象实例。不同之处在于对象实例在BuildUp过程中是可被重用的。
+        }
+
     }
 }
