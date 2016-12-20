@@ -21,18 +21,40 @@ namespace Rico.BootstrapSamples.Controllers
         }
         public JsonResult GetDepartment(int limit, int offset, string departmentname, string statu)
         {
-            var depts = new List<DepartmentModel>();
-            for (var i = 0; i < 50; i++)
-            {
-                var dept = new DepartmentModel();
-                dept.ID = Guid.NewGuid().ToString();
-                dept.Name = "销售部" + i;
-                dept.Level = i.ToString();
-                dept.Desc = "暂无描述信息";
-                depts.Add(dept);
-            }
+            var depts = DataSourceManage.GetDepartments();
 
             return Json(depts, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetDepartmentGrid(int limit, int offset, string departmentname, string statu)
+        {
+            var depts = DataSourceManage.GetDepartments();
+            var total = depts.Count;
+            var rows = depts.Skip(offset).Take(limit).ToList();
+            return Json(new { total = total, rows = rows }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult GroupColumns()
+        {
+            return View();
+        }
+
+        public JsonResult GetReport(int limit, int offset)
+        {
+            var reports = DataSourceManage.GetReports();
+            var total = reports.Count;
+            var rows = reports.Skip(offset).Take(limit).ToList();
+            return Json(new { total = total, rows = rows }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult EditTable()
+        {
+            return View();
+        }
+        public JsonResult Edit(string strJson)
+        {
+            //反序列化之后更新
+
+            return Json(new { }, JsonRequestBehavior.AllowGet);
         }
     }
 }
