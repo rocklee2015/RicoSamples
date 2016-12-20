@@ -1,0 +1,2 @@
+﻿1 font-awesome.min.css 是字体图标的样式库，css文件夹同级必须存在fonts文件夹
+并包含fontawesome-webfont.eot和fontawesome-webfont.woff文件

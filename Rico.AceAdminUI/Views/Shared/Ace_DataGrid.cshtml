@@ -1,0 +1,305 @@
+﻿@{
+    Layout = "~/Views/Shared/Ace_Layout.cshtml";
+    string toolbarItem = ViewBag.ToolbarItem ?? "add,edit,save,cancel,delete";
+}
+@section styleRef{
+    <link href="~/Content/Scripts/jquery-ui/css/jquery-ui-1.10.3.full.min.css" rel="stylesheet" />
+    <link href="~/Content/Scripts/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/Content/Scripts/jquery-jqGrid/css/ui.jqgrid.css" rel="stylesheet" />
+}
+@section styleIn{
+
+}
+
+@section jsRef{
+    <script src="~/Content/Scripts/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/Content/Scripts/jquery-jqGrid/jquery.jqGrid.min.js"></script>
+    <script src="~/Content/Scripts/jquery-jqGrid/i18n/grid.locale-cn.js"></script>
+}
+@section jsIn{
+    <!--公用变量-->
+    <script type="text/javascript">
+        var gridSelector = "#grid-table-@ViewBag.GridId",
+            pagerSelector = "#grid-pager-@ViewBag.GridId",
+            grid, caption, gridHeight = 360, multiselect = true, multiboxonly = true,
+            altRows = true,//是否多行选中
+            datatype = "json",
+            gridData,//数据
+            colNames = [],//列名
+            colModels = [],//列格式
+            isSubGrid = false,//是否有子视图
+            subGridOptions={
+                plusicon : "ace-icon fa fa-plus center bigger-110 blue",
+                minusicon  : "ace-icon fa fa-minus center bigger-110 blue",
+                openicon : "ace-icon fa fa-chevron-right center orange"
+            },//子视图设置参数
+            subGridData = [],//子视图数据
+            navbarOptions = { 	//navbar options
+                edit: true,
+                editicon: 'ace-icon fa fa-pencil blue',
+                add: true,
+                addicon: 'ace-icon fa fa-plus-circle purple',
+                del: true,
+                delicon: 'ace-icon fa fa-trash-o red',
+                search: true,
+                searchicon: 'ace-icon fa fa-search orange',
+                refresh: true,
+                refreshicon: 'ace-icon fa fa-refresh green',
+                view: true,
+                viewicon: 'ace-icon fa fa-search-plus grey',
+            },//
+            prmEdit = {
+                //edit record form
+                //closeAfterEdit: true,
+                //width: 700,
+                recreateForm: true,
+                beforeShowForm: function (e) {
+                    var form = $(e[0]);
+                    form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+                    style_edit_form(form);
+                }
+            },//编辑设置
+            prmAdd = {
+                //new record form
+                //width: 700,
+                closeAfterAdd: true,
+                recreateForm: true,
+                viewPagerButtons: false,
+                beforeShowForm: function (e) {
+                    var form = $(e[0]);
+                    form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar')
+                    .wrapInner('<div class="widget-header" />')
+                    style_edit_form(form);
+                }
+            },//新增设置
+            prmDel = {
+                //delete record form
+                recreateForm: true,
+                beforeShowForm: function (e) {
+                    var form = $(e[0]);
+                    if (form.data('styled')) return false;
+                    form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
+                    style_delete_form(form);
+                    form.data('styled', true);
+                },
+                onClick: function (e) {
+                    alert(1);
+                }
+            },//删除设置
+            prmSearch = {
+                //search form
+                recreateForm: true,
+                afterShowSearch: function (e) {
+                    var form = $(e[0]);
+                    form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
+                    style_search_form(form);
+                },
+                afterRedraw: function () {
+                    style_search_filters($(this));
+                }
+						,
+                multipleSearch: true,
+                /**
+                multipleGroup:true,
+                showQuery: true
+                */
+            },//查询设置
+            prmView={
+                //view record form
+                recreateForm: true,
+                beforeShowForm: function (e) {
+                    var form = $(e[0]);
+                    form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
+                }
+            }
+            ;
+        var startfunction = function () {
+        };
+        var endfunction = function () {
+        };
+        //子视图展开处理
+        var subGridRowExpandedFunction = function (subgridDivId, rowId) {
+
+        };
+        //自定义编辑表单样式
+        var style_edit_form= function style_edit_form(form) {
+            //enable datepicker on "sdate" field and switches for "stock" field
+            form.find('input[name=sdate]').datepicker({ format: 'yyyy-mm-dd', autoclose: true })
+                .end().find('input[name=stock]')
+                    .addClass('ace ace-switch ace-switch-5').after('<span class="lbl"></span>');
+            //don't wrap inside a label element, the checkbox value won't be submitted (POST'ed)
+            //.addClass('ace ace-switch ace-switch-5').wrap('<label class="inline" />').after('<span class="lbl"></span>');
+
+            //update buttons classes
+            //var buttons = form.next().find('.EditButton .fm-button');
+            //buttons.addClass('btn btn-sm').find('[class*="-icon"]').hide();//ui-icon, s-icon
+            //buttons.eq(0).addClass('btn-primary').prepend('<i class="ace-icon fa fa-check"></i>');
+            //buttons.eq(1).prepend('<i class="ace-icon fa fa-times"></i>')
+
+            //buttons = form.next().find('.navButton a');
+            //buttons.find('.ui-icon').hide();
+            //buttons.eq(0).append('<i class="ace-icon fa fa-chevron-left"></i>');
+            //buttons.eq(1).append('<i class="ace-icon fa fa-chevron-right"></i>');
+        }
+        //自定义删除表单样式
+        var style_delete_form= function style_delete_form(form) {
+            var buttons = form.next().find('.EditButton .fm-button');
+            buttons.addClass('btn btn-sm btn-white btn-round').find('[class*="-icon"]').hide();//ui-icon, s-icon
+            buttons.eq(0).addClass('btn-danger').prepend('<i class="ace-icon fa fa-trash-o"></i>');
+            buttons.eq(1).addClass('btn-default').prepend('<i class="ace-icon fa fa-times"></i>')
+        }
+        //自定义查询过滤条件样式
+        var style_search_filters = function style_search_filters(form) {
+            form.find('.delete-rule').val('X');
+            form.find('.add-rule').addClass('btn btn-xs btn-primary');
+            form.find('.add-group').addClass('btn btn-xs btn-success');
+            form.find('.delete-group').addClass('btn btn-xs btn-danger');
+        }
+        //自定义搜索框样式
+        var style_search_form = function style_search_form(form) {
+            var dialog = form.closest('.ui-jqdialog');
+            var buttons = dialog.find('.EditTable')
+            buttons.find('.EditButton a[id*="_reset"]').addClass('btn btn-sm btn-info').find('.ui-icon').attr('class', 'ace-icon fa fa-retweet');
+            buttons.find('.EditButton a[id*="_query"]').addClass('btn btn-sm btn-inverse').find('.ui-icon').attr('class', 'ace-icon fa fa-comment-o');
+            buttons.find('.EditButton a[id*="_search"]').addClass('btn btn-sm btn-purple').find('.ui-icon').attr('class', 'ace-icon fa fa-search');
+        }
+
+
+
+        //自定义CheckBox样式
+        var styleCheckbox=function styleCheckbox(table) {
+            //更改所有checkbox
+            $(table).find('input:checkbox').addClass('ace')
+            .wrap('<label />')
+            .after('<span class="lbl align-top" />')
+            //第一行checkbox
+            $('.ui-jqgrid-labels th[id*="_cb"]:first-child')
+            .find('input.cbox[type=checkbox]').addClass('ace')
+            .wrap('<label />').after('<span class="lbl align-top" />');
+
+        }
+        //自定义分页栏，行按钮图标
+        var updateActionIcons=function updateActionIcons(table) {
+            var replacement =
+            {
+                'ui-ace-icon fa fa-pencil': 'ace-icon fa fa-pencil blue',
+                'ui-ace-icon fa fa-trash-o': 'ace-icon fa fa-trash-o red',
+                'ui-icon-disk': 'ace-icon fa fa-check green',
+                'ui-icon-cancel': 'ace-icon fa fa-times red',
+            };
+            $(table).find('.ui-pg-div span.ui-icon').each(function () {
+                var icon = $(this);
+                var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+                if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+            })
+
+        }
+        //自定义分页按钮图标
+        var updatePagerIcons= function updatePagerIcons(table) {
+            var replacement =
+            {
+                'ui-icon-seek-first': 'ace-icon fa fa-angle-double-left bigger-140',
+                'ui-icon-seek-prev': 'ace-icon fa fa-angle-left bigger-140',
+                'ui-icon-seek-next': 'ace-icon fa fa-angle-right bigger-140',
+                'ui-icon-seek-end': 'ace-icon fa fa-angle-double-right bigger-140'
+            };
+            $('.ui-pg-table:not(.navtable) > tbody > tr > .ui-pg-button > .ui-icon').each(function () {
+                var icon = $(this);
+                var $class = $.trim(icon.attr('class').replace('ui-icon', ''));
+
+                if ($class in replacement) icon.attr('class', 'ui-icon ' + replacement[$class]);
+            })
+        }
+        //启用行按钮，分页按钮上图标提示功能
+        var enableTooltips=function enableTooltips(table) {
+            $('.navtable .ui-pg-button').tooltip({ container: 'body' });
+            $(table).find('.ui-pg-div').tooltip({ container: 'body' });
+        }
+    </script>
+    <!--自定义变量-->
+    @RenderSection("paramInit", false)
+    <script type="text/javascript">
+
+    </script>
+    @RenderSection("customScript", true)
+    <script type="text/javascript">
+        $(function () {
+            startfunction();
+            
+            //resize to fit page size
+            $(window).on('resize.jqGrid', function () {
+                $(gridSelector).jqGrid('setGridWidth', $(".page-content").width());
+            })
+            //resize on sidebar collapse/expand
+            var parent_column = $(gridSelector).closest('[class*="col-"]');
+            $(document).on('settings.ace.jqGrid', function (ev, event_name, collapsed) {
+                if (event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed') {
+                    //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                    setTimeout(function () {
+                        $(gridSelector).jqGrid('setGridWidth', parent_column.width());
+                    }, 0);
+                }
+            })
+
+            grid = $(gridSelector).jqGrid({
+                url: "@ViewBag.GridDataUrl",
+                subGrid :isSubGrid,//是否子视图
+                subGridOptions: subGridOptions,//子视图设置
+                subGridRowExpanded: subGridRowExpandedFunction,//子视图展开处理
+                data:gridData,//数据
+                datatype: datatype,
+                height: gridHeight,
+                colNames:colNames, //列名
+                colModel:colModels,//列格式
+                viewrecords : true,
+                rowNum:10,
+                rowList:[10,20,30],
+                pager : pagerSelector,//分页元素对象
+                altRows: altRows,//是否多行选中
+                multiselect: multiselect,//多选
+                multiboxonly: multiboxonly,
+                loadComplete : function() {
+                    var table = this;
+                    setTimeout(function(){
+                        styleCheckbox(table);
+                        updateActionIcons(table);
+                        updatePagerIcons(table);
+                        enableTooltips(table);
+                    }, 0);
+                },
+                editurl:"@ViewBag.EditUrl",//编辑URL
+                caption: caption//视图标题
+            });
+            $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+            jQuery(gridSelector).jqGrid('navGrid',
+                     pagerSelector,
+                     navbarOptions,
+                     prmEdit, 
+                     prmAdd, 
+                     prmDel , 
+                     prmSearch,
+                     prmView	
+				);
+           
+            //var selr = jQuery(gridSelector).jqGrid('getGridParam','selrow');
+            $(document).on('ajaxloadstart', function (e) {
+                $(gridSelector).jqGrid('GridUnload');
+                $('.ui-jqdialog').remove();
+            });
+            endfunction();
+        });
+
+    </script>
+    @RenderSection("endScript", false)
+}
+<div class="page-content-area">
+    <div class="row">
+        <div class="col-xs-12">
+            <!--顺序无所谓-->
+            <div id="grid-pager-@ViewBag.GridId"></div>
+            <table id="grid-table-@ViewBag.GridId"></table>
+           
+        </div>
+    </div>
+</div>
+@RenderBody()

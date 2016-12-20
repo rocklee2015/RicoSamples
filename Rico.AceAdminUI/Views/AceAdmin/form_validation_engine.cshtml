@@ -1,0 +1,418 @@
+﻿
+@{
+    ViewBag.Title = "form_validation_engine";
+    Layout = "~/Views/Shared/Ace_Layout.cshtml";
+}
+@section styleRef{
+<link href="~/Content/Scripts/jquery-validationEngine/2.6.2-ciaoca/css/validationEngine.jquery.css" rel="stylesheet" />
+    @*<link href="~/Content/Scripts/jquery-validationEngine/css/validationEngine.jquery.css" rel="stylesheet" />*@
+    <link href="~/Content/Scripts/jquery-ui/css/jquery-ui-1.11.0.min.css" rel="stylesheet" />
+}
+@section styleIn{
+    <style>
+    </style>
+
+}
+<div class="page-content-area">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <h3 class="header blue lighter smaller">
+                    <i class="ace-icon fa fa-folder-o smaller-90"></i>
+                    jQuery-Validation-Engine
+                </h3>
+
+                <div id="tabs">
+                    <ul>
+                        <li>
+                            <a href="#tabs-1">js代码中校验</a>
+                        </li>
+
+                        <li>
+                            <a href="#tabs-2">提示层的位置</a>
+                        </li>
+                        <li>
+                            <a href="#tabs-3">提示层的自定义</a>
+                        </li>
+                    </ul>
+
+                    <div id="tabs-1">
+                        <p class="alert alert-success">
+                            Demo地址：<a target="_blank" href="http://code.ciaoca.com/jquery/validation_engine/demo/">http://code.ciaoca.com/jquery/validation_engine/demo/</a><br />
+                            API地址<a target="_blank" href="http://code.ciaoca.com/jquery/validation_engine/">http://code.ciaoca.com/jquery/validation_engine/</a><br />
+                            源码解析：<a target="_blank" href="http://www.tuicool.com/articles/rQRBru">http://www.tuicool.com/articles/rQRBru</a>
+                        </p>
+                        <!--js代码中校验-->
+                        <form class="form-horizontal" id="validation-injs" method="get">
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">Email:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="email" name="email" id="email" class="col-xs-12 col-sm-6" data-errormessage-value-missing="这里必须填写一个正确的Email啦！" data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">调用外部Function:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input name="function" id="function" class="col-xs-12 col-sm-6" data-validation-engine="validate[required,funcCall[checkHELLO]]" data-errormessage-custom-error="提示：HELLO" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password">密码:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="password" name="password" id="password" data-validation-engine="validate[required]" class="col-xs-12 col-sm-4" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="password2">确认密码:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="password" name="password2" id="password2" data-validation-engine="validate[required,equals[password]]" class="col-xs-12 col-sm-4" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr hr-dotted"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="name">公司名:</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="text" id="name" name="name" class="col-xs-12 col-sm-5" data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-2"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="phone">手机号:</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="ace-icon fa fa-phone"></i>
+                                        </span>
+
+                                        <input type="tel" id="phone" name="phone" data-validation-engine="validate[required,custom[phone]]" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-2"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="url">公司URL:</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="url" id="url" name="url" class="col-xs-12 col-sm-8" data-validation-engine="validate[required,custom[url]]" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr hr-dotted"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right">订阅</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div>
+                                        <label>
+                                            <input name="subscription" value="1" type="checkbox" class="ace" data-validation-engine="validate[minCheckbox[1]] checkbox" />
+                                            <span class="lbl"> 最新消息和公告</span>
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <label>
+                                            <input name="subscription" value="2" type="checkbox" class="ace" data-validation-engine="validate[minCheckbox[1]] checkbox" />
+                                            <span class="lbl"> 产品提供和折扣</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-2"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right">性别</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div>
+                                        <label class="line-height-1 blue">
+                                            <input name="gender" value="1" type="radio" class="ace" data-validation-engine="validate[required] radio" />
+                                            <span class="lbl">男</span>
+                                        </label>
+                                    </div>
+
+                                    <div>
+                                        <label class="line-height-1 blue">
+                                            <input name="gender" value="2" type="radio" class="ace" data-validation-engine="validate[required] radio" />
+                                            <span class="lbl"> 女</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="hr hr-dotted"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="state">州</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <select id="state" name="state" class="select2" data-placeholder="Click to Choose..." data-validation-engine="validate[required]">
+                                        <option value="">&nbsp;</option>
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-2"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="platform">平台</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <select class="input-medium" id="platform" name="platform" data-validation-engine="validate[required]">
+                                            <option value="">------------------</option>
+                                            <option value="linux">Linux</option>
+                                            <option value="windows">Windows</option>
+                                            <option value="mac">Mac OS</option>
+                                            <option value="ios">iOS</option>
+                                            <option value="android">Android</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-2"></div>
+
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="comment">评论</label>
+
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <textarea class="input-xlarge" name="comment" id="comment" data-validation-engine="validate[required]"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="space-8"></div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-3">
+                                    <label>
+                                        <input name="agree" id="agree" type="checkbox" class="ace" data-validation-engine="validate[required] checkbox" />
+                                        <span class="lbl"> 我同意该协议</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-3">
+                                    <input type="submit" class="btn btn-success btn-next" value="提交" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="tabs-2">
+                        <p class="alert alert-success">
+                            data-prompt-position 控制提示框位置：bootomLeft,bootomRight,topLeft,centerRight等等<br />
+                            data-prompt-position ："inline" ---还支持行内样式哦！
+                        </p>
+                        <p class="alert alert-danger">
+                            <code>input 类型标签，没有type="text"不支持bootstrap样式哦！！  </code>
+                        </p>
+                        <form class="form-horizontal" id="validation-tipposition" method="get">
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">靠左下:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="email" name="email" id="email" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="bottomLeft"
+                                               data-errormessage-value-missing="这里必须填写一个正确的Email啦！"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username">靠右下:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="text" name="username" id="username" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="bottomRight"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username1">靠左上:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input name="username1" id="username1" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="topLeft"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username2">右中:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input name="username2" id="username2" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="centerRight"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-3">
+                                    <input type="submit" class="btn btn-success" value="提交" />
+
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+
+                    <div id="tabs-3">
+                        <p class="alert alert-success">
+                           
+                        </p>
+                        <form class="form-horizontal" id="validation-customestyle" method="get">
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="email">靠左下:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="email" name="email" id="email" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="bottomLeft"
+                                               data-errormessage-value-missing="这里必须填写一个正确的Email啦！"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username">靠右下:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input type="text" name="username" id="username" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="bottomRight"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username1">靠左上:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input name="username1" id="username1" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="topLeft"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-2"></div>
+                            <div class="form-group">
+                                <label class="control-label col-xs-12 col-sm-3 no-padding-right" for="username2">右中:</label>
+                                <div class="col-xs-12 col-sm-9">
+                                    <div class="clearfix">
+                                        <input name="username2" id="username2" class="col-xs-12 col-sm-6"
+                                               data-prompt-position="centerRight"
+                                               data-validation-engine="validate[required]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12 col-sm-4 col-sm-offset-3">
+                                    <input type="submit" class="btn btn-success" value="提交" />
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div>
+@section jsRef{
+    <script src="~/Content/Scripts/jquery-validationEngine/languages/jquery.validationEngine-zh_CN.js"></script>
+    @*<script src="~/Content/Scripts/jquery-validationEngine/languages/jquery.validationEngine-en.js"></script>*@
+<script src="~/Content/Scripts/jquery-validationEngine/2.6.2-ciaoca/js/jquery.validationEngine.min.js"></script>
+    @*<script src="~/Content/Scripts/jquery-validationEngine/jquery.validationEngine.js"></script>*@
+    <script src="~/Content/Scripts/jquery-ui/jquery-ui.1.11.0.min.js"></script>
+    <script src="~/Content/Scripts/jquery-ui/jquery.ui.touch-punch.0.2.3.min.js"></script>
+}
+@section jsIn{
+    <script src="~/Scripts/Form/jquery-validation-engine.js"></script>
+}
+
