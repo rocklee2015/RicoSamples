@@ -33,6 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +43,41 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="C2_ThreadSynchronization\AtomicOperate.cs" />
+    <Compile Include="C2_ThreadSynchronization\AutoResetEventMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\BarrierMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\CountDownEventMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\ManualResetEventSlimMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\MutexMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\ReadWriterLockSlimMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\SemaphoreSlimMethod.cs" />
+    <Compile Include="C2_ThreadSynchronization\SpinWaitMethod.cs" />
+    <Compile Include="C3_ThreadPool\S1UseDelegateInThreadPool.cs" />
+    <Compile Include="C3_ThreadPool\S2PutAsyncOperateOnThreadPool.cs" />
+    <Compile Include="C3_ThreadPool\S3ThreadPoolAndParallel.cs" />
+    <Compile Include="C3_ThreadPool\S4CancelOperate.cs" />
+    <Compile Include="C3_ThreadPool\S5WaitEventOrTimeOutInThreadPool.cs" />
+    <Compile Include="C3_ThreadPool\S6Timer.cs" />
+    <Compile Include="C3_ThreadPool\S7BackgroundWorker.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S10UseTaskScheduler.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S1CreateTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S2DoSimpleThingInTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S3CombinateTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S4ConvertAPMPatternToTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S5ConvertEAPPatternToTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S7CancelTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S8ProcessExceptionInTask.cs" />
+    <Compile Include="C4_TaskParrelLibrary\S9TaskParrelRun.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S1GetResutInAwait.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S2UseAwaitInLamda.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S3UseAwatiInSeriesTask.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S4UseAwaitInParrellTask.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S5ProcessExceptionInAsyncOperate.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S6AvoidUseSynchrouseContext.cs" />
+    <Compile Include="C5_Csharp5AndAsyncAwait\S7AvoidUseVoidMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThreadNonsyncCode.cs" />
