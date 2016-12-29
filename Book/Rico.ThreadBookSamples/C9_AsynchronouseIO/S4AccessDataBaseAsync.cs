@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Rico.ThreadBookSamples.C9_AsynchronouseIO
@@ -15,13 +12,13 @@ namespace Rico.ThreadBookSamples.C9_AsynchronouseIO
         public static void ExcuteMain()
         {
             const string dataBaseName = "CustomDatabase";
-            var t = ProcessAsynchronousIO(dataBaseName);
+            var t = ProcessAsynchronousIo(dataBaseName);
             t.GetAwaiter().GetResult();
             Console.WriteLine("Press Enter to exit");
             Console.ReadLine();
         }
 
-        async static Task ProcessAsynchronousIO(string dbName)
+        static async Task ProcessAsynchronousIo(string dbName)
         {
             try
             {
@@ -40,8 +37,10 @@ namespace Rico.ThreadBookSamples.C9_AsynchronouseIO
                     {
                         Console.WriteLine("Detaching the database...");
 
-                        var detachCommand = new SqlCommand("sp_detach_db", connection);
-                        detachCommand.CommandType = CommandType.StoredProcedure;
+                        var detachCommand = new SqlCommand("sp_detach_db", connection)
+                        {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         detachCommand.Parameters.AddWithValue("@dbname", dbName);
 
                         await detachCommand.ExecuteNonQueryAsync();
