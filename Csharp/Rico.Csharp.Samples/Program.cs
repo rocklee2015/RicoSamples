@@ -1,4 +1,5 @@
 ﻿using System;
+using Rico.Csharp.Samples.EnumSample;
 using Rico.Csharp.Samples.LamdaExpression;
 using Rico.Csharp.Samples.RegularExpression;
 using Rico.Csharp.Samples.Serialize;
@@ -25,9 +26,9 @@ namespace Rico.Csharp.Samples
 
 
             //**********String 字符串操作
-            StringIntern.Test10();
+            //StringIntern.Test10();
 
-
+            EnumMain.ExcuteMain();
             Console.ReadKey();
         }
 
