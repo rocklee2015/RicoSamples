@@ -1,0 +1,7 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ output extension="sql" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="..\Templates\DeleteProcedureTemplate.tt" #>
+<#
+	new DeleteProcedureTemplate("TestDb","T_PRODUCT").Render();
+#>

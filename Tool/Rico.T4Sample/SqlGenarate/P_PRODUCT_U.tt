@@ -1,0 +1,8 @@
+﻿<#@ template language="C#" hostspecific="True" #>
+<#@ output extension="sql" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ include file="..\Templates\UpdateProcedureTemplate.tt" #>
+<#
+	new UpdateProcedureTemplate("TestDb","T_PRODUCT").Render();
+
+#>

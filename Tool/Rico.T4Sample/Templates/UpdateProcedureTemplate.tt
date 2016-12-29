@@ -1,0 +1,61 @@
+﻿  <#@ assembly name="System.Xml" #>
+<#@ import namespace="System.Xml" #>
+<#@ include file="ProcedureTemplate.tt" #>
+<#+
+public class UpdateProcedureTemplate : ProcedureTemplate
+{   
+	public UpdateProcedureTemplate(string databaseName, string tableName): base(databaseName,tableName,OperationKind.Update)
+	{}
+	
+	protected override void RenderParameterList()
+	{
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(i<this.Table.Columns.Count -1)
+			{
+				 WriteLine("{0, -20}[{1}],", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+			}
+			else
+			{
+				 WriteLine("{0, -20}[{1}]", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+			}
+		}	
+	}
+	
+	protected override void RenderProcedureBody()
+	{
+		WriteLine("UPDATE [dbo].[{0}]", this.Table.Name);
+		WriteLine("SET");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(!column.InPrimaryKey)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine("{0,-20}= {1},", "[" +column.Name + "]", this.GetParameterName(column.Name));	
+				}
+				else
+				{
+					WriteLine("{0,-20}= {1}", "[" +column.Name+"]", this.GetParameterName(column.Name));	
+				}
+			}			
+		}
+		PopIndent();
+		WriteLine("WHERE");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.InPrimaryKey)
+			{
+				WriteLine("{0, -20}= {1} AND", "[" +column.Name + "]", GetParameterName(column.Name));
+			}						
+		}
+		WriteLine("{0, -20}= {1}", "[" + VersionNoField + "]", VersionNoParameterName);
+		PopIndent();
+	}
+}
+#>

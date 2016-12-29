@@ -1,0 +1,73 @@
+﻿  <#@ assembly name="System.Xml" #>
+<#@ import namespace="System.Xml" #>
+<#@ include file="ProcedureTemplate.tt" #>
+<#+
+public class InsertProcedureTemplate : ProcedureTemplate
+{   
+	public InsertProcedureTemplate(string databaseName, string tableName): base(databaseName,tableName,OperationKind.Insert){}
+	
+	protected override void RenderParameterList()
+	{
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.Name != VersionNoField)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine("{0, -20}[{1}],", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+				}
+				else
+				{
+					WriteLine("{0, -20}[{1}]", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+				}
+			}			
+		}	
+	}
+	
+	protected override void RenderProcedureBody()
+	{
+		WriteLine("INSERT INTO [dbo].[{0}]", this.Table.Name);
+		WriteLine("(");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.Name != VersionNoField)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine("[" +column.Name + "],");	
+				}
+				else
+				{
+					WriteLine("[" +column.Name + "]");	
+				}
+			}
+		}
+		PopIndent();
+		WriteLine(")");
+		WriteLine("VALUES");
+		WriteLine("(");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.Name != VersionNoField)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine(GetParameterName(column.Name) + ",");	
+				}
+				else
+				{
+					WriteLine(GetParameterName(column.Name));	
+				}
+			}
+			
+		}
+		PopIndent();
+		WriteLine(")");
+	}
+}
+#>

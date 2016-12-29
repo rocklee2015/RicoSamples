@@ -1,0 +1,39 @@
+﻿<#@ import namespace="System.Collections.Generic" #>
+<#@ include file="ProcedureTemplate.tt" #>
+<#@ include file="T4Toolbox.tt" #>
+
+<#+
+public class ProcedureGenerator : Generator
+{
+    public IEnumerable<ProcedureTemplate> Templates{get; private set;}
+  
+  	public ProcedureGenerator(string databaseName, params string[] tableNames)
+	{
+		if(null == tableNames || tableNames.Length == 0)
+		{
+			throw new ArgumentNullException("tableNames");
+		}	
+		
+		this.Templates = InitlizeTemplates(databaseName,tableNames);
+	}
+	
+	private IEnumerable<ProcedureTemplate> InitlizeTemplates(string databaseName, string[] tableNames)
+	{		
+		foreach(string tableName in tableNames)
+		{
+			yield return new InsertProcedureTemplate(databaseName, tableName);
+			yield return new UpdateProcedureTemplate(databaseName, tableName);
+			yield return new DeleteProcedureTemplate(databaseName, tableName);
+		}
+	}
+	
+
+	protected override void RunCore()
+	{
+		foreach(ProcedureTemplate tempalte in this.Templates)
+		{
+			tempalte.RenderToFile(tempalte.GetProcedureName() + ".sql");
+		}
+    }
+}
+#>

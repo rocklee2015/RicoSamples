@@ -1,0 +1,275 @@
+﻿  <#@ assembly name="System.Xml" #>
+
+<#@ assembly name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly name="Microsoft.SqlServer.Smo" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+<#@ assembly name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+<#@ assembly name="C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio\12.0\Extensions\ieh5mgg0.kxr\T4Toolbox.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#@ import namespace="T4Toolbox" #>
+<#@ import namespace="System.Xml" #>
+<#@ output extension="cs" #>
+
+<#+
+public abstract class ProcedureTemplate:Template
+{
+	public OperationKind OperationKind {get; private set;}
+	public Table Table {get; private set;}
+	
+	public const string VersionNoField 			= "VERSION_NO";
+	public const string VersionNoParameterName 	= "@p_version_no";
+	
+	public ProcedureTemplate(string databaseName, string tableName,OperationKind operationKind)
+	{
+		Guard.ArgumentNotNullOrEmpty(databaseName,"databaseName");
+		Guard.ArgumentNotNullOrEmpty(tableName,"tableName");
+		this.OperationKind 	= operationKind;
+		/* 数据库实例，需要指定*/
+		Server server 		= new Server(@"tr\sql2012");
+        Database database 	= new Database(server, databaseName);
+        this.Table 			= new Table(database, tableName);
+        this.Table.Refresh();
+	}
+	
+	public virtual string GetProcedureName()
+	{
+		switch(this.OperationKind)
+		{
+			case OperationKind.Insert:	return "P_" +this.Table.Name.Remove(0,2) + "_I";
+			case OperationKind.Update:	return "P_" +this.Table.Name.Remove(0,2) + "_U";
+			default:					return "P_" +this.Table.Name.Remove(0,2) + "_D";
+		}		
+	}
+	
+	protected virtual string GetParameterName(string columnName)
+	{
+		return "@p_" + columnName.ToLower();
+	}
+	
+	protected abstract void RenderParameterList();
+	
+	protected abstract void RenderProcedureBody();		
+
+
+    public override string TransformText()
+    {
+#>
+IF OBJECT_ID( '[dbo].[<#=  GetProcedureName()#>]', 'P' ) IS NOT NULL
+	DROP  PROCEDURE  [dbo].[<#=  GetProcedureName()#>]
+GO
+
+CREATE PROCEDURE [dbo].[<#= GetProcedureName() #>]
+(
+<#+
+    PushIndent("\t");
+    this.RenderParameterList();
+    PopIndent();
+#>
+)
+AS
+   
+<#+
+		PushIndent("\t");
+		this.RenderProcedureBody();
+		PopIndent(); 
+		PopIndent(); 
+		WriteLine("\nGO");
+		return this.GenerationEnvironment.ToString();
+    }
+}
+#>
+<#+ 
+	public enum OperationKind
+	{
+		Insert,
+		Update,
+		Delete
+	}
+	
+	public class Guard
+	{
+		public static void ArgumentNotNull(object argumentValue, string argumentName)
+		{
+			if (argumentValue == null)
+			{
+				throw new ArgumentNullException(argumentName);
+			}
+		}
+
+		public static void ArgumentNotNullOrEmpty(string argumentValue, string argumentName)
+		{
+			if (argumentValue == null)
+			{
+				throw new ArgumentNullException(argumentName);
+			}
+			if (argumentValue.Length == 0)
+			{
+				throw new ArgumentException("Input argument cannot be empty.", argumentName);
+			}
+		}
+	}
+#>
+
+<#+
+public class InsertProcedureTemplate : ProcedureTemplate
+{   
+	public InsertProcedureTemplate(string databaseName, string tableName): base(databaseName,tableName,OperationKind.Insert){}
+	
+	protected override void RenderParameterList()
+	{
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.Name != VersionNoField)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine("{0, -20}[{1}],", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+				}
+				else
+				{
+					WriteLine("{0, -20}[{1}]", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+				}
+			}			
+		}	
+	}
+	
+	protected override void RenderProcedureBody()
+	{
+		WriteLine("INSERT INTO [dbo].[{0}]", this.Table.Name);
+		WriteLine("(");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.Name != VersionNoField)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine("[" +column.Name + "],");	
+				}
+				else
+				{
+					WriteLine("[" +column.Name + "]");	
+				}
+			}
+		}
+		PopIndent();
+		WriteLine(")");
+		WriteLine("VALUES");
+		WriteLine("(");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.Name != VersionNoField)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine(GetParameterName(column.Name) + ",");	
+				}
+				else
+				{
+					WriteLine(GetParameterName(column.Name));	
+				}
+			}
+			
+		}
+		PopIndent();
+		WriteLine(")");
+	}
+}
+#>
+<#+
+public class DeleteProcedureTemplate : ProcedureTemplate
+{   
+	public DeleteProcedureTemplate(string databaseName, string tableName): base(databaseName,tableName,OperationKind.Delete){}
+	
+	protected override void RenderParameterList()
+	{
+		foreach (Column column in this.Table.Columns)
+        {
+            if (column.InPrimaryKey)
+			{
+                WriteLine("{0, -20}[{1}],", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+			}
+        }
+		WriteLine("{0, -20}[{1}]", VersionNoParameterName, "TIMESTAMP");
+	}
+	
+	protected override void RenderProcedureBody()
+	{
+		WriteLine("DELETE FROM [dbo].[{0}]", this.Table.Name);
+		WriteLine("WHERE");
+		PushIndent("\t\t");
+        foreach (Column column in this.Table.Columns)
+        {
+            if (column.InPrimaryKey)
+			{
+				WriteLine("{0, -20}= {1} AND", column.Name, GetParameterName(column.Name));
+			}
+        }
+		WriteLine("{0, -20}= {1}", VersionNoField, VersionNoParameterName);			
+	}
+}
+#>
+
+<#+
+public class UpdateProcedureTemplate : ProcedureTemplate
+{   
+	public UpdateProcedureTemplate(string databaseName, string tableName): base(databaseName,tableName,OperationKind.Update)
+	{}
+	
+	protected override void RenderParameterList()
+	{
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(i<this.Table.Columns.Count -1)
+			{
+				 WriteLine("{0, -20}[{1}],", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+			}
+			else
+			{
+				 WriteLine("{0, -20}[{1}]", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+			}
+		}	
+	}
+	
+	protected override void RenderProcedureBody()
+	{
+		WriteLine("UPDATE [dbo].[{0}]", this.Table.Name);
+		WriteLine("SET");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(!column.InPrimaryKey)
+			{
+				if(i<this.Table.Columns.Count -1)
+				{
+					WriteLine("{0,-20}= {1},", "[" +column.Name + "]", this.GetParameterName(column.Name));	
+				}
+				else
+				{
+					WriteLine("{0,-20}= {1}", "[" +column.Name+"]", this.GetParameterName(column.Name));	
+				}
+			}			
+		}
+		PopIndent();
+		WriteLine("WHERE");
+		PushIndent("\t");
+		for(int i=0; i<this.Table.Columns.Count;i++)
+		{
+			Column column = this.Table.Columns[i];
+			if(column.InPrimaryKey)
+			{
+				WriteLine("{0, -20}= {1} AND", "[" +column.Name + "]", GetParameterName(column.Name));
+			}						
+		}
+		WriteLine("{0, -20}= {1}", "[" + VersionNoField + "]", VersionNoParameterName);
+		PopIndent();
+	}
+}
+#>

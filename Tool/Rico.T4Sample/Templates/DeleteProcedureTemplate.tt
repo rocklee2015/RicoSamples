@@ -1,0 +1,36 @@
+﻿  <#@ assembly name="System.Xml" #>
+<#@ import namespace="System.Xml" #>
+<#@ include file="ProcedureTemplate.tt" #>
+<#+
+public class DeleteProcedureTemplate : ProcedureTemplate
+{   
+	public DeleteProcedureTemplate(string databaseName, string tableName): base(databaseName,tableName,OperationKind.Delete){}
+	
+	protected override void RenderParameterList()
+	{
+		foreach (Column column in this.Table.Columns)
+        {
+            if (column.InPrimaryKey)
+			{
+                WriteLine("{0, -20}[{1}],", GetParameterName(column.Name),column.DataType.Name.ToUpper());
+			}
+        }
+		WriteLine("{0, -20}[{1}]", VersionNoParameterName, "TIMESTAMP");
+	}
+	
+	protected override void RenderProcedureBody()
+	{
+		WriteLine("DELETE FROM [dbo].[{0}]", this.Table.Name);
+		WriteLine("WHERE");
+		PushIndent("\t\t");
+        foreach (Column column in this.Table.Columns)
+        {
+            if (column.InPrimaryKey)
+			{
+				WriteLine("{0, -20}= {1} AND", column.Name, GetParameterName(column.Name));
+			}
+        }
+		WriteLine("{0, -20}= {1}", VersionNoField, VersionNoParameterName);			
+	}
+}
+#>
