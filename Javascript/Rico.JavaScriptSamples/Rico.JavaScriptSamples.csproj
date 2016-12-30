@@ -150,6 +150,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JavaScriptSampleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -175,6 +176,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\extend\jquery-extend.js" />
+    <Content Include="Scripts\jquery-src\jquery-2.0.3-note.js" />
+    <Content Include="Scripts\jquery-src\jquery-2.0.3.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -197,6 +200,8 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\JavaScriptSample\JsProperty.cshtml" />
+    <Content Include="Views\JavaScriptSample\JsPrototype.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
