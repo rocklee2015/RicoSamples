@@ -69,11 +69,7 @@ namespace Rico.Aspnet.ServiceStackSample
                 var user = redisClient.GetTypedClient<User>();
                 if (user.GetAll().Count > 0)
                 {
-                    var htmlStr = string.Empty;
-                    foreach (var u in user.GetAll())
-                    {
-                        htmlStr += "<li>ID=" + u.Id + "&nbsp;&nbsp;姓名：" + u.Name + "&nbsp;&nbsp;所在部门：" + u.Job.Position + "</li>";
-                    }
+                    var htmlStr = user.GetAll().Aggregate(string.Empty, (current, u) => current + ("<li>ID=" + u.Id + "&nbsp;&nbsp;姓名：" + u.Name + "&nbsp;&nbsp;所在部门：" + u.Job.Position + "</li>"));
                     lblPeople.Text = htmlStr;
                 }
                 lblShow.Text = "目前共有：" + user.GetAll().Count.ToString() + "人！";
