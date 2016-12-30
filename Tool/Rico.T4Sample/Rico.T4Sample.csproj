@@ -52,38 +52,37 @@
     <Compile Include="S1_FromXmlToCs\MessageEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecondTemplates\ProcedureGenerator.cs">
+    <Compile Include="S3_GenarateCode\SecondTemplates\ProcedureGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcedureGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="SecondTemplates\ProcedureTemplate.cs">
+    <Compile Include="S3_GenarateCode\SecondTemplates\ProcedureTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcedureTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\DeleteProcedureTemplate.cs">
+    <Compile Include="S3_GenarateCode\Templates\DeleteProcedureTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DeleteProcedureTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\InsertProcedureTemplate.cs" />
-    <Compile Include="Templates\InsertProcedureTemplate1.cs">
+    <Compile Include="S3_GenarateCode\Templates\InsertProcedureTemplate1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InsertProcedureTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\ProcedureTemplate.cs">
+    <Compile Include="S3_GenarateCode\Templates\ProcedureTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ProcedureTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="Templates\UpdateProcedureTemplate.cs">
+    <Compile Include="S3_GenarateCode\Templates\UpdateProcedureTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UpdateProcedureTemplate.tt</DependentUpon>
     </Compile>
-    <Compile Include="T_PRODUCT1.cs">
+    <Compile Include="S3_GenarateCode\SqlT4\T_PRODUCT1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>T_PRODUCT.tt</DependentUpon>
@@ -91,7 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="项目说明.docx" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="S1_FromXmlToCs\MessageT4.tt">
@@ -99,74 +98,64 @@
       <LastGenOutput>MessageT4.cs</LastGenOutput>
     </Content>
     <Content Include="S1_FromXmlToCs\Messages.xml" />
-    <Content Include="P_ORDER_D.sql" />
-    <Content Include="P_ORDER_I.sql" />
-    <Content Include="P_ORDER_U.sql" />
-    <Content Include="P_PRODUCT_D.sql" />
-    <Content Include="P_PRODUCT_I.sql" />
-    <Content Include="P_PRODUCT_U.sql" />
-    <Content Include="SecondTemplates\ProcedureGenerator.tt">
+    <Content Include="S3_GenarateCode\SecondTemplates\ProcedureGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ProcedureGenerator.cs</LastGenOutput>
     </Content>
-    <Content Include="SecondTemplates\ProcedureTemplate.tt">
+    <Content Include="S3_GenarateCode\SecondTemplates\ProcedureTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="SqlGenarate\P_PRODUCT_D.sql" />
-    <Content Include="SqlGenarate\P_PRODUCT_D.tt">
+    <Content Include="S3_GenarateCode\SqlT4\P_PRODUCT_D.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>P_PRODUCT_D1.sql</LastGenOutput>
     </Content>
-    <Content Include="SqlGenarate\P_PRODUCT_D1.sql">
+    <Content Include="S3_GenarateCode\SqlT4\P_PRODUCT_D1.sql">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>P_PRODUCT_D.tt</DependentUpon>
     </Content>
-    <Content Include="SqlGenarate\P_PRODUCT_I.sql" />
-    <Content Include="SqlGenarate\P_PRODUCT_I.tt">
+    <Content Include="S3_GenarateCode\SqlT4\P_PRODUCT_I.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>P_PRODUCT_I1.sql</LastGenOutput>
     </Content>
-    <Content Include="SqlGenarate\P_PRODUCT_I1.sql">
+    <Content Include="S3_GenarateCode\SqlT4\P_PRODUCT_I1.sql">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>P_PRODUCT_I.tt</DependentUpon>
     </Content>
-    <Content Include="SqlGenarate\P_PRODUCT_U.sql" />
-    <Content Include="SqlGenarate\P_PRODUCT_U.tt">
+    <Content Include="S3_GenarateCode\SqlT4\P_PRODUCT_U.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>P_PRODUCT_U1.sql</LastGenOutput>
     </Content>
-    <Content Include="SqlGenarate\P_PRODUCT_U1.sql">
+    <Content Include="S3_GenarateCode\SqlT4\P_PRODUCT_U1.sql">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>P_PRODUCT_U.tt</DependentUpon>
     </Content>
-    <Content Include="Table Schemas\T_ORDER.sql" />
-    <Content Include="Table Schemas\T_ORDER_DETAIL.sql" />
-    <Content Include="Table Schemas\T_PRODUCT.sql" />
-    <Content Include="Templates\DeleteProcedureTemplate.tt">
+    <Content Include="S3_GenarateCode\Table Schemas\T_ORDER.sql" />
+    <Content Include="S3_GenarateCode\Table Schemas\T_ORDER_DETAIL.sql" />
+    <Content Include="S3_GenarateCode\Table Schemas\T_PRODUCT.sql" />
+    <Content Include="S3_GenarateCode\Templates\DeleteProcedureTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DeleteProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\InsertProcedureTemplate.tt">
+    <Content Include="S3_GenarateCode\Templates\InsertProcedureTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>InsertProcedureTemplate1.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\ProcedureTemplate.tt">
+    <Content Include="S3_GenarateCode\Templates\ProcedureTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="Templates\UpdateProcedureTemplate.tt">
+    <Content Include="S3_GenarateCode\Templates\UpdateProcedureTemplate.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>UpdateProcedureTemplate.cs</LastGenOutput>
     </Content>
-    <Content Include="T_PRODUCT.tt">
+    <Content Include="S3_GenarateCode\SqlT4\T_PRODUCT.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>T_PRODUCT1.cs</LastGenOutput>
     </Content>
-    <Content Include="项目说明.txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

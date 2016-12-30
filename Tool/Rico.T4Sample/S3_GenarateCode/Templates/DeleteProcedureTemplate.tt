@@ -1,4 +1,4 @@
-﻿  <#@ assembly name="System.Xml" #>
+﻿<#@ assembly name="System.Xml" #>
 <#@ import namespace="System.Xml" #>
 <#@ include file="ProcedureTemplate.tt" #>
 <#+
