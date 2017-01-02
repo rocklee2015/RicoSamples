@@ -10,9 +10,10 @@
 
 #### 项目来源：
 >- [蒋金楠](http://www.cnblogs.com/artech/archive/2010/10/25/1860064.html)
-
-
-
+>- [ EF学习笔记——生成自定义实体类](http://blog.csdn.net/leftfist/article/details/24889819)
+>- [T4模版引擎之基础入门 ](http://www.cnblogs.com/lzrabbit/archive/2012/07/15/2591085.html)
+>-  [你必须懂的 T4 模板：体系架构](http://blog.csdn.net/airingyuan/article/details/17240269)
+>- [你必须懂的 T4 模板：深入浅出 ](http://www.cnblogs.com/guohu/p/4541418.html)
 #### 遇到问题：
 > - 在Template的InsertProcedureTemplate下关于System.Xml引用问题
 在模板头部加如下代码：
