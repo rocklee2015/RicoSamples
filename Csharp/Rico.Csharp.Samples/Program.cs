@@ -9,6 +9,8 @@ namespace Rico.Csharp.Samples
 {
     class Program
     {
+       
+
         static void Main(string[] args)
         {
             //**********Serialize 序列化
@@ -27,7 +29,7 @@ namespace Rico.Csharp.Samples
 
             //**********String 字符串操作
             //StringIntern.Test10();
-
+            
             EnumMain.ExcuteMain();
             Console.ReadKey();
         }
@@ -36,7 +38,7 @@ namespace Rico.Csharp.Samples
         {
             string str = "ab";
             str += "c";
-            Console.WriteLine(string.IsInterned(str) ?? "null");  //null
+            Console.WriteLine(String.IsInterned(str) ?? "null");  //null
         }
     }
 }
