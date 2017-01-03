@@ -48,15 +48,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumSample\EnumMain.cs" />
-    <Compile Include="Generic\GenericMain.cs" />
     <Compile Include="InterfaceSample\IRepository.cs" />
     <Compile Include="LamdaExpression\BinaryExpressionCalculator.cs" />
     <Compile Include="LamdaExpression\LamdaExpressionMain.cs" />
     <Compile Include="LamdaExpression\NotEqualExpressionVisitor.cs" />
     <Compile Include="MemoryAssignAndSize\MemoryMain.cs" />
+    <Compile Include="ObjectEquals\EqualsMain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularExpression\RegularMain.cs" />
+    <Compile Include="Security\CodeAccessSecurityMain.cs" />
     <Compile Include="Serialize\SerializeMain.cs" />
     <Compile Include="StringSample\StringIntern.cs" />
     <Compile Include="StringSample\StringMain.cs" />
@@ -66,6 +67,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Generic\" />
     <Folder Include="IOSample\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
