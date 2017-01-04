@@ -76,6 +76,9 @@ namespace Rico.Csharp.Samples.Generic
         {
             //in->输入参数->可逆变（父类到子类的转变[如 object->string]）
             //out->返回值->可协变（子类到父类的转变[如 string->object]）
+            //如果一个泛型参数是协变的就一定不是逆变的；如果是逆变的就一定不是协变的；泛型参数可以既不是协变的也不是逆变的（也就是不可变的)
+            //协变的泛型参数只能作为方法的返回值的类型，逆变的泛型参数只能作为方法的参数的类型
+
             //所谓的逆变其实只是编译后进行了强制类型转换而已。
             MyMixFunc<object, string> str1 = t => "农码一生";
             MyMixFunc<string, string> str2 = str1;//第一个泛型的逆变（object->string）
