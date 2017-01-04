@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EnumSample\EnumMain.cs" />
-    <Compile Include="Generic\GenericMain.cs" />
+    <Compile Include="Generic\ConvarianceMain.cs" />
     <Compile Include="InterfaceSample\IRepository.cs" />
     <Compile Include="LamdaExpression\BinaryExpressionCalculator.cs" />
     <Compile Include="LamdaExpression\LamdaExpressionMain.cs" />
@@ -68,7 +68,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Generic\" />
     <Folder Include="IOSample\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
