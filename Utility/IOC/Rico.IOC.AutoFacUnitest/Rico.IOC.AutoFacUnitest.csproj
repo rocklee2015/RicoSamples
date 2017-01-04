@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AutoFacMain1.cs" />
     <Compile Include="AutofacMain2.cs" />
+    <Compile Include="AutoFacMain3.cs" />
     <Compile Include="model2\ClassA.cs" />
     <Compile Include="model2\MyClassWithMethod.cs" />
     <Compile Include="model2\MyEvent.cs" />

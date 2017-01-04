@@ -13,6 +13,9 @@ using Xunit;
 
 namespace Rico.IOC.AutoFacUnitest
 {
+    /// <summary>
+    /// source:http://niuyi.github.io/blog/2012/04/06/autofac-by-unit-test-2/
+    /// </summary>
     [TestClass]
     public class AutofacMain2
     {
