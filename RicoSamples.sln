@@ -158,6 +158,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.XUnitTest", "Tool\Unit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.IOC.AutoFacUnitest", "Utility\IOC\Rico.IOC.AutoFacUnitest\Rico.IOC.AutoFacUnitest.csproj", "{9E05A077-FCA1-4F28-A14D-9C5F0788EE91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.NunitTest", "Tool\UnitTest\Rico.NunitTest\Rico.NunitTest.csproj", "{E0427E85-8C0E-4D8D-8A78-13F65CDD7895}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -368,6 +370,10 @@ Global
 		{9E05A077-FCA1-4F28-A14D-9C5F0788EE91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E05A077-FCA1-4F28-A14D-9C5F0788EE91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E05A077-FCA1-4F28-A14D-9C5F0788EE91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0427E85-8C0E-4D8D-8A78-13F65CDD7895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0427E85-8C0E-4D8D-8A78-13F65CDD7895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0427E85-8C0E-4D8D-8A78-13F65CDD7895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0427E85-8C0E-4D8D-8A78-13F65CDD7895}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -439,5 +445,6 @@ Global
 		{E6DB2E6B-6CBD-46CF-A44D-5EF1BD1DBFFC} = {80558AB7-C5DF-4038-B2DE-C7F49ADFBFB0}
 		{68F01E81-2B6A-4B6C-BDB2-62758939FD56} = {80558AB7-C5DF-4038-B2DE-C7F49ADFBFB0}
 		{9E05A077-FCA1-4F28-A14D-9C5F0788EE91} = {0AC47D08-259A-4A88-83FF-C2B011C9928B}
+		{E0427E85-8C0E-4D8D-8A78-13F65CDD7895} = {80558AB7-C5DF-4038-B2DE-C7F49ADFBFB0}
 	EndGlobalSection
 EndGlobal
