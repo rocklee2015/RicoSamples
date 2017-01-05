@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="AssertSyntaxTests.cs" />
+    <Compile Include="ExpectedExceptionAttribute.cs" />
+    <Compile Include="ExpectedExceptionTests.cs" />
     <Compile Include="MoneyModel\IMoney.cs" />
     <Compile Include="MoneyModel\Money.cs" />
     <Compile Include="MoneyModel\MoneyBag.cs" />
