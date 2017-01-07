@@ -114,16 +114,16 @@ $(document).ready(function() {
             scrollTop: 0
         }, 500)
     });
-    //$sideToolbar = $('#' + sideNavBody);
-    //a.on('scroll', function() {
-      //  var t = a.scrollTop();
+    $sideToolbar = $('#' + sideNavBody);
+    $(document).on('scroll', function() {
+        var t = $(document).scrollTop();
         //我要一直显示文章目录
-        /* if (t > k) {
+         if (t > k) {
             $sideToolbar.css('display', 'block')
         } else {
             $sideToolbar.css('display', 'none')
-        } */
-   // })
+        } 
+    })
 });
 //cnblogs生成右侧目录 end
 
