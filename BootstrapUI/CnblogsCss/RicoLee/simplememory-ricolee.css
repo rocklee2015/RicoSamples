@@ -1538,12 +1538,12 @@ a:active {
 }
 
 #toTop {
-    background: url(http://files.cnblogs.com/files/zhaoqingqing/o_o_toTop.gif) no-repeat -70px top;
+    background: url(http://files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
     bottom: 20%;
 }
 
 #toBottom {
-    background: url(http://files.cnblogs.com/files/zhaoqingqing/o_o_toTop.gif) no-repeat -70px top;
+    background: url(http://files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
     /*图片水平翻转*/
     -moz-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
@@ -1727,7 +1727,7 @@ div.feedbackCon {
     padding-left: 170px;
     /*左侧附图片*/
     /*background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/zhaoqingqing/491952/o_avatar_qingqing.png) no-repeat scroll 1% 50%;*/
-    background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/kindle/885995/t_webchat.png) no-repeat scroll 1% 50%;
+    background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/ricolee/885995/t_webchat.png) no-repeat scroll 1% 50%;
     border: 1px solid #ccc;
     font-size: 14px;
     overflow: hidden;
@@ -1741,7 +1741,7 @@ div.feedbackCon {
 /*签名栏图片 - 未有*/
 
 #MySignatureImg {
-    background: url(http://images.cnblogs.com/cnblogs_com/zhaoqingqing/491952/o_avatar_qingqing.png) no-repeat scroll 1% 50%;
+    background: url(http://images.cnblogs.com/cnblogs_com/ricolee/885995/o_webchat.png) no-repeat scroll 1% 50%;
     position: fixed;
     width: 130px;
     height: 130px;
