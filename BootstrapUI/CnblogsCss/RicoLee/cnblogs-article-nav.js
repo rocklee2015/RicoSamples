@@ -119,7 +119,11 @@ $(document).ready(function() {
         var t = $(document).scrollTop();
         //我要一直显示文章目录
          if (t > k) {
-            $sideToolbar.css('display', 'block')
+	    if($('#' + sideCatalogCtrl).hasClass('sideCatalogBtnDisable')==true)
+           {
+               $sideToolbar.css('display', 'block');
+            }
+           
         } else {
             $sideToolbar.css('display', 'none')
         } 
