@@ -31,9 +31,9 @@ namespace Rico.Csharp.Samples
             //**********String 字符串操作
             //StringIntern.Test10();
 
-            //EnumMain.ExcuteMain();
+            EnumMain.ExcuteMain();
 
-            CodeAccessSecurityMain.ExcuteMain();
+            //CodeAccessSecurityMain.ExcuteMain();
 
             Console.ReadKey();
         }
