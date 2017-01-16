@@ -81,6 +81,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -157,6 +158,7 @@
     <Compile Include="Models\DataSourceManage.cs" />
     <Compile Include="Models\DepartmentModel.cs" />
     <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\RoleDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -336,6 +338,8 @@
     <Content Include="Views\Bootstrap\Export.cshtml" />
     <Content Include="Views\Bootstrap\GroupColumns.cshtml" />
     <Content Include="Views\Bootstrap\EditTable.cshtml" />
+    <Content Include="Views\Bootstrap\ParentSonTable.cshtml" />
+    <Content Include="Views\Bootstrap\ParentSonTable2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
