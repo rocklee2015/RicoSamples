@@ -11,7 +11,7 @@ namespace Rico.ThreadBookSamples.C9_AsynchronouseIO
     {
         public static void ExcuteMain()
         {
-            const string dataBaseName = "CustomDatabase";
+            const string dataBaseName = "Rico";
             var t = ProcessAsynchronousIo(dataBaseName);
             t.GetAwaiter().GetResult();
             Console.WriteLine("Press Enter to exit");

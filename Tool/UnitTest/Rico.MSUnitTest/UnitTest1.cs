@@ -1,5 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
+using System.Reflection;
 
 namespace Rico.MSUnitTest
 {
@@ -9,7 +11,9 @@ namespace Rico.MSUnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            Console.WriteLine("Test");
+            string outputFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string dbFileName = Path.Combine(outputFolder, string.Format(@".\{0}.mdf", "Rico"));
+            Console.WriteLine(dbFileName);
             Assert.IsTrue(true);
         }
     }
