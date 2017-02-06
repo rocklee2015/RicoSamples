@@ -10,6 +10,9 @@ using NPOI.SS.UserModel;
 
 namespace Rico.NPOISample
 {
+    /// <summary>
+    /// 设置EXCEL 字体，字体颜色，背景颜色，边框，对齐等
+    /// </summary>
     [TestClass]
     public class StyleTest:BaseTest
     {
