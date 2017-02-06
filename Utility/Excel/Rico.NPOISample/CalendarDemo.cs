@@ -13,7 +13,7 @@ using NPOI.XSSF.UserModel;
 namespace Rico.NPOISample
 {
     [TestClass]
-    public class Demo
+    public class CalendarDemo
     {
 
         private static String[] days = {
@@ -24,8 +24,9 @@ namespace Rico.NPOISample
             "January", "February", "March","April", "May", "June","July", "August",
             "September","October", "November", "December"};
         [TestMethod]
-        public void CalendarDemo(string[] args)
+        public void CalendarDemoTest()
         {
+            string[] args = new[] {"-"};
             //Calendar calendar = Calendar.getInstance();
             DateTime dt = DateTime.Now;
             bool xlsx = false;
@@ -130,7 +131,7 @@ namespace Rico.NPOISample
             }
 
             // Write the output to a file
-            String file = "calendar.xls";
+            String file = "CalendarDemo.xls";
             if (wb is XSSFWorkbook) file += "x";
             FileStream out1 = new FileStream(file, FileMode.Create);
             wb.Write(out1);

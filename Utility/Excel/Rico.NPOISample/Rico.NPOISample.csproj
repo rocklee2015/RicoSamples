@@ -69,7 +69,7 @@
     <Compile Include="BaseTest.cs" />
     <Compile Include="CellAndTextTest.cs" />
     <Compile Include="Common\ExcelHelper.cs" />
-    <Compile Include="Demo.cs" />
+    <Compile Include="CalendarDemo.cs" />
     <Compile Include="DrawingTest.cs" />
     <Compile Include="FormatTest.cs" />
     <Compile Include="ImportExport.cs" />
