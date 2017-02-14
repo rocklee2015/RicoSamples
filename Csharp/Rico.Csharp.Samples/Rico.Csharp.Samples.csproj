@@ -58,6 +58,7 @@
     <Compile Include="LamdaExpression\BinaryExpressionCalculator.cs" />
     <Compile Include="LamdaExpression\LamdaExpressionMain.cs" />
     <Compile Include="LamdaExpression\NotEqualExpressionVisitor.cs" />
+    <Compile Include="LinqExpression\LinqMain.cs" />
     <Compile Include="MemoryAssignAndSize\MemoryMain.cs" />
     <Compile Include="ObjectEquals\EqualsMain.cs" />
     <Compile Include="Program.cs" />
