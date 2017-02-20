@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Rico.ThreadBookSamples.C4_TaskParrelLibrary
 {
-    class S1CreateTask
+    public class S1CreateTask
     {
-        static void ExcuteMain()
+        public static void ExcuteMain()
         {
-            var t1 = new Task(() => TaskMethod("Task 1"));
+            var taskName = "Task 1";
+            var t1 = new Task(() => TaskMethod(taskName));
             var t2 = new Task(() => TaskMethod("Task 2"));
             t2.Start();
             t1.Start();
