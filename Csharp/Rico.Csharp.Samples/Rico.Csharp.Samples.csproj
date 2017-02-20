@@ -68,6 +68,7 @@
     <Compile Include="Serialize\SerializeMain.cs" />
     <Compile Include="StringSample\StringIntern.cs" />
     <Compile Include="StringSample\StringMain.cs" />
+    <Compile Include="ThreadSample\ThreadMain.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
