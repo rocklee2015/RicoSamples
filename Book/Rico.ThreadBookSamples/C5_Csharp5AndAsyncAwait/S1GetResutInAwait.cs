@@ -30,7 +30,7 @@ namespace Rico.ThreadBookSamples.C5_Csharp5AndAsyncAwait
             return Task.WhenAny(t2, t3);
         }
 
-        async static Task AsynchronyWithAwait()
+        static async Task AsynchronyWithAwait()
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Rico.ThreadBookSamples.C5_Csharp5AndAsyncAwait
             }
         }
 
-        async static Task<string> GetInfoAsync(string name)
+        static async Task<string> GetInfoAsync(string name)
         {
             await Task.Delay(TimeSpan.FromSeconds(2));
             //throw new Exception("Boom!");

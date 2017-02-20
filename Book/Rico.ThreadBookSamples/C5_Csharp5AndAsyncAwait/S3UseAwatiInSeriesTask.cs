@@ -42,7 +42,7 @@ namespace Rico.ThreadBookSamples.C5_Csharp5AndAsyncAwait
             return containerTask;
         }
 
-        async static Task AsynchronyWithAwait()
+        static async Task AsynchronyWithAwait()
         {
             try
             {
@@ -60,7 +60,7 @@ namespace Rico.ThreadBookSamples.C5_Csharp5AndAsyncAwait
             }
         }
 
-        async static Task<string> GetInfoAsync(string name)
+        static async Task<string> GetInfoAsync(string name)
         {
             Console.WriteLine("Task {0} started!", name);
             //Thread.Sleep(2);
