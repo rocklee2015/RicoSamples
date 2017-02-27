@@ -63,11 +63,11 @@
     <Compile Include="CreationalPattern\SimpleFactory\OperationSqr.cs" />
     <Compile Include="CreationalPattern\SimpleFactory\OperationSqrt.cs" />
     <Compile Include="CreationalPattern\SimpleFactory\OperationSub.cs" />
-    <Compile Include="CreationalPattern\Singleton\SingletonDelayInitialize.cs" />
-    <Compile Include="CreationalPattern\Singleton\SingletonDoubleLock.cs" />
-    <Compile Include="CreationalPattern\Singleton\SingletonSimple.cs" />
-    <Compile Include="CreationalPattern\Singleton\SingletonStaticInitialize.cs" />
-    <Compile Include="CreationalPattern\Singleton\SingletonThreadSafe.cs" />
+    <Compile Include="CreationalPattern\Singleton\Singleton5DelayInitialize.cs" />
+    <Compile Include="CreationalPattern\Singleton\Singleton3DoubleLock.cs" />
+    <Compile Include="CreationalPattern\Singleton\Singleton1Simple.cs" />
+    <Compile Include="CreationalPattern\Singleton\Singleton4StaticInitialize.cs" />
+    <Compile Include="CreationalPattern\Singleton\Singleton2ThreadSafe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CreationalPattern\AbstractFactory\AbstractFactoryPattern.cs" />

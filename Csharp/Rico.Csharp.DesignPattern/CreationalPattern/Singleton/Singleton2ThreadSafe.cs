@@ -9,16 +9,16 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
     /// <summary>
     /// 2.线程安全-单例模式
     /// </summary>
-    public sealed class SingletonThreadSafe
+    public sealed class Singleton2ThreadSafe
     {
-        static SingletonThreadSafe instance = null;
+        static Singleton2ThreadSafe instance = null;
         static readonly object padlock = new object();
 
-        SingletonThreadSafe()
+        Singleton2ThreadSafe()
         {
         }
 
-        public static SingletonThreadSafe Instance
+        public static Singleton2ThreadSafe Instance
         {
             get
             {
@@ -26,7 +26,7 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
                 {
                     if (instance == null)
                     {
-                        instance = new SingletonThreadSafe();
+                        instance = new Singleton2ThreadSafe();
                     }
                     return instance;
                 }

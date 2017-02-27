@@ -9,13 +9,13 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
     /// <summary>
     /// 5.延迟初始化
     /// </summary>
-    public sealed class SingletonDelayInitialize
+    public sealed class Singleton5DelayInitialize
     {
-        SingletonDelayInitialize()
+        Singleton5DelayInitialize()
         {
         }
 
-        public static SingletonDelayInitialize Instance
+        public static Singleton5DelayInitialize Instance
         {
             get
             {
@@ -29,7 +29,7 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
             {
             }
 
-            internal static readonly SingletonDelayInitialize instance = new SingletonDelayInitialize();
+            internal static readonly Singleton5DelayInitialize instance = new Singleton5DelayInitialize();
         }
 
     }

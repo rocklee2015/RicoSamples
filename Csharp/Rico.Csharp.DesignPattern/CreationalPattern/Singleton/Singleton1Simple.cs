@@ -9,21 +9,21 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
     /// <summary>
     /// 1.单例模式简单实现
     /// </summary>
-    public sealed class SingletonSimple
+    public sealed class Singleton1Simple
     {
-        static SingletonSimple instance = null;
+        static Singleton1Simple instance = null;
 
-        SingletonSimple()
+        Singleton1Simple()
         {
         }
 
-        public static SingletonSimple Instance
+        public static Singleton1Simple Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new SingletonSimple();
+                    instance = new Singleton1Simple();
                 }
                 return instance;
             }

@@ -9,16 +9,16 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
     /// <summary>
     /// 3.双重锁定 BadCode Do not Use
     /// </summary>
-    public sealed class SingletonDoubleLock
+    public sealed class Singleton3DoubleLock
     {
-        static SingletonDoubleLock instance = null;
+        static Singleton3DoubleLock instance = null;
         static readonly object padlock = new object();
 
-        SingletonDoubleLock()
+        Singleton3DoubleLock()
         {
         }
 
-        public static SingletonDoubleLock Instance
+        public static Singleton3DoubleLock Instance
         {
             get
             {
@@ -28,7 +28,7 @@ namespace Rico.Csharp.DesignPattern.CreationalPattern.Singleton
                     {
                         if (instance == null)
                         {
-                            instance = new SingletonDoubleLock();
+                            instance = new Singleton3DoubleLock();
                         }
                     }
                 }

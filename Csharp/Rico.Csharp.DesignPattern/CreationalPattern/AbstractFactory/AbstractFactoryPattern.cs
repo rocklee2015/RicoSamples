@@ -1,4 +1,4 @@
-﻿namespace Rico.Csharp.DesignPattern.CreationalPattern
+﻿namespace Rico.Csharp.DesignPattern.CreationalPattern.AbstractFactory
 {
     class AbstractFactoryPattern
     {
