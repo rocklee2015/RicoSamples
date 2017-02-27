@@ -182,5 +182,10 @@ namespace Rico.BootstrapSamples.Controllers
         {
             return View();
         }
+
+        public ActionResult LargeColumns()
+        {
+            return View();
+        }
     }
 }

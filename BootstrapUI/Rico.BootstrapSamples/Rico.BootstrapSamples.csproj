@@ -340,6 +340,7 @@
     <Content Include="Views\Bootstrap\EditTable.cshtml" />
     <Content Include="Views\Bootstrap\ParentSonTable.cshtml" />
     <Content Include="Views\Bootstrap\ParentSonTable2.cshtml" />
+    <Content Include="Views\Bootstrap\LargeColumns.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

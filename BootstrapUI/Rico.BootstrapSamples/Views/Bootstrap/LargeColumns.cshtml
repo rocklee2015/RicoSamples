@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "LargeColumns";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="panel-body" style="padding-bottom: 0px;">
+    <table id="table" data-height="400" data-show-columns="true"></table>
+
+</div>
+<script>
+    var $table = $('#table');
+
+    $(function () {
+        buildTable($table, 15, 50);
+    });
+
+    function buildTable($el, cells, rows) {
+        var i, j, row,
+                columns = [],
+                data = [];
+
+        for (i = 0; i < cells; i++) {
+            columns.push({
+                field: 'field' + i,
+                title: 'Cell' + i,
+                sortable: true
+            });
+        }
+        for (i = 0; i < rows; i++) {
+            row = {};
+            for (j = 0; j < cells; j++) {
+                row['field' + j] = 'Row-' + i + '-' + j;
+            }
+            data.push(row);
+        }
+        //一定要有destroy参数
+        $el.bootstrapTable('destroy').bootstrapTable({
+            columns: columns,
+            data: data
+        });
+    }
+</script>

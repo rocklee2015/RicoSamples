@@ -89,6 +89,7 @@ INSERT INTO [dbo].[CustomTable] (Name) VALUES ('Eugene');", connection);
                     cmd = new SqlCommand(@"SELECT * FROM [dbo].[CustomTable]", connection);
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
+
                         while (await reader.ReadAsync())
                         {
                             var id = reader.GetFieldValue<int>(0);
