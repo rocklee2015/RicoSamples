@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MergeTable.cs" />
     <Compile Include="OrderAnalysis1.cs" />
     <Compile Include="OrderGroupByTimeAndDistrict.cs" />
     <Compile Include="Program.cs" />
