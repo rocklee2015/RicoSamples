@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{459B0067-0ABD-4663-ACDD-529C07468CC6}</ProjectGuid>
+    <ProjectGuid>{5E02F140-8504-40B7-8F17-8F49DB4F6831}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Baitu.Consoles.SocialInsurance</RootNamespace>
-    <AssemblyName>Baitu.Consoles.SocialInsurance</AssemblyName>
+    <RootNamespace>Rico.SqlServerDemo</RootNamespace>
+    <AssemblyName>Rico.SqlServerDemo</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,24 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnumTest.cs" />
-    <Compile Include="MergeTable.cs" />
-    <Compile Include="OrderAnalysis1.cs" />
-    <Compile Include="OrderGroupByTimeAndDistrict.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="性能查询\S01SQL查询执行记录.sql" />
+    <Content Include="性能查询\S02SQL查询最耗IO的语句.sql" />
+    <Content Include="性能查询\S03SQL性能最差的查询.sql" />
+    <Content Include="系统函数\日期函数.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Csharp\Rico.Csharp.Samples\Rico.Csharp.Samples.csproj">
-      <Project>{2C1DB053-3038-48E7-BD02-02247C4703E0}</Project>
-      <Name>Rico.Csharp.Samples</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
