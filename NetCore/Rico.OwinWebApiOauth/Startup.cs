@@ -20,7 +20,7 @@ namespace Rico.OwinWebApiOauth
                 AllowInsecureHttp = true
             };
             //基于.net 4.6 用以下
-            //nuget Microsoft.AspNet.Identity.Owin 
+            //需要引用 nuget Microsoft.AspNet.Identity.Owin 
             app.UseOAuthBearerTokens(oAuthOptions);
 
             //基于.net 4.5 用以下(可是4.6 也可以啊)
