@@ -27,9 +27,9 @@ namespace Api.Filter
         {
             base.OnActionExecuting(actionContext);
             //获取request的参数列表【获取API的参数】
-            // Dictionary<string, object> actionargument = actionContext.ActionArguments;                
+             Dictionary<string, object> actionargument = actionContext.ActionArguments;                
             //找出请求参数               
-            // RequestBaseEntity requestData = actionargument["requestData"] as RequestBaseEntity;              
+             //RequestBaseEntity requestData = actionargument["requestData"] as RequestBaseEntity;              
             //requestData是参数的名字              
             //直接从上下文中回去请求参数，这个方法在HttpContext.Current.Request将无法获取到            
             //获取请求信息中的token和用户信息           
