@@ -58,9 +58,6 @@ namespace Rico.ThreadBookSamples.C5_Csharp5AndAsyncAwait
         static Task AsynchronyWithAwaitNoReturn()
         {
             Console.WriteLine("(AsynchronyWithAwaitNoReturn)Current Thread Id {0},Is Thread Pool Thread:{1}", Thread.CurrentThread.ManagedThreadId, Thread.CurrentThread.IsThreadPoolThread);
-
-            GetInfoAsyncNoReturn("TaskNoReturn1", 1);
-            GetInfoAsyncNoReturn("TaskNoReturn2", 1);
             var result = GetInfoAsyncNoReturn("TaskNoReturn", 1);
             return result;
         }
