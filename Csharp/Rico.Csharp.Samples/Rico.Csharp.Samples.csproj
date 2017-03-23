@@ -53,7 +53,10 @@
     <Compile Include="DynamicType\DynamicMain.cs" />
     <Compile Include="DynamicType\DynamicPropery.cs" />
     <Compile Include="EnumSample\EnumMain.cs" />
+    <Compile Include="Generic\00-generic-start.cs" />
+    <Compile Include="Generic\03-convariance-in-out.cs" />
     <Compile Include="Generic\ConvarianceMain.cs" />
+    <Compile Include="Generic\01-generic-covert.cs" />
     <Compile Include="InterfaceSample\IRepository.cs" />
     <Compile Include="LamdaExpression\BinaryExpressionCalculator.cs" />
     <Compile Include="LamdaExpression\LamdaExpressionMain.cs" />
