@@ -7,14 +7,13 @@ using System.Web.Http;
 
 namespace Rico.OwinWebApi.Controller
 {
-    public class TestController:ApiController
+    public class LoginController:ApiController
     {
         [HttpGet]
-        public Task<string> Print()
+        public Task<string> Login()
         {
-            Task.Delay(10000);
-            return Task.FromResult("Owin Web api Print Method");
+            return Task.FromResult("Login Test");
+
         }
-      
     }
 }
