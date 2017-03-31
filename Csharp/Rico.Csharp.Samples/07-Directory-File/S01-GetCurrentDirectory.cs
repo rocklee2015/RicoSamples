@@ -1,12 +1,8 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Rico.Csharp.Samples.CurrentDirectory
+namespace Rico.Csharp.Samples
 {
     [TestClass]
     public class CurrentDirectoryMain
@@ -15,39 +11,39 @@ namespace Rico.Csharp.Samples.CurrentDirectory
         public void return_a_path()
         {
             var path = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
-            write("è·å–æ¨¡å—çš„å®Œæ•´è·¯å¾„:");
+            write("»ñÈ¡Ä£¿éµÄÍêÕûÂ·¾¶:");
             write(path);
 
             path = System.Environment.CurrentDirectory;
-            write("è·å–å’Œè®¾ç½®å½“å‰ç›®å½•(è¯¥è¿›ç¨‹ä»ä¸­å¯åŠ¨çš„ç›®å½•)çš„å®Œå…¨é™å®šç›®å½•:");
+            write("»ñÈ¡ºÍÉèÖÃµ±Ç°Ä¿Â¼(¸Ã½ø³Ì´ÓÖĞÆô¶¯µÄÄ¿Â¼)µÄÍêÈ«ÏŞ¶¨Ä¿Â¼:");
             write(path);
 
             path = System.IO.Directory.GetCurrentDirectory();
-            write("è·å–åº”ç”¨ç¨‹åºçš„å½“å‰å·¥ä½œç›®å½•:");
+            write("»ñÈ¡Ó¦ÓÃ³ÌĞòµÄµ±Ç°¹¤×÷Ä¿Â¼:");
             write(path);
 
             path = System.AppDomain.CurrentDomain.BaseDirectory;
-            write("è·å–ç¨‹åºçš„åŸºç›®å½•:");
+            write("»ñÈ¡³ÌĞòµÄ»ùÄ¿Â¼:");
             write(path);
 
             path = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-            write("è·å–å’Œè®¾ç½®åŒ…æ‹¬è¯¥åº”ç”¨ç¨‹åºçš„ç›®å½•çš„åç§°:");
+            write("»ñÈ¡ºÍÉèÖÃ°üÀ¨¸ÃÓ¦ÓÃ³ÌĞòµÄÄ¿Â¼µÄÃû³Æ:");
             write(path);
 
             path = System.IO.Directory.GetParent("../../").FullName;
-            write("ä¸Šä¸€çº§ç›®å½•:");
+            write("ÉÏÒ»¼¶Ä¿Â¼:");
             write(path);
 
             path = new DirectoryInfo("../../").FullName;
-            write("ä¸Šä¸€çº§ç›®å½•:");
+            write("ÉÏÒ»¼¶Ä¿Â¼:");
             write(path);
 
             path = System.IO.Directory.GetCurrentDirectory();
-            write("å½“å‰ç›®å½•:");
+            write("µ±Ç°Ä¿Â¼:");
             write(path);
 
             path = Path.ChangeExtension("File", "html");
-            write("Fileçš„å­˜æ”¾è·¯å¾„:");
+            write("FileµÄ´æ·ÅÂ·¾¶:");
             write(path);
             Assert.IsTrue(true);
         }

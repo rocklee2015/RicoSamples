@@ -26,6 +26,13 @@ namespace Baitu.Consoles.SocialInsurance
             Assert.IsTrue(Platform.Alipay.ToString()== "Alipay");
             Assert.IsTrue(((int)Platform.Alipay).ToString() == "0");
         }
+        [TestMethod]
+        public void Convert_Int_To_Enum()
+        {
+            var temp=(Platform) 03;
+            Assert.AreEqual(((Platform) 01), Platform.Webchat);
+
+        }
     }
 
     public enum Platform
@@ -33,6 +40,6 @@ namespace Baitu.Consoles.SocialInsurance
         [System.ComponentModel.Description("支付宝")]
         Alipay=0,
         [System.ComponentModel.Description("微信")]
-        Webchat
+        Webchat=01
     }
 }
