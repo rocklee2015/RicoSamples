@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Threading.Tasks;
 
-namespace Rico.Csharp.Samples.InterfaceSample
+namespace Rico.Csharp.Samples
 {
     interface IRepository
     {

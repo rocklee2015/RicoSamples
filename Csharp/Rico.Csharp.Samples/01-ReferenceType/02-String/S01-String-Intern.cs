@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Rico.Csharp.Samples.StringSample
+namespace Rico.Csharp.Samples
 {
     /// <summary>
     /// 字符串驻留

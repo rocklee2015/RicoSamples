@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Rico.Csharp.Samples.Serialize
+namespace Rico.Csharp.Samples
 {
     public class SerializeMain
     {
