@@ -11,9 +11,9 @@ namespace Rico.OwinWebApi
     {
         static void Main(string[] args)
         {
-            using (WebApp.Start<Startup>("http://localhost:9000"))
+            using (WebApp.Start<Startup>("http://localhost:2002/"))
             {
-                Console.WriteLine("http://localhost:9000 服务开启...");
+                Console.WriteLine("http://localhost:2002 服务开启...");
                 Console.ReadLine();
             }
         }

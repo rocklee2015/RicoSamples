@@ -15,5 +15,6 @@ namespace Rico.OwinWebApi.Controller
             return Task.FromResult("Login Test");
 
         }
+
     }
 }
