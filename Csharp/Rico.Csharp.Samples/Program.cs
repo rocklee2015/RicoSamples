@@ -1,9 +1,4 @@
 ﻿using System;
-using Rico.Csharp.Samples.EnumSample;
-using Rico.Csharp.Samples.LamdaExpression;
-using Rico.Csharp.Samples.RegularExpression;
-using Rico.Csharp.Samples.Security;
-using Rico.Csharp.Samples.StringSample;
 
 namespace Rico.Csharp.Samples
 {

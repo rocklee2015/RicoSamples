@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="01-ReferenceType\01-Interface\S01-Defined-Interface.cs" />
     <Compile Include="01-ReferenceType\01-Interface\S02-IRepository.cs" />
+    <Compile Include="01-ReferenceType\01-Interface\S02-MultInherit-Interface.cs" />
     <Compile Include="07-Directory-File\S01-GetCurrentDirectory.cs" />
     <Compile Include="DynamicType\Calculate.cs" />
     <Compile Include="DynamicType\DynamicMain.cs" />
