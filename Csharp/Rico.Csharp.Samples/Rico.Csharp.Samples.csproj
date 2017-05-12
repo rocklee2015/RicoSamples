@@ -52,6 +52,7 @@
     <Compile Include="01-ReferenceType\01-Interface\S02-IRepository.cs" />
     <Compile Include="01-ReferenceType\01-Interface\S02-MultInherit-Interface.cs" />
     <Compile Include="07-Directory-File\S01-GetCurrentDirectory.cs" />
+    <Compile Include="10-Xml\S01_XmlOutputFormat.cs" />
     <Compile Include="DynamicType\Calculate.cs" />
     <Compile Include="DynamicType\DynamicMain.cs" />
     <Compile Include="DynamicType\DynamicPropery.cs" />
