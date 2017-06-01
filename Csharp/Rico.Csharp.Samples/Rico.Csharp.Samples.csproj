@@ -51,6 +51,7 @@
     <Compile Include="01-ReferenceType\01-Interface\S01-Defined-Interface.cs" />
     <Compile Include="01-ReferenceType\01-Interface\S02-IRepository.cs" />
     <Compile Include="01-ReferenceType\01-Interface\S02-MultInherit-Interface.cs" />
+    <Compile Include="02-DataType\S01-四舍五入.cs" />
     <Compile Include="07-Directory-File\S01-GetCurrentDirectory.cs" />
     <Compile Include="10-Xml\S01_XmlOutputFormat.cs" />
     <Compile Include="DynamicType\Calculate.cs" />
@@ -70,7 +71,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegularExpression\RegularMain.cs" />
-    <Compile Include="Security\CodeAccessSecurityMain.cs" />
+    <Compile Include="Security\S01-ASE-GetWxUserInfo.cs" />
+    <Compile Include="Security\S00-CodeAccessSecurityMain.cs" />
     <Compile Include="09-Serialize\S01-Dictionary-Json.cs" />
     <Compile Include="01-ReferenceType\02-String\S01-String-Intern.cs" />
   </ItemGroup>
