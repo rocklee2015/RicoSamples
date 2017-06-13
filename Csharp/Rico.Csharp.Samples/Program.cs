@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Rico.Csharp.Samples
 {
@@ -25,10 +26,12 @@ namespace Rico.Csharp.Samples
             //**********String 字符串操作
             //StringIntern.Test10();
 
-            EnumMain.ExcuteMain();
+            //EnumMain.ExcuteMain();
 
             //CodeAccessSecurityMain.ExcuteMain();
 
+            //Trace.Assert(false,"有错误！");
+            Trace.WriteLine("有错误！");
             Console.ReadKey();
         }
 
