@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnumHelper.cs" />
     <Compile Include="EnumTest.cs" />
     <Compile Include="MergeTable.cs" />
     <Compile Include="OrderAnalysis1.cs" />

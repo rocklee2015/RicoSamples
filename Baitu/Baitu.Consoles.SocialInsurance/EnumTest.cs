@@ -17,7 +17,9 @@ namespace Baitu.Consoles.SocialInsurance
         [TestMethod]
         public void Convert_String_To_Enum()
         {
-            var a = (Platform)Enum.Parse(typeof (Platform), "Alipay");
+
+            //var a = (Platform)Enum.Parse(typeof (Platform), "Alipay");
+            var a = EnumHelper.ConvertStringToEnum<Platform>("Alipay");
             Assert.IsTrue(a==Platform.Alipay);
         }
         [TestMethod]
