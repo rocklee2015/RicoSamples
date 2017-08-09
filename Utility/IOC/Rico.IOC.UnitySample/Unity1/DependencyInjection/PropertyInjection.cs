@@ -24,7 +24,7 @@ namespace Rico.IOC.UnitySample.Unity1
                 order = value;
             }
         }
-        [Dependency]
+        [OptionalDependency]
         public ILogger Logger
         {
             get
