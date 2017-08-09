@@ -80,7 +80,8 @@ $(document).ready(function() {
 var md = new MobileDetect(window.navigator.userAgent);
  if (md.mobile()){}else {
         consoleInfo();
-        $("<div id='toTop'  title='回顶部'></div>").appendTo($("body"));
+        if (document.getElementById("cnblogs_post_body")){
+            $("<div id='toTop'  title='回顶部'></div>").appendTo($("body"));
         $("#toTop").bind("click", function() {
             $("body,html").animate({
                 scrollTop: '0px'
@@ -101,10 +102,12 @@ var md = new MobileDetect(window.navigator.userAgent);
                 console.log("page not article");
             }
         });
+        }
+        
     }
     //版权信息
     var signatureHtml ="";
-    signatureHtml +=  '作者：ricolee &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 出处：<a href="http://www.cnblogs.com/kindle/">http://www.cnblogs.com/kindle/</a><br />';
+    signatureHtml +=  '作者：ricolee &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 出处：<a href="http://www.cnblogs.com/ricolee/">http://www.cnblogs.com/ricolee/</a><br />';
     signatureHtml += '本文版权归作者和博客园共有欢迎转载，转载之后请务必在文章明显位置标出原文链接和作者，谢谢。<br />';
     signatureHtml += '如果本文对您有帮助，请点击<a id="recommendme",href="javascript:void(0);">【推荐】</a>您的赞赏将鼓励我继续创作！想跟我一起进步么？那就<a id="followme" href="javascript:void(0);">【关注】</a>我吧。';
     signatureHtml += '<div id="signatureTips"></div>';
@@ -151,6 +154,11 @@ $("#mainContent").wait(function() {
         $('#sideBar').css('width','0px');
         $('#sideBar').css('display','none');
 
+        //$('#sideBar').css('position','fixed');
+        //$('#sideBar').css('left','50px');
+        //$('#sideBar').css('top','50px');
+
+
         var maxWidth = $(document.body).width();
         console.log("#main.Width:"+$('#main').width()+",bodyWidth:"+maxWidth);
         var contentWidth = $('#main').width() - 20;
@@ -161,6 +169,7 @@ $("#mainContent").wait(function() {
    }else{
         //常显示右侧div
         $('#sideBar').css('display','block');
+
         $('#mainContent').css('width','100%');
         console.log('this page normalsize');
    }
