@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//=====================继承
+			function parent() {
+				this.parentMoney = 100;
+			}
+			parent.prototype.getParentMoney = function() {
+				return this.parentMoney;
+			}
+
+			function son() {
+				this.sonMoney = 50;
+			}
+			son.prototype = new parent();
+			son.prototype.getSonMoney = function() {
+				return this.sonMoney;
+			}
+
+			var instanceSon = new son();
+			//instanceSon.
+			console.log(instanceSon.getSonMoney());
+
+			function MyObject() {
+				this.name = "Niachole";
+				var privateVariable = 10;
+
+				function privateFunction() {
+					return false;
+				}
+				this.publicMethod = function() {
+					privateVariable++;
+					return privateFunction();
+				}
+			}
+			var myObject = new MyObject();
+			myObject.publicMethod();
+		</script>
+	</body>
+
+</html>

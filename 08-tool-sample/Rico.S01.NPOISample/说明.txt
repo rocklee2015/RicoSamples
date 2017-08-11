@@ -1,0 +1,3 @@
+nuget 
+1 NOPI
+2 System.Drawing

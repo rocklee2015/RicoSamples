@@ -1,0 +1,10 @@
+1 ActiveMQ 下载地址
+http://activemq.apache.org/download.html
+http://activemq.apache.org/activemq-591-release.html
+
+2 教程
+http://www.cnblogs.com/yangw/p/5910964.html
+
+准备：
+1. jdk 6.0 以上的的java版本，并配置了好环境变量 ；
+2. http://activemq.apache.org/activemq-591-release.html 

@@ -1,1 +1,0 @@
-﻿StackServices.Redis 要4.0 以下版本，否则没有GetTypedClient<> 方法；

@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.AceAdminUI", "Rico.AceAdminUI\Rico.AceAdminUI.csproj", "{7DA6829E-C135-4ED7-93C0-D4083C620494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.BootstrapSamples", "Rico.BootstrapSamples\Rico.BootstrapSamples.csproj", "{9FEC40A7-B2A4-4D16-B5EB-520B7F2B9AC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.HPlusUI", "Rico.HPlusUI\Rico.HPlusUI.csproj", "{EF9F6DE3-6F59-481C-9A6C-448D4D5BAA16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.InspiniaAdminUI", "Rico.InspiniaAdminUI\Rico.InspiniaAdminUI.csproj", "{BFF5166A-DCCB-41DC-A852-9CBD1EB69720}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.LayerUI", "Rico.LayerUI\Rico.LayerUI.csproj", "{A5DAAAF9-3FBD-413B-8659-1EBEFA2FCA95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.MetronicUI", "Rico.MetronicUI\Rico.MetronicUI.csproj", "{8D8D370C-B1BA-44BA-9E85-6C29C4089FEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DA6829E-C135-4ED7-93C0-D4083C620494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA6829E-C135-4ED7-93C0-D4083C620494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA6829E-C135-4ED7-93C0-D4083C620494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA6829E-C135-4ED7-93C0-D4083C620494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FEC40A7-B2A4-4D16-B5EB-520B7F2B9AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FEC40A7-B2A4-4D16-B5EB-520B7F2B9AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FEC40A7-B2A4-4D16-B5EB-520B7F2B9AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FEC40A7-B2A4-4D16-B5EB-520B7F2B9AC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9F6DE3-6F59-481C-9A6C-448D4D5BAA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9F6DE3-6F59-481C-9A6C-448D4D5BAA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9F6DE3-6F59-481C-9A6C-448D4D5BAA16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9F6DE3-6F59-481C-9A6C-448D4D5BAA16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF5166A-DCCB-41DC-A852-9CBD1EB69720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF5166A-DCCB-41DC-A852-9CBD1EB69720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF5166A-DCCB-41DC-A852-9CBD1EB69720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF5166A-DCCB-41DC-A852-9CBD1EB69720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5DAAAF9-3FBD-413B-8659-1EBEFA2FCA95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5DAAAF9-3FBD-413B-8659-1EBEFA2FCA95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5DAAAF9-3FBD-413B-8659-1EBEFA2FCA95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5DAAAF9-3FBD-413B-8659-1EBEFA2FCA95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8D370C-B1BA-44BA-9E85-6C29C4089FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8D370C-B1BA-44BA-9E85-6C29C4089FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8D370C-B1BA-44BA-9E85-6C29C4089FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8D370C-B1BA-44BA-9E85-6C29C4089FEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.DesignPattern", "Rico.S01.DesignPattern\Rico.S01.DesignPattern.csproj", "{3719CA99-5D83-4978-ACE3-77EEC8662D5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.CQRS", "Rico.CQRS\Rico.CQRS.csproj", "{632A966B-E398-417E-B779-2F606D7E97AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.CQRS.Configuration", "Rico.CQRS.Configuration\Rico.CQRS.Configuration.csproj", "{891C77B8-E4AC-4D0E-8383-09BAF44F52D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.CQRS.WebTest", "Rico.CQRS.WebTest\Rico.CQRS.WebTest.csproj", "{4F9D462C-4E12-48C7-8D5B-F312CCC50E18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rico.S02.CQRS", "Rico.S02.CQRS", "{6247E538-988F-4DD7-BD19-6A1FF5EBB42B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3719CA99-5D83-4978-ACE3-77EEC8662D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3719CA99-5D83-4978-ACE3-77EEC8662D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3719CA99-5D83-4978-ACE3-77EEC8662D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3719CA99-5D83-4978-ACE3-77EEC8662D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{632A966B-E398-417E-B779-2F606D7E97AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{632A966B-E398-417E-B779-2F606D7E97AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{632A966B-E398-417E-B779-2F606D7E97AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{632A966B-E398-417E-B779-2F606D7E97AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891C77B8-E4AC-4D0E-8383-09BAF44F52D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891C77B8-E4AC-4D0E-8383-09BAF44F52D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891C77B8-E4AC-4D0E-8383-09BAF44F52D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891C77B8-E4AC-4D0E-8383-09BAF44F52D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F9D462C-4E12-48C7-8D5B-F312CCC50E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9D462C-4E12-48C7-8D5B-F312CCC50E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9D462C-4E12-48C7-8D5B-F312CCC50E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F9D462C-4E12-48C7-8D5B-F312CCC50E18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{632A966B-E398-417E-B779-2F606D7E97AF} = {6247E538-988F-4DD7-BD19-6A1FF5EBB42B}
+		{891C77B8-E4AC-4D0E-8383-09BAF44F52D2} = {6247E538-988F-4DD7-BD19-6A1FF5EBB42B}
+		{4F9D462C-4E12-48C7-8D5B-F312CCC50E18} = {6247E538-988F-4DD7-BD19-6A1FF5EBB42B}
+	EndGlobalSection
+EndGlobal

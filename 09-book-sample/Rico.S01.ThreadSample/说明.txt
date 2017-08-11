@@ -1,0 +1,7 @@
+nuget 引用
+1 ImpromptuInterface  
+   A Lightweight Duck Casting Framework for dynamic C# 4.0 (.net4 & silverlight4 & silveright5 ). Includes helper methods for dynamic invocation via method and property names known only at runtime (runs faster than reflection)
+   动态C＃4.0（.net4＆silverlight4＆silverlight5）的轻量级鸭铸造框架。 包括通过仅在运行时已知的方法和属性名称进行动态调用的辅助方法（运行速度比反射速度快）
+2 System.Reactive
+   Reactive Extensions (Rx) Main Library combining the interfaces, core, LINQ, and platform services libraries.
+	组合接口，核心，LINQ和平台服务库的反向扩展（Rx）主库。
