@@ -3,3 +3,10 @@ obj
 /TestResults
 /packages
 /.vs
+/01-architecture/packages
+/01-csharp/packages
+/02-aspnet/packages
+/07-company/packages
+/08-test/packages
+/08-tool-sample/packages
+/09-book-sample/packages
