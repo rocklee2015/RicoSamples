@@ -1,0 +1,15 @@
+
+来源：(使用Topshelf创建Windows服务)http://www.cnblogs.com/jys509/p/4614975.html
+Topshelf 常用模式
+
+1 安装topshelf 时出现错误！
+严重性	代码	说明	项目	文件	行	禁止显示状态
+错误		无法安装程序包“Topshelf 4.0.3”。你正在尝试将此程序包安装到目标为“.NETFramework,Version=v4.5”的项目中，但该程序包不包含任何与该框架兼容的程序集引用或内容文件。有关详细信息，请联系程序包作者。
+解决: topshelf 4.0 以上不支持 .net framework4.5 ,支持.net 4.5.2
+
+2 nuget 
+
+Topshelf 3.3.1
+Topshelf.Log4Net
+
+3 引用 System.Timers 作为定时器
