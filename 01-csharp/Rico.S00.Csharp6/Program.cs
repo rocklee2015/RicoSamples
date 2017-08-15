@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rico.S00.Csharp6
 {
@@ -10,6 +6,10 @@ namespace Rico.S00.Csharp6
     {
         static void Main(string[] args)
         {
+            var csharp6 = new Csharp6NewFeature();
+            csharp6.StringInterpolation();
+
+            Console.ReadKey();
         }
     }
 }

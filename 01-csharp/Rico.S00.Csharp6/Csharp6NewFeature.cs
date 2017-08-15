@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static System.String;
 /*
@@ -21,11 +20,11 @@ namespace Rico.S00.Csharp6
 
         #region 只读属性的初始化(Getter-only auto-properties)
 
-        public Csharp6NewFeature(int id, int idNew)
-        {
-            _id = id;
-            IdNew = idNew;
-        }
+        //public Csharp6NewFeature(int id, int idNew)
+        //{
+        //    _id = id;
+        //    IdNew = idNew;
+        //}
 
         private readonly int _id;
         public int Id
@@ -87,6 +86,7 @@ namespace Rico.S00.Csharp6
         /// <summary>
         /// 3. 字符串嵌入值
         /// </summary>
+        [TestMethod]
         public void StringInterpolation()
         {
             int i = 1;
@@ -158,30 +158,30 @@ namespace Rico.S00.Csharp6
 
         #region catch和finally 中的 await (Await in catch and finally blocks)
 
-        private async void Test()
-        {
-            try
-            {
-                await new Task<int>(() =>
-                {
-                    return 1;
-                });
-            }
-            catch
-            {
-                await new Task<int>(() =>
-                {
-                    return 1;
-                });
-            }
-            finally
-            {
-                await new Task<int>(() =>
-                {
-                    return 1;
-                });
-            }
-        }
+        //private async void Test()
+        //{
+        //    try
+        //    {
+        //        await new Task<int>(() =>
+        //        {
+        //            return 1;
+        //        });
+        //    }
+        //    catch
+        //    {
+        //        await new Task<int>(() =>
+        //        {
+        //            return 1;
+        //        });
+        //    }
+        //    finally
+        //    {
+        //        await new Task<int>(() =>
+        //        {
+        //            return 1;
+        //        });
+        //    }
+        //}
 
         #endregion
 
