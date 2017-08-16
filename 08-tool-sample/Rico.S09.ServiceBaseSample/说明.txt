@@ -5,3 +5,13 @@
 引用：
 1 System.ServiceProcess
 2 System.Configuration.Install
+
+--在其它项目应用时出现的错误：
+1 第一运行出现错误,如下：
+在“安装”阶段发生异常。
+System.InvalidOperationException: 无法打开计算机“.”上的服务控制管理器。此操作可能需要其他特权。
+引发了内部异常 System.ComponentModel.Win32Exception，错误消息如下: 拒绝访问。。
+解决：当前用户没有权限，切换到administrator 账户即可；
+
+2 运行卸载服务后，显示卸载成功，但是服务没有卸载成功，仍然运行，只有重启后才能清除服务，不知道原因是什么？
+解决：卸载前 先停止当前服务，再执行卸载功能，不然很容易出错！(在卸载命令前加上暂停服务的命令)

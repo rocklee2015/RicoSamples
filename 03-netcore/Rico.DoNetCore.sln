@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.DoNetCoreConsole", "Rico.S01.DoNetCoreConsole\Rico.S01.DoNetCoreConsole.csproj", "{910FA40F-3033-436E-9181-0DDFBA640BA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.DoNetCoreLibary", "Rico.S01.DoNetCoreLibary\Rico.S01.DoNetCoreLibary.csproj", "{574BE119-ED5F-4EEA-BD38-26FDA4C66488}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.AspNetCore", "Rico.S01.AspNetCore\Rico.S01.AspNetCore.csproj", "{388C1B20-19B9-4A19-AE5B-DB483B216887}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rico.S01.Simple", "Rico.S01.Simple", "{49A79577-4652-4316-86AE-F5AC5C353904}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{910FA40F-3033-436E-9181-0DDFBA640BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910FA40F-3033-436E-9181-0DDFBA640BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910FA40F-3033-436E-9181-0DDFBA640BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910FA40F-3033-436E-9181-0DDFBA640BA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{574BE119-ED5F-4EEA-BD38-26FDA4C66488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{574BE119-ED5F-4EEA-BD38-26FDA4C66488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{574BE119-ED5F-4EEA-BD38-26FDA4C66488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{574BE119-ED5F-4EEA-BD38-26FDA4C66488}.Release|Any CPU.Build.0 = Release|Any CPU
+		{388C1B20-19B9-4A19-AE5B-DB483B216887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{388C1B20-19B9-4A19-AE5B-DB483B216887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{388C1B20-19B9-4A19-AE5B-DB483B216887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{388C1B20-19B9-4A19-AE5B-DB483B216887}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{910FA40F-3033-436E-9181-0DDFBA640BA4} = {49A79577-4652-4316-86AE-F5AC5C353904}
+		{574BE119-ED5F-4EEA-BD38-26FDA4C66488} = {49A79577-4652-4316-86AE-F5AC5C353904}
+		{388C1B20-19B9-4A19-AE5B-DB483B216887} = {49A79577-4652-4316-86AE-F5AC5C353904}
+	EndGlobalSection
+EndGlobal
