@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CacheTest.aspx.cs" Inherits="Rico.S10.CacheWebSample.CacheTest" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoSlidingExpiration_Get.aspx.cs" Inherits="Rico.S10.CacheWebSample.CacheExpiration_Get" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
- 
+        <div>
+        </div>
     </form>
 </body>
 </html>

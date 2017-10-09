@@ -10,7 +10,7 @@
 namespace Rico.S10.CacheWebSample {
     
     
-    public partial class CacheTest {
+    public partial class CacheExpiration_Set {
         
         /// <summary>
         /// form1 控件。
