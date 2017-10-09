@@ -13,9 +13,9 @@
             <a href="CacheTest.aspx" target="_blank"> 缓存测试页面</a><br/><br/>
             
             <hr/>
-            <a href="NoSlidingExpiration_Set.aspx" target="_blank"> 绝对测试-设置缓存</a><br/><br/>
+            <a href="NoSlidingExpirationSet.aspx" target="_blank"> 绝对测试-设置缓存</a><br/><br/>
             
-            <a href="NoSlidingExpiration_Get.aspx" target="_blank"> 绝对测试-获取缓存</a><br/><br/>
+            <a href="NoSlidingExpirationGet.aspx" target="_blank"> 绝对测试-获取缓存</a><br/><br/>
             <hr/>
             
             <a href="CacheDependencySet.aspx" target="_blank"> 缓存依赖-设置缓存</a><br/><br/>

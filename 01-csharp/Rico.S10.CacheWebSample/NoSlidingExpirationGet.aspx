@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoSlidingExpiration_Set.aspx.cs" Inherits="Rico.S10.CacheWebSample.CacheExpiration_Set" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NoSlidingExpirationGet.aspx.cs" Inherits="Rico.S10.CacheWebSample.CacheExpiration_Get" %>
 
 <!DOCTYPE html>
 

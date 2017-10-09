@@ -68,8 +68,8 @@
     <Content Include="CacheDependencyGet.aspx" />
     <Content Include="CacheDependencySet.aspx" />
     <Content Include="Index.aspx" />
-    <Content Include="NoSlidingExpiration_Get.aspx" />
-    <Content Include="NoSlidingExpiration_Set.aspx" />
+    <Content Include="NoSlidingExpirationGet.aspx" />
+    <Content Include="NoSlidingExpirationSet.aspx" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -105,19 +105,19 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NoSlidingExpiration_Get.aspx.cs">
-      <DependentUpon>NoSlidingExpiration_Get.aspx</DependentUpon>
+    <Compile Include="NoSlidingExpirationGet.aspx.cs">
+      <DependentUpon>NoSlidingExpirationGet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NoSlidingExpiration_Get.aspx.designer.cs">
-      <DependentUpon>NoSlidingExpiration_Get.aspx</DependentUpon>
+    <Compile Include="NoSlidingExpirationGet.aspx.designer.cs">
+      <DependentUpon>NoSlidingExpirationGet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NoSlidingExpiration_Set.aspx.cs">
-      <DependentUpon>NoSlidingExpiration_Set.aspx</DependentUpon>
+    <Compile Include="NoSlidingExpirationSet.aspx.cs">
+      <DependentUpon>NoSlidingExpirationSet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NoSlidingExpiration_Set.aspx.designer.cs">
-      <DependentUpon>NoSlidingExpiration_Set.aspx</DependentUpon>
+    <Compile Include="NoSlidingExpirationSet.aspx.designer.cs">
+      <DependentUpon>NoSlidingExpirationSet.aspx</DependentUpon>
     </Compile>
     <Compile Include="CacheTest.aspx.cs">
       <DependentUpon>CacheTest.aspx</DependentUpon>

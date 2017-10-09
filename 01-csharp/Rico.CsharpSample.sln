@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S10.CacheSample", "Ric
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S10.CacheWebSample", "Rico.S10.CacheWebSample\Rico.S10.CacheWebSample.csproj", "{90ECDE6C-6D85-48FE-9AF3-6B07DB709562}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S11.DateTimeSample", "Rico.S11.DateTimeSample\Rico.S11.DateTimeSample.csproj", "{0B160173-C406-483F-A281-24F0E5CFDD92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{90ECDE6C-6D85-48FE-9AF3-6B07DB709562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90ECDE6C-6D85-48FE-9AF3-6B07DB709562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90ECDE6C-6D85-48FE-9AF3-6B07DB709562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B160173-C406-483F-A281-24F0E5CFDD92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B160173-C406-483F-A281-24F0E5CFDD92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B160173-C406-483F-A281-24F0E5CFDD92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B160173-C406-483F-A281-24F0E5CFDD92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

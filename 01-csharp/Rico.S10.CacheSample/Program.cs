@@ -13,7 +13,7 @@ namespace Rico.S10.CacheSample
             var person = new Person { CacheKey = "key_1", Name = "ricolee" };
             Cache cache = HttpRuntime.Cache;
             //cache.Insert(person.CacheKey, person, null, DateTime.Now.AddSeconds(10), TimeSpan.Zero);
-            cache.Insert(person.CacheKey, person, null, DateTime.Now.AddSeconds(10), Cache.NoSlidingExpiration);
+            cache.Insert(person.CacheKey, person, null, DateTime.UtcNow.AddSeconds(10), Cache.NoSlidingExpiration);
             while (true)
             {
                 var cacheobj = cache[person.CacheKey];
