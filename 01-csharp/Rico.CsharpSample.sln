@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S10.CacheWebSample", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S11.DateTimeSample", "Rico.S11.DateTimeSample\Rico.S11.DateTimeSample.csproj", "{0B160173-C406-483F-A281-24F0E5CFDD92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S12.InteretAlgorithm", "Rico.S12.InteretAlgorithm\Rico.S12.InteretAlgorithm.csproj", "{B5D32719-1132-43EC-B7C3-E7AD777D4150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S12.LinqSample", "Rico.S12.LinqSample\Rico.S12.LinqSample.csproj", "{32177747-0ED4-4166-971C-54B773094034}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,14 @@ Global
 		{0B160173-C406-483F-A281-24F0E5CFDD92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B160173-C406-483F-A281-24F0E5CFDD92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B160173-C406-483F-A281-24F0E5CFDD92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5D32719-1132-43EC-B7C3-E7AD777D4150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5D32719-1132-43EC-B7C3-E7AD777D4150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5D32719-1132-43EC-B7C3-E7AD777D4150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5D32719-1132-43EC-B7C3-E7AD777D4150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32177747-0ED4-4166-971C-54B773094034}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32177747-0ED4-4166-971C-54B773094034}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32177747-0ED4-4166-971C-54B773094034}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32177747-0ED4-4166-971C-54B773094034}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -4,6 +4,8 @@ http://activemq.apache.org/activemq-591-release.html
 
 2 教程
 http://www.cnblogs.com/yangw/p/5910964.html
+启动完了后在浏览器地址栏输入：http://localhost:8161/admin要求输入用户名密码，默认用户名密码为admin、admin，后便可看到如下图的ActiveMQ控制台界面了
+
 
 准备：
 1. jdk 6.0 以上的的java版本，并配置了好环境变量 ；
