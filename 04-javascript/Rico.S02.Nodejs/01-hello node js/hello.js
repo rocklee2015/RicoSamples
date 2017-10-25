@@ -1,4 +1,4 @@
-const http = require('http');
+锘縞onst http = require('http');
 
 const hostname = '127.0.0.1';
 const port = 3000;
@@ -10,5 +10,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, hostname, () => {
-  console.log(`服务器运行在 http://${hostname}:${port}/`);
+  console.log(`鏈嶅姟鍣ㄨ繍琛屽湪 http://${hostname}:${port}/`);
 });
