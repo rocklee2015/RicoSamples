@@ -295,7 +295,7 @@
 }
 
 .cnblogs-markdown h4 {
-  font-size: 1.25em !important; 
+  font-size: 1em !important; 
 }
 
 .cnblogs-markdown h4 .anchor {
@@ -427,6 +427,7 @@
   font-size: 85%;
   background-color: rgba(0,0,0,0.04);
   border-radius: 3px;
+  display: initial;
 }
 
 .cnblogs-markdown code:before,

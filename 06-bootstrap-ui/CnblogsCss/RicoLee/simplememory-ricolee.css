@@ -51,8 +51,9 @@ html {
 body {
     color: #000;
     background-color: #e6e6e6;
-    font-family: "微软雅黑", "PTSans", "Arial", sans-serif;
-    font-size: 14px;
+    /*font-family: "微软雅黑", "PTSans", "Arial", sans-serif;*/
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+    font-size: 16px;
     min-height: 101%;
     line-height: 1.8em;
     /*设置所有字体的行间距*/
@@ -80,6 +81,7 @@ ul {
 
 li {
     list-style: none;
+    line-height: 30px;
 }
 
 h1,
@@ -1463,36 +1465,50 @@ a:active {
 
 #cnblogs_post_body blockquote {
     /*background: url("http://images.cnblogs.com/cnblogs_com/marvin/668095/o_quote.png") no-repeat -75px -20px #F1FEDD;*/
-    border-radius: 10px;
-    padding: 15px 50px;
+    background: rgb(223, 255, 163) url(https://files.cnblogs.com/files/ricolee/o_title.gif) no-repeat 9px;
+    /*background: url("https://files.cnblogs.com/files/ricolee/o_title.gif") no-repeat -75px -20px #b6ec61;*/
+    border-radius: 5px;
+    padding: 1px 5px;
     margin-left: 0px;
     border: none;
+    color: #333;
+    width: 100%;
+}
+#cnblogs_post_body blockquote  p{
+   margin-left: 50px;
 }
 
 #cnblogs_post_body h2 {
     color: #fff;
     padding-left: 15px;
-    background: #12b93d !important;
+    background: #20375f !important;
     text-shadow: 2px 2px 3px #222222;
     font-family: "微软雅黑", "宋体", "黑体", Arial;
     margin-bottom: 5px;
 }
 
 #cnblogs_post_body h3{
-  color:#6FA833;
-  border-left: 18px solid #6CE26C;
-  padding:5px 8px;
-  background-color:#f5f5f5;
+  color:#000;
+  /*border-left: 18px solid #20375f;*/
+  padding:1px 8px;
+  background-color:#e6e6e6;
+  font-size: 15px;
+  border-bottom: 0px solid #aaa;
 }
 
 #cnblogs_post_body h4{
-  color:#6FA833;
+  color:#000;
   font-size: 14px;
   font-weight: normal;
   text-indent: 4px;
-  padding: 5px;
-  background-color:#f5f5f5;
-  border-left: 6px solid #6FA833;
+  /*padding: 5px;*/
+  background-color:#fff;
+  border-left: 6px solid #20375f;
+  margin-left: 35px;
+}
+#cnblogs_post_body p{
+  margin-left: 16px;
+  text-indent: 25px;
 }
 
 /*底部说明:之前用的部分插入代码插件也是pre，所以此css可能会破坏代码高亮*/
@@ -1538,7 +1554,7 @@ a:active {
     zoom: 0;
     width: 57px;
     height: 57px;
-    right: 10px;
+    right: 1px;
     overflow: hidden;
     position: fixed;
     cursor: pointer;

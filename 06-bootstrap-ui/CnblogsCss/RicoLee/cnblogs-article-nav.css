@@ -5,12 +5,12 @@
 */
 
 #sideToolbar {
-	display: block;
+	display: none;
 	position: fixed;
 	top: 18%;/*太小或太低部在手机上体验不是很好*/
 	right: 10px;
 	/*NOTE size和子节点保持大致 */
-	width: 320px;
+	width: 280px;
 	height: 500px
 }
 #sideCatalog{
@@ -146,7 +146,7 @@
 	margin-top: 10px;*/
 	width: 45px;
 	height: 45px;
-	right: 16px;
+	right: 5px;
 	bottom: 13.5%;
 	outline: 0;
 }
