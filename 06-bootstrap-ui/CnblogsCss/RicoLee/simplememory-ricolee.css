@@ -1490,7 +1490,7 @@ a:active {
 #cnblogs_post_body h3{
   color:#000;
   /*border-left: 18px solid #20375f;*/
-  padding:1px 8px;
+  padding:5px 8px;
   background-color:#e6e6e6;
   font-size: 15px;
   border-bottom: 0px solid #aaa;
@@ -1499,13 +1499,26 @@ a:active {
 #cnblogs_post_body h4{
   color:#000;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: bold;
   text-indent: 4px;
   /*padding: 5px;*/
   background-color:#fff;
   border-left: 6px solid #20375f;
   margin-left: 35px;
 }
+#cnblogs_post_body h5{
+  margin-left: 65px;
+}
+
+#cnblogs_post_body h5~ul{
+  margin-left: 80px;
+}
+#cnblogs_post_body h4~ul{
+  margin-left: 60px;
+}
+
+
+
 #cnblogs_post_body p{
   margin-left: 16px;
   text-indent: 25px;
