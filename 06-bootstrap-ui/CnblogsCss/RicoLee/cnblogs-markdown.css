@@ -6,12 +6,13 @@
 .cnblogs-markdown {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  color: #333;
+  color: #000;
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.6;
   word-wrap: break-word;
+  width: 85%;
 }
 
 .cnblogs-markdown a {
@@ -25,6 +26,7 @@
 
 .cnblogs-markdown strong {
   font-weight: bold;
+  color: red;
 }
 
 .cnblogs-markdown img {
@@ -420,14 +422,19 @@
 }
 
 .cnblogs-markdown code {
-  padding: 0;
+  color: #e96900;
+  padding: 3px,5px;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   margin: 0;
-  font-size: 85%;
-  background-color: rgba(0,0,0,0.04);
+  font-family: "Roboto Mono", Monaco, courier, monospace;
+  font-size: 1em;
+  font-weight: bold;
+
+  background-color: #f8f8f8!important;
   border-radius: 3px;
   display: initial;
+  border: 0px solid #ccc!important; 
 }
 
 .cnblogs-markdown code:before,

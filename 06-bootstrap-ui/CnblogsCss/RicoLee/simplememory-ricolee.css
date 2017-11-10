@@ -1475,14 +1475,14 @@ a:active {
     width: 100%;
 }
 #cnblogs_post_body blockquote  p{
-   margin-left: 50px;
+   margin-left: 30px;
 }
 
 #cnblogs_post_body h2 {
-    color: #fff;
+    color: #000;
     padding-left: 15px;
-    background: #20375f !important;
-    text-shadow: 2px 2px 3px #222222;
+    background: #fff !important;
+    /*text-shadow: 2px 2px 3px #222222;*/
     font-family: "微软雅黑", "宋体", "黑体", Arial;
     margin-bottom: 5px;
 }

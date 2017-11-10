@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "First";
+    Layout = "~/Views/Shared/_Vue.cshtml";
+}
+
+<!--这是我们的View-->
+<hr/>
+<h4>入门</h4>
+<div id="app">
+    <p>{{ message }}</p>
+    <input type="text" v-model="message"/>
+</div>
+<hr />
+<h4>v-if </h4>
+<div id="app-if">
+    <h1>Hello, Vue.js!</h1>
+    <h1 v-if="yes">Yes!</h1>
+    <h1 v-if="no">No!</h1>
+    <h1 v-if="age >= 25">Age: {{ age }}</h1>
+    <h1 v-if="name.indexOf('jack') >= 0">Name: {{ name }}</h1>
+</div>
+<hr />
+<h4>v-for </h4>
+<div id="app-for">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="person in people">
+                <td>{{ person.name  }}</td>
+                <td>{{ person.age  }}</td>
+                <td>{{ person.sex  }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<hr />
+<h4>v-bind </h4>
+<div id="app-bind">
+    <ul class="pagination">
+        <li v-for="n in pageCount">
+            <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a>
+        </li>
+    </ul>
+</div>
+<hr />
+<h4>v-on </h4>
+<div id="app-on">
+    <p><input type="text" v-model="message"></p>
+    <p>
+        <!--click事件直接绑定一个方法-->
+        <button v-on:click="greet">Greet</button>
+    </p>
+    <p>
+        <!--click事件使用内联语句-->
+        <button v-on:click="say('Hi')">Hi</button>
+    </p>
+</div>
+<script>
+    // 这是我们的Model
+    var exampleData = {
+        message: 'Hello World!'
+    }
+
+    // 创建一个 Vue 实例或 "ViewModel"
+    // 它连接 View 与 Model
+    new Vue({
+        el: '#app',
+        data: exampleData
+    })
+
+    var vm = new Vue({
+        el: '#app-if',
+        data: {
+            yes: true,
+            no: false,
+            age: 28,
+            name: 'keepfool'
+        }
+    })
+    //-----------v-for
+    var vm_for = new Vue({
+        el: '#app-for',
+        data: {
+            people: [{
+                name: 'Jack',
+                age: 30,
+                sex: 'Male'
+            }, {
+                name: 'Bill',
+                age: 26,
+                sex: 'Male'
+            }, {
+                name: 'Tracy',
+                age: 22,
+                sex: 'Female'
+            }, {
+                name: 'Chris',
+                age: 36,
+                sex: 'Male'
+            }]
+        }
+    })
+    //-----------v-bind
+    var vm = new Vue({
+        el: '#app-bind',
+        data: {
+            activeNumber: 1,
+            pageCount: 10
+        }
+    })
+    //-----------v-on
+    var vm_on = new Vue({
+        el: '#app-on',
+        data: {
+            message: 'Hello, Vue.js!'
+        },
+        // 在 `methods` 对象中定义方法
+        methods: {
+            greet: function () {
+                // // 方法内 `this` 指向 vm
+                alert(this.message)
+            },
+            say: function (msg) {
+                alert(msg)
+            }
+        }
+    })
+</script>
+
+
+
