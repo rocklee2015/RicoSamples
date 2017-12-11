@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 namespace Rico.S04.SerializeSample
 {
     [TestClass]
-    public class DictionarySerialize
+    public class P01_DictionarySerialize
     {
         /// <summary>
         /// 序列化Dictionnary为对象数组
