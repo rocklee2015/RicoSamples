@@ -7,7 +7,7 @@ namespace Rico.S00.Csharp7
     {
         #region out 变量（out variables）
         [TestMethod]
-        public void OutVariables()
+        public void Csharp7_OutVariables()
         {
             var input = "2017";
             if (int.TryParse(input, out var result))
