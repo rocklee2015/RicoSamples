@@ -12,3 +12,5 @@ obj
 /09-book-sample/packages
 /04-javascript/Rico.WebPack/app/node_modules
 /04-javascript/Rico.WebPack/webpack-demo/node_modules
+/02-aspnet/Rico.OwinSample/.vs
+/01-csharp/.vs

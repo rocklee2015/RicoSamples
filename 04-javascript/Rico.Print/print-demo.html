@@ -1,0 +1,88 @@
+<html>
+ <head>
+ 	<META http-equiv=Content-Type content="text/html; charset=gb2312">
+ 	    <style media="print">
+    @page {
+        size: auto;
+        margin: 0;
+    }
+    </style>
+ 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+ 	<script type="text/javascript">
+ 		(function ($) {
+    var printAreaCount = 0;
+    $.fn.printArea = function () {
+		  if (!!window.ActiveXObject || "ActiveXObject" in window) {
+		        remove_ie_header_and_footer();
+		    }
+        var ele = $(this);
+        var idPrefix = "printArea_";
+        removePrintArea(idPrefix + printAreaCount);
+        printAreaCount++;
+        var iframeId = idPrefix + printAreaCount;
+        var iframeStyle = 'position:absolute;width:0px;height:0px;left:-500px;top:-500px;';
+        iframe = document.createElement('IFRAME');
+        $(iframe).attr({
+            style: iframeStyle,
+            id: iframeId
+        });
+        document.body.appendChild(iframe);
+        var doc = iframe.contentWindow.document;
+        $(document).find("link").filter(function () {
+            return $(this).attr("rel").toLowerCase() == "stylesheet";
+        }).each(
+                function () {
+                    doc.write('<link type="text/css" rel="stylesheet" href="'
+                            + $(this).attr("href") + '" >');
+                });
+        doc.write('<div class="' + $(ele).attr("class") + '">' + $(ele).html()
+                + '</div>');
+        doc.close();
+        var frameWindow = iframe.contentWindow;
+        frameWindow.close();
+        frameWindow.focus();
+        frameWindow.print();
+    }
+    /*
+    * 去掉页眉和页脚
+    * IE 用ActiveXObject插件
+    * FireFox  不知道
+    * Chrome 不知道
+    */
+    var  remove_ie_header_and_footer=function() {
+
+    var hkey_root, hkey_path, hkey_key;
+    hkey_path = "HKEY_CURRENT_USER\\Software\\Microsoft\\Internet Explorer\\PageSetup\\";
+    try {
+        var RegWsh = new ActiveXObject("WScript.Shell");
+        RegWsh.RegWrite(hkey_path + "header", "");
+        RegWsh.RegWrite(hkey_path + "footer", "");
+    } catch (e) {}
+}
+    var removePrintArea = function (id) {
+        $("iframe#" + id).remove();
+    };
+})(jQuery);
+ 	</script>
+ 	<script type="text/javascript">
+$(function(){
+        $("#btnPrint").click(function(){
+         $("#printContent").printArea();
+          });
+});
+</script>
+ </head>
+	<body>
+		<div>
+			<input type="button" id="btnPrint" value="打印"/>
+<div id="printContent">
+  <table>
+  	<thead><th>姓名</th><th>年龄</th><th>是手机号</th></thead>
+  	<tr><td>李宽</td><td>25</td><td>13915583327</td></tr>
+  </table>
+	<div>
+
+
+		</div>
+	</body>
+</html>
