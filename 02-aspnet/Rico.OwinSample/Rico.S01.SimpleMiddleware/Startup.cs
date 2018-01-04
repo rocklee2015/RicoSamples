@@ -12,23 +12,23 @@ namespace Rico.S01.SimpleMiddleware
         public void Configuration(IAppBuilder app)
         {
 
-            //simple 1  简单的owin中间件
+            //simple 简单的owin中间件
             //app.Run(context =>
             //{
             //    context.Response.ContentType = "text/plain";
             //    return context.Response.WriteAsync("Hello, world.");
             //});
 
-            //simple 2 自定义owin中间件
+            //simple 1 自定义owin中间件
             //app.UseLYMMiddleware();
             //app.Run(async context => await context.Response.WriteAsync("Hello World  Simple2 ! "));
 
-            //simple 3
+            //simple 2
             //app.UseMyApp1();
             //app.UseMyApp2();
             //app.Run(async context => await context.Response.WriteAsync("Simple3 ! "));
 
-            //simple 4
+            //simple 3
             app.UseLoggerMiddleware(new LoggerMiddlewareParameters() {  siteName="rico.demo"});
             app.Run(async context => await context.Response.WriteAsync("Hello World  Simple2 ! "));
         }

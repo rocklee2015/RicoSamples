@@ -19,7 +19,7 @@ namespace Rico.S03.OwinOauthClientTest
             _httpClient.BaseAddress = new Uri("http://localhost:9000");
         }
         [TestMethod]
-        public async Task TestMethod1()
+        public async Task Access_API()
         {
             var token = await GetAccessToken();
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
