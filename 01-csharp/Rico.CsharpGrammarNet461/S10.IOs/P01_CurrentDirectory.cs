@@ -12,7 +12,7 @@ namespace Rico.S09.IOSample
     public class CurrentDirectory
     {
         [TestMethod]
-        public void return_a_path()
+        public void Get_Current_Directory()
         {
             var path = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
             write("获取模块的完整路径:");
@@ -65,6 +65,7 @@ namespace Rico.S09.IOSample
         private void write(string msg)
         {
             Console.WriteLine(msg);
+            Console.WriteLine();
         }
     }
 }

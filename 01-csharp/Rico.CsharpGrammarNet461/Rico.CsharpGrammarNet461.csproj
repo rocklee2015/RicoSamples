@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="S01.LamdaExpression\p04_AnalyzeLamdaExpression.cs" />
@@ -60,16 +61,21 @@
     <Compile Include="S04.ReferenceTypes\P02_StringInternTest%28字符串驻留%29.cs" />
     <Compile Include="S05.Serializes\P01_UseDictionnary_Serialize_DynamicColumnName.cs" />
     <Compile Include="S05.Serializes\P02_Format_XmlString_Output.cs" />
+    <Compile Include="S05.Serializes\P03_BinaryFormater.cs" />
     <Compile Include="S06.Dynamics\P02_ExpandoObject.cs" />
     <Compile Include="S06.Dynamics\P01_DynamicObject.cs" />
     <Compile Include="S07.GC\P01_MemorySizeCaculate.cs" />
     <Compile Include="S08.RegularExpression\P01_SimpleMataCharacter.cs" />
     <Compile Include="S09.Security\P01_MicroWeChat.cs" />
     <Compile Include="S10.IOs\P01_CurrentDirectory.cs" />
+    <Compile Include="S10.IOs\P02_File.cs" />
+    <Compile Include="S10.IOs\P03_FileStream.cs" />
+    <Compile Include="S10.IOs\P05_MemoryStream.cs" />
     <Compile Include="S11.Caches\P01_CacheDemo.cs" />
     <Compile Include="S12.InteretAlgorithm\P01_Factorial.cs" />
     <Compile Include="S13.Exceptions\S01_丢失StackTrace.cs" />
     <Compile Include="S13.Exceptions\S01_没有丢失StackTrace.cs" />
+    <Compile Include="S14.Net\P01_WebClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
