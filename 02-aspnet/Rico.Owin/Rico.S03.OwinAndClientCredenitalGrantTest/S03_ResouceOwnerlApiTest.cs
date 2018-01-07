@@ -9,6 +9,9 @@ using Newtonsoft.Json.Linq;
 
 namespace Rico.S03.OwinOauthClientTest
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [TestClass]
     public class S03_ResouceOwnerlApiTest
     {
@@ -49,7 +52,7 @@ namespace Rico.S03.OwinOauthClientTest
 
             var parameters = new Dictionary<string, string>();
             parameters.Add("grant_type", "password");
-            parameters.Add("username", "ricolee");
+            parameters.Add("username", "rico");
             parameters.Add("password", "asdf");
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(

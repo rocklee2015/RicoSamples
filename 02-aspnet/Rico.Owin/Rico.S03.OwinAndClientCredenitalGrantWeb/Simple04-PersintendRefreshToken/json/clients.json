@@ -1,0 +1,7 @@
+[
+  {
+    "Id": "[clientId]",
+    "Secret": "[clientSecret]",
+    "RefreshTokenLifeTime": "36000"
+  }
+]

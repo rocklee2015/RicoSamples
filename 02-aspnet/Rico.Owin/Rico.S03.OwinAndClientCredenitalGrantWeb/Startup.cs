@@ -4,6 +4,8 @@ using System.Web.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.OAuth;
 using Owin;
+using Rico.S03.OwinOauthWeb.Sericies;
+using Unity;
 
 [assembly: OwinStartup(typeof(Rico.S03.OwinOauthWeb.Startup))]
 
@@ -13,7 +15,8 @@ namespace Rico.S03.OwinOauthWeb
     {
         public void Configuration(IAppBuilder app)
         {
-            #region Simple 1
+            #region token
+            //token-form
             var basicOption = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/token-basic"),
@@ -26,6 +29,7 @@ namespace Rico.S03.OwinOauthWeb
             //需要引用 nuget Microsoft.AspNet.Identity.Owin 
             app.UseOAuthBearerTokens(basicOption);
 
+            //token-form
             var formOption = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/token-form"),
@@ -37,9 +41,21 @@ namespace Rico.S03.OwinOauthWeb
             //基于.net 4.6 用以下
             //需要引用 nuget Microsoft.AspNet.Identity.Owin 
             app.UseOAuthBearerTokens(formOption);
+
+            //
+            var refreshOption = new OAuthAuthorizationServerOptions
+            {
+                TokenEndpointPath = new PathString("/token-refresh"),
+                Provider = new RefreshTokenAuthorizationServerProvider(),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AllowInsecureHttp = true,
+                RefreshTokenProvider = new RicoRefreshTokenProvider()
+            };
+
+            app.UseOAuthBearerTokens(refreshOption);
             #endregion
 
-            #region Simple 2
+            #region Simple 2  WEB API
 
             /*
              * 需要安装 Microsoft.AspNet.WebApi.OwinSelfHost
@@ -52,6 +68,29 @@ namespace Rico.S03.OwinOauthWeb
             );
             app.UseWebApi(config);
 
+            #endregion
+
+            #region  PersintendRefreshToken
+            // DependencyInjectionConfig.Register();
+            IUnityContainer container = new UnityContainer();
+            container.RegisterType<IRefreshTokenService, RefreshTokenService>();
+
+            container.RegisterType<IRefreshTokenRepository, RefreshTokenRepository>();
+
+            container.RegisterType<IClientService, ClientService>();
+
+            container.RegisterType<IClientRepository, ClientRepository>();
+
+            var refreshOption2 = new OAuthAuthorizationServerOptions
+            {
+                TokenEndpointPath = new PathString("/token-refresh2"),
+                Provider = container.Resolve<PersistendRefreshTokenAuthorizationServerProvider>(),
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                AllowInsecureHttp = true,
+                RefreshTokenProvider = container.Resolve<PersistendRefreshTokenProvider>()
+            };
+
+            app.UseOAuthBearerTokens(refreshOption2);
             #endregion
             app.Run(async context => await context.Response.WriteAsync("Hello World  我是 OwinOauth 服务器! "));
         }
