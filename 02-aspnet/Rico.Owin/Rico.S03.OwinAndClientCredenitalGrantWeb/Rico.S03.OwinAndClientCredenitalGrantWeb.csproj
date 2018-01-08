@@ -142,10 +142,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Simple04-PersintendRefreshToken\json\clients.json" />
+    <Content Include="S05-PersintendRefreshToken\json\clients.json" />
     <None Include="packages.config" />
     <Content Include="readme.md" />
-    <Content Include="Simple04-PersintendRefreshToken\json\RefreshToken.json" />
+    <Content Include="S05-PersintendRefreshToken\json\RefreshToken.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -158,26 +158,39 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\UserController.cs" />
-    <Compile Include="Simple02-Form\FormCredentialAuthorizationServerProvider.cs" />
-    <Compile Include="Simple01-Basic\BasicCredntialAuthorizationServerProvider.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\PersistendRefreshTokenAuthorizationServerProvider.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\PersistendRefreshTokenProvider.cs" />
+    <Compile Include="S01-ClientCredentialsGrant-Form\FormCredentialAuthorizationServerProvider.cs" />
+    <Compile Include="S02-ClientCredentialsGrant-Basic\BasicCredntialAuthorizationServerProvider.cs" />
+    <Compile Include="S01-ClientCredentialsGrant-Form\S01_Startup.cs" />
+    <Compile Include="S03-ResourceOwnerApi\S03_Startup.cs" />
+    <Compile Include="S02-ClientCredentialsGrant-Basic\S02_Startup.cs" />
+    <Compile Include="S03-ResourceOwnerApi\BasicCredntialOwnerAuthorizationServerProvider.cs" />
+    <Compile Include="S04-RefreshToken\S04_Startup.cs" />
+    <Compile Include="S05-PersintendRefreshToken\PersistendRefreshTokenAuthorizationServerProvider.cs" />
+    <Compile Include="S05-PersintendRefreshToken\PersistendRefreshTokenProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Simple03-RefreshToken\RefreshTokenAuthorizationServerProvider.cs" />
-    <Compile Include="Simple03-RefreshToken\RicoRefreshTokenProvider.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\Client.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\ClientRepository.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\ClientService.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\DependencyInjectionConfig.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\IClientRepository.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\IClientService.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\IRefreshTokenRepository.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\IRefreshTokenService.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\RefreshToken.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\RefreshTokenRepository.cs" />
-    <Compile Include="Simple04-PersintendRefreshToken\Sericies\RefreshTokenService.cs" />
+    <Compile Include="S04-RefreshToken\RefreshTokenAuthorizationServerProvider.cs" />
+    <Compile Include="S04-RefreshToken\RicoRefreshTokenProvider.cs" />
+    <Compile Include="S05-PersintendRefreshToken\S05_Startup.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\Client.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\ClientRepository.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\ClientService.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\DependencyInjectionConfig.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\IClientRepository.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\IClientService.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\IRefreshTokenRepository.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\IRefreshTokenService.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\RefreshToken.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\RefreshTokenRepository.cs" />
+    <Compile Include="S05-PersintendRefreshToken\Sericies\RefreshTokenService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Controller\ValuesController.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Rico.S03.ConfigConst\Rico.S03.ConfigConst.csproj">
+      <Project>{ccf1c3d3-0627-45bf-8612-ae7b7c5b6359}</Project>
+      <Name>Rico.S03.ConfigConst</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

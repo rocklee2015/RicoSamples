@@ -15,7 +15,7 @@ namespace Rico.S03.OwinOauthWeb.Sericies
 
         static ClientRepository()
         {
-            var json = File.ReadAllText(HostingEnvironment.MapPath("~/Simple04-PersintendRefreshToken/json/clients.json"));
+            var json = File.ReadAllText(HostingEnvironment.MapPath("~/S05-PersintendRefreshToken/json/clients.json"));
             _clients = JsonConvert.DeserializeObject<Client[]>(json);
         }
 

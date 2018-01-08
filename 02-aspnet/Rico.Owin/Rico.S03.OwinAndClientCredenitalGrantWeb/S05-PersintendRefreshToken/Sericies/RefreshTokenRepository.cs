@@ -16,7 +16,7 @@ namespace Rico.S03.OwinOauthWeb.Sericies
 
         public RefreshTokenRepository()
         {
-            _jsonFilePath = HostingEnvironment.MapPath("~/Simple04-PersintendRefreshToken/json/RefreshToken.json");
+            _jsonFilePath = HostingEnvironment.MapPath("~/S05-PersintendRefreshToken/json/RefreshToken.json");
             if (File.Exists(_jsonFilePath))
             {
                 var json = File.ReadAllText(_jsonFilePath);
@@ -40,7 +40,7 @@ namespace Rico.S03.OwinOauthWeb.Sericies
 
         public async Task<bool> Delete(string Id)
         {
-            _refreshTokens.RemoveAll(x => x.Id == Id);
+            _refreshTokens.RemoveAll(x => x.ClientId == Id);
             await WriteJsonToFile();
             return true;
         }

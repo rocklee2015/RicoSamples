@@ -11,49 +11,20 @@ using Unity;
 
 namespace Rico.S03.OwinOauthWeb
 {
-    public class Startup
+    public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            #region token
-            //token-form
-            var basicOption = new OAuthAuthorizationServerOptions
-            {
-                TokenEndpointPath = new PathString("/token-basic"),
-                Provider = new BasicCredntialAuthorizationServerProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-                AllowInsecureHttp = true
-            };
 
-            //基于.net 4.6 用以下
-            //需要引用 nuget Microsoft.AspNet.Identity.Owin 
-            app.UseOAuthBearerTokens(basicOption);
+            ConfigS01(app);
 
-            //token-form
-            var formOption = new OAuthAuthorizationServerOptions
-            {
-                TokenEndpointPath = new PathString("/token-form"),
-                Provider = new FormCredentialAuthorizationServerProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
-                AllowInsecureHttp = true
-            };
+            ConfigS02(app);
 
-            //基于.net 4.6 用以下
-            //需要引用 nuget Microsoft.AspNet.Identity.Owin 
-            app.UseOAuthBearerTokens(formOption);
+            ConfigS03(app);
 
-            //
-            var refreshOption = new OAuthAuthorizationServerOptions
-            {
-                TokenEndpointPath = new PathString("/token-refresh"),
-                Provider = new RefreshTokenAuthorizationServerProvider(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                AllowInsecureHttp = true,
-                RefreshTokenProvider = new RicoRefreshTokenProvider()
-            };
+            ConfigS04(app);
 
-            app.UseOAuthBearerTokens(refreshOption);
-            #endregion
+            ConfigS05(app);
 
             #region Simple 2  WEB API
 
@@ -70,29 +41,11 @@ namespace Rico.S03.OwinOauthWeb
 
             #endregion
 
-            #region  PersintendRefreshToken
-            // DependencyInjectionConfig.Register();
-            IUnityContainer container = new UnityContainer();
-            container.RegisterType<IRefreshTokenService, RefreshTokenService>();
-
-            container.RegisterType<IRefreshTokenRepository, RefreshTokenRepository>();
-
-            container.RegisterType<IClientService, ClientService>();
-
-            container.RegisterType<IClientRepository, ClientRepository>();
-
-            var refreshOption2 = new OAuthAuthorizationServerOptions
+            app.Run(context =>
             {
-                TokenEndpointPath = new PathString("/token-refresh2"),
-                Provider = container.Resolve<PersistendRefreshTokenAuthorizationServerProvider>(),
-                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                AllowInsecureHttp = true,
-                RefreshTokenProvider = container.Resolve<PersistendRefreshTokenProvider>()
-            };
-
-            app.UseOAuthBearerTokens(refreshOption2);
-            #endregion
-            app.Run(async context => await context.Response.WriteAsync("Hello World  我是 OwinOauth 服务器! "));
+                context.Response.ContentType = "text/plain";
+                return context.Response.WriteAsync("Hello World  我是 OwinOauthServer 服务器! ");
+            });
         }
     }
 }

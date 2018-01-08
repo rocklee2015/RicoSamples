@@ -20,6 +20,8 @@ namespace Rico.S03.OwinOauthWeb
 
         public override async Task CreateAsync(AuthenticationTokenCreateContext context)
         {
+            if (string.IsNullOrEmpty(context.Ticket.Identity.Name)) return;
+
             var clietId = context.OwinContext.Get<string>("as:client_id");
             if (string.IsNullOrEmpty(clietId)) return;
 
@@ -41,6 +43,8 @@ namespace Rico.S03.OwinOauthWeb
                 ExpiresUtc = DateTime.UtcNow.AddSeconds(Convert.ToDouble(refreshTokenLifeTime)),
                 ProtectedTicket = context.SerializeTicket()
             };
+           // var UserId = (await UCenterService.GetUser(context.Ticket.Identity.Name)).UserID,
+            await _refreshTokenService.Remove(refreshToken.ClientId);
 
             context.Ticket.Properties.IssuedUtc = refreshToken.IssuedUtc;
             context.Ticket.Properties.ExpiresUtc = refreshToken.ExpiresUtc;
@@ -53,6 +57,8 @@ namespace Rico.S03.OwinOauthWeb
 
         public override async Task ReceiveAsync(AuthenticationTokenReceiveContext context)
         {
+ 
+
             var refreshToken = _refreshTokenService.Get(context.Token);
 
             if (refreshToken != null)

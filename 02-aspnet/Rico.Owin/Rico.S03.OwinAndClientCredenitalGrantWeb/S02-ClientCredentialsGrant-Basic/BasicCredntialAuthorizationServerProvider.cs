@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using Rico.S03.ConfigConst;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,10 @@ namespace Rico.S03.OwinOauthWeb
         {
             string clientId;
             string clientSecret;
-
-            //从正文获取
-            //context.TryGetFormCredentials(out clientId, out clientSecret);
             //从头部获取
             context.TryGetBasicCredentials(out clientId, out clientSecret);
-            if (clientId == "1234" && clientSecret == "5678")
+
+            if (clientId == RicoOauth.clientId && clientSecret == RicoOauth.clientSecret)
             {
                 context.Validated(clientId);
             }

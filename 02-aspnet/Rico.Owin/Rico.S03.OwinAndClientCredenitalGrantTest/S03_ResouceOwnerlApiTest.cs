@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json.Linq;
+using Rico.S03.ConfigConst;
 
 namespace Rico.S03.OwinOauthClientTest
 {
@@ -42,25 +43,25 @@ namespace Rico.S03.OwinOauthClientTest
             var body =await resp.Content.ReadAsStringAsync();
 
             Console.WriteLine(body);
-            Assert.AreEqual("ricolee", body);
+            Assert.AreEqual($"\"{RicoOauth.username}\"", body);
            
         }
         private async Task<string> GetAccessToken()
         {
-            var clientId = "1234";
-            var clientSecret = "5678";
+            var clientId = RicoOauth.clientId;
+            var clientSecret = RicoOauth.clientSecret;
 
             var parameters = new Dictionary<string, string>();
             parameters.Add("grant_type", "password");
-            parameters.Add("username", "rico");
-            parameters.Add("password", "asdf");
+            parameters.Add("username", RicoOauth.username);
+            parameters.Add("password", RicoOauth.password);
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Basic",
                 Convert.ToBase64String(Encoding.ASCII.GetBytes(clientId + ":" + clientSecret))
                 );
 
-            var response = await _httpClient.PostAsync("/token-basic", new FormUrlEncodedContent(parameters));
+            var response = await _httpClient.PostAsync("/token-s03", new FormUrlEncodedContent(parameters));
             var responseValue = await response.Content.ReadAsStringAsync();
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {

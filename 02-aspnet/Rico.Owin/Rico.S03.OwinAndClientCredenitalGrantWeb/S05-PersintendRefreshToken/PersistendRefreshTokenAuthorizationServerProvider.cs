@@ -53,7 +53,7 @@ namespace Rico.S03.OwinOauthWeb
         {
             //验证context.UserName与context.Password 
             var oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
-            //oAuthIdentity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+            oAuthIdentity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
             context.Validated(oAuthIdentity);
 
             return base.GrantResourceOwnerCredentials(context);

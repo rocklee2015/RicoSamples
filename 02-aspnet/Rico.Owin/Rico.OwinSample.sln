@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S03.OwinAndClientCrede
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S03.OwinAndClientCredenitalGrantWeb", "Rico.S03.OwinAndClientCredenitalGrantWeb\Rico.S03.OwinAndClientCredenitalGrantWeb.csproj", "{A916413A-5288-4AB8-A7D1-3FF8CA39EE5F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S03.ConfigConst", "Rico.S03.ConfigConst\Rico.S03.ConfigConst.csproj", "{CCF1C3D3-0627-45BF-8612-AE7B7C5B6359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{A916413A-5288-4AB8-A7D1-3FF8CA39EE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A916413A-5288-4AB8-A7D1-3FF8CA39EE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A916413A-5288-4AB8-A7D1-3FF8CA39EE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF1C3D3-0627-45BF-8612-AE7B7C5B6359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF1C3D3-0627-45BF-8612-AE7B7C5B6359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF1C3D3-0627-45BF-8612-AE7B7C5B6359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF1C3D3-0627-45BF-8612-AE7B7C5B6359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{982EFEF7-3CB0-4818-B5A3-D134FC04A50B} = {A0BDCF5E-A72E-48CD-8817-4B20F4FF239F}
 		{CC47F4D7-2AB1-4838-BB3A-F49E4E15BCB2} = {A0BDCF5E-A72E-48CD-8817-4B20F4FF239F}
 		{A916413A-5288-4AB8-A7D1-3FF8CA39EE5F} = {A0BDCF5E-A72E-48CD-8817-4B20F4FF239F}
+		{CCF1C3D3-0627-45BF-8612-AE7B7C5B6359} = {A0BDCF5E-A72E-48CD-8817-4B20F4FF239F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {209C7B26-B6AD-4891-82C7-94233E98199D}

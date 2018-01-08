@@ -37,7 +37,7 @@ namespace Rico.S03.OwinOauthClientTest
         }
     
         [TestMethod]
-        public async Task GetAccessTokenTest()
+        public async Task GetAccessToken_And_refresh_token()
         {
             var result = await GetAccessToken();
 
@@ -68,7 +68,7 @@ namespace Rico.S03.OwinOauthClientTest
                 Convert.ToBase64String(Encoding.ASCII.GetBytes(clientId + ":" + clientSecret))
                 );
 
-            var response = await _httpClient.PostAsync("/token-refresh", new FormUrlEncodedContent(parameters));
+            var response = await _httpClient.PostAsync("/token-s04", new FormUrlEncodedContent(parameters));
             var responseValue = await response.Content.ReadAsStringAsync();
 
             return responseValue;
@@ -95,7 +95,7 @@ namespace Rico.S03.OwinOauthClientTest
                 "Basic",
                 Convert.ToBase64String(Encoding.ASCII.GetBytes(clientId + ":" + clientSecret)));
 
-            var response = await _httpClient.PostAsync("/token-refresh", new FormUrlEncodedContent(parameters));
+            var response = await _httpClient.PostAsync("/token-s04", new FormUrlEncodedContent(parameters));
             var responseValue = await response.Content.ReadAsStringAsync();
 
             Console.WriteLine(responseValue);

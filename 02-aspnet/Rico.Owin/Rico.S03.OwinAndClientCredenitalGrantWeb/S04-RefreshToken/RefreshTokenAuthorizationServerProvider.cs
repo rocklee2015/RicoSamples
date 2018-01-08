@@ -34,20 +34,20 @@ namespace Rico.S03.OwinOauthWeb
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public override Task GrantClientCredentials(OAuthGrantClientCredentialsContext context)
-        {
-            var oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
+        //public override Task GrantClientCredentials(OAuthGrantClientCredentialsContext context)
+        //{
+        //    var oAuthIdentity = new ClaimsIdentity(context.Options.AuthenticationType);
 
-            var props = new AuthenticationProperties(new Dictionary<string, string>
-                {
-                    { "as:client_id", context.ClientId }
-                });
-            var ticket = new AuthenticationTicket(oAuthIdentity, props);
+        //    var props = new AuthenticationProperties(new Dictionary<string, string>
+        //        {
+        //            { "as:client_id", context.ClientId }
+        //        });
+        //    var ticket = new AuthenticationTicket(oAuthIdentity, props);
 
-            context.Validated(ticket);
+        //    context.Validated(ticket);
 
-            return base.GrantClientCredentials(context);
-        }
+        //    return base.GrantClientCredentials(context);
+        //}
 
         //    public async override Task GrantRefreshToken(OAuthGrantRefreshTokenContext context)
         //    {
