@@ -59,9 +59,11 @@
     <Compile Include="S03.Reflections\P01_UpdateEntityField.cs" />
     <Compile Include="S04.ReferenceTypes\P01_EnumTest.cs" />
     <Compile Include="S04.ReferenceTypes\P02_StringInternTest%28字符串驻留%29.cs" />
+    <Compile Include="S04.ReferenceTypes\P03_ClassInherit.cs" />
     <Compile Include="S05.Serializes\P01_UseDictionnary_Serialize_DynamicColumnName.cs" />
     <Compile Include="S05.Serializes\P02_Format_XmlString_Output.cs" />
     <Compile Include="S05.Serializes\P03_BinaryFormater.cs" />
+    <Compile Include="S05.Serializes\P04_XmlSerialize.cs" />
     <Compile Include="S06.Dynamics\P02_ExpandoObject.cs" />
     <Compile Include="S06.Dynamics\P01_DynamicObject.cs" />
     <Compile Include="S07.GC\P01_MemorySizeCaculate.cs" />
