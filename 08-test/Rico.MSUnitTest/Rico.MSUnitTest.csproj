@@ -50,8 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="S01_Assert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="S02_StringAssert.cs" />
+    <Compile Include="S03_CollectionAssert.cs" />
+    <Compile Include="S04_Exception.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
