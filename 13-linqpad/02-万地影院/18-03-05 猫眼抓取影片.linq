@@ -18,7 +18,7 @@ void Main()
 	result3.Dump();
 
 	var regex4 = new Regex("^http://maoyan.com/films\\?showType=[1-2]&offset=[0-120]$", RegexOptions.Compiled);
-    var result4 = regex4.IsMatch("http://maoyan.com/films");
+    var result4 = regex4.IsMatch("http://maoyan.com/films?showType=1&offset=0");
 	result4.Dump();
 }
 

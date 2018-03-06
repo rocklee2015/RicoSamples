@@ -1,0 +1,25 @@
+Chapter01.C#
+Chapter01.VB
+Chapter02.C#
+Chapter02.VB
+Chapter03.C#
+Chapter03.VB
+Chapter04.C#
+Chapter04.VB
+Chapter05.C#
+Chapter05.VB
+Chapter06.C#
+Chapter06.VB
+Chapter07.C#
+Chapter07.VB
+Chapter08.C#
+Chapter08.VB
+Chapter09.C#
+Chapter09.VB
+Chapter10.C#
+Chapter10.VB
+Chapter11.C#
+Chapter11.VB
+Chapters12-14
+LinqBooks.Common
+[0] Read me first.linq
