@@ -17,7 +17,7 @@ delete from IdentityUserLoginInfo where LoginProvider ='Govsvr'
 delete from Donor
 delete from Reimbursement
 delete from BloodDonationRecord
-delete from AdoLog
+--delete from AdoLog
 delete from UseBloodInfo
 delete from SmsMessage
 delete from ServiceInvoke

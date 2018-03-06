@@ -12,6 +12,26 @@ namespace Rico.S10.CacheSample
     [TestClass]
     public class P01_CacheDemo
     {
+        public P01_CacheDemo()
+        {
+            cache1 = new Cache();
+        }
+
+        private Cache cache1 { get; }
+
+        [TestMethod]
+        public void Cache_New()
+        {
+            Cache cache = new Cache();
+            Assert.IsNotNull(cache);
+        }
+
+        [TestMethod]
+        public void Cache_Poperty_New()
+        {
+            
+            Assert.IsNotNull(cache1);
+        }
 
         /// <summary>
         /// 绝对 和 滑动过期时间
@@ -21,7 +41,7 @@ namespace Rico.S10.CacheSample
         {
             //设置绝对过期时间，却不过期
             var person = new Person { CacheKey = "key_1", Name = "ricolee" };
-            Cache cache = HttpRuntime.Cache;
+            Cache cache = new Cache();
             //绝对过期 使用本地时间
             cache.Insert(person.CacheKey, person, null, DateTime.Now.AddSeconds(3), TimeSpan.Zero);
 

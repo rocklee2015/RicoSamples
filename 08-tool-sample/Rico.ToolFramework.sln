@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rico.S01.ORM", "Rico.S01.ORM", "{3B1818BE-B356-49BD-B8D6-810904FAFDF6}"
 EndProject
@@ -54,6 +54,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S09.Topshelf.v3.3.1", "Rico.S09.TopshelfSample\Rico.S09.Topshelf.v3.3.1.csproj", "{5E50C7B8-F9E0-4C34-81A9-C4394D1F43A6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S09.TopshelfV4", "Rico.S09.TopshelfV4\Rico.S09.TopshelfV4.csproj", "{0C3DD122-6EA0-47D8-851E-C4DDC263B3DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S13.CacheManagerTest", "Rico.S13.CacheManagerTest\Rico.S13.CacheManagerTest.csproj", "{CA0F0F84-5A53-4423-B2B7-348B476E8A15}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rico.S14.爬虫", "Rico.S14.爬虫", "{2C0625C9-BBD4-4F93-89F6-D73CE5E809A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S14.AbotTest", "Rico.S14.AbotTest\Rico.S14.AbotTest.csproj", "{E1FBF9A2-E73E-49DB-981C-762AF900B0F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S14.MaoYanMovie", "Rico.S14.MaoYanMovie\Rico.S14.MaoYanMovie.csproj", "{05312E23-D69D-450B-AD58-06BEA21075CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +121,18 @@ Global
 		{0C3DD122-6EA0-47D8-851E-C4DDC263B3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C3DD122-6EA0-47D8-851E-C4DDC263B3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C3DD122-6EA0-47D8-851E-C4DDC263B3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA0F0F84-5A53-4423-B2B7-348B476E8A15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA0F0F84-5A53-4423-B2B7-348B476E8A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA0F0F84-5A53-4423-B2B7-348B476E8A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA0F0F84-5A53-4423-B2B7-348B476E8A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1FBF9A2-E73E-49DB-981C-762AF900B0F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1FBF9A2-E73E-49DB-981C-762AF900B0F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1FBF9A2-E73E-49DB-981C-762AF900B0F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1FBF9A2-E73E-49DB-981C-762AF900B0F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05312E23-D69D-450B-AD58-06BEA21075CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05312E23-D69D-450B-AD58-06BEA21075CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05312E23-D69D-450B-AD58-06BEA21075CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05312E23-D69D-450B-AD58-06BEA21075CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,5 +152,10 @@ Global
 		{57CD170B-B8F4-499E-A8B8-7259F84A992C} = {C7336663-BBED-4166-A831-7BA6E62C228A}
 		{5E50C7B8-F9E0-4C34-81A9-C4394D1F43A6} = {C7336663-BBED-4166-A831-7BA6E62C228A}
 		{0C3DD122-6EA0-47D8-851E-C4DDC263B3DB} = {C7336663-BBED-4166-A831-7BA6E62C228A}
+		{E1FBF9A2-E73E-49DB-981C-762AF900B0F4} = {2C0625C9-BBD4-4F93-89F6-D73CE5E809A8}
+		{05312E23-D69D-450B-AD58-06BEA21075CD} = {2C0625C9-BBD4-4F93-89F6-D73CE5E809A8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58FD5A91-20F7-4900-A7E3-6DA439CFC6A1}
 	EndGlobalSection
 EndGlobal
