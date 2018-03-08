@@ -130,3 +130,121 @@ reg6.Match("abcdefg").Dump();     //输出 abc
 */
 Regex reg7 = new Regex(@"\bLove\b");
 reg7.Match("I Love You!").Dump();     //输出 Love
+
+//************ 示例八：可选项元素 ************
+/*
+?　　代表可选项，把他加在一个字符的后面，就表示此处容许出现这个字符，不过它的出现并非匹配成功的必要条件。
+*/
+Regex reg8 = new Regex(@"colou?r");
+reg8.Match("what is color?").Dump();      //输出 color
+reg8.Match("what is colour?").Dump();     //输出 colour
+
+//************ 示例九：重复出现 ************
+/*
+加号+和星号*的作用与问号类似，的作用都是限定字符出现的次数。因此问号?加号+星号*这3个元字符统称【量词】。
+?     可以出现0次或1次    
++     至少要出现1次，可以出现无数次    
+*     可以出现0次或出现无数次
+*/
+var reg9 = new Regex(@"colo*r");
+Console.WriteLine(reg9.Match("colooor"));    //输出 colooor
+
+reg9 = new Regex(@"colo*r");
+Console.WriteLine(reg9.Match("colr"));    //输出 colr
+
+reg9 = new Regex(@"colo+r");
+Console.WriteLine(reg9.Match("colr"));    //输出 空白(啥都不输出，这就是+和*的区别了)
+
+//************ 示例十、规定重现次数的范围：区间 ************
+/*　
+{min,max}　　大括号内的数字用于表示某字符允许出现的次数区间。
+{}里面的参数不一定要写全两个，也可以仅仅写一个，这样代表仅仅匹配指定的字符数，例如\b{6}\b匹配刚刚6个字母的单词。
+{n,}　　匹配n次或更多次，　　{5,}　　匹配5次以上
+*/
+Regex reg10 = new Regex(@"colo{3,5}r");
+Console.WriteLine(reg10.Match("colooor"));    //输出 colooor
+
+reg10 = new Regex(@"colo{3,5}r");
+Console.WriteLine(reg10.Match("coloor"));    //输出 空白(啥都不输出)  至少3个，但是字符串里只有两个，因此不符合
+
+//************ 示例十一、括号以及反向引用 ************
+/*
+前面已经说过括号的两个作用：限制多选项的范围，将若干字符组合为一个单元，受问号或星号之类的量词作用。
+现在在来说一种括号的用法，【分组】，此东西具有记忆的功能，即在正则表达式内部仍然能够回忆上次匹配到的是什么。这个东西用语言说不明白，书本上又是画图又是线的
+*/
+Regex reg11 = new Regex(@"(\b[A-Za-z]+ +)\1\b");
+Console.WriteLine(reg11.Match("red color color red"));    //输出 color color
+/*
+(\b[A-Za-z]+ +)　　匹配单词的开始，然后是大小写字母至少1次，然后空格至少1次。说白了就是 空格然后是匹配不区分大小写的一寸字母然后是任意个空格
+OK，再来说下\1\b　　\b当然就是单词的结尾了，那么\1呢？这个就是分组的作用了，\1代表的就是前面括号里面的东西，也就是一个单词。
+因此，整个正则表达式的意思是，匹配间隔了N个空格的重复的单词。不懂也没办法了。
+*/
+
+//************ 示例十二、神奇的转义 ************
+/*
+\　转义符它的作用是使元字符失去它的意义，仅仅代表其日常输入中字符的意义。
+*/
+Regex reg12 = new Regex(@".c");
+Console.WriteLine(reg12.Match("(acdefg"));    //输出 ac
+
+reg12 = new Regex(@"\.c");
+Console.WriteLine(reg12.Match("(acdefg"));    //输出 空白(啥都不输出，说明.已失去了它元字符，代表任意字符的意义)
+
+reg12 = new Regex(@"\.c");
+Console.WriteLine(reg12.Match("(.cdefg"));    //输出 .c    它字表它自己，就匹配一个点.了
+
+//************ 示例十三、一些其他的元字符 ************
+/*
+\w　　匹配字母，汉字，数字，下划线
+\W　　匹配非字母，非汉字，非数字，非下划线
+\s　　匹配空白符
+\S　　匹配非空白符
+\d　　匹配数字
+\D　　匹配非数字
+*/
+Regex reg13_1 = new Regex(@"\w?");
+MatchCollection mcoll = reg13_1.Matches("@你s_5");
+foreach (Match mat in mcoll)
+{
+	mat.Value.Dump();   //输出 空白 你 s _ 5     果然是匹配汉字、字母、下划线、数字
+}
+
+"---".PadRight(20,'-').Dump();
+
+var reg13_2 = new Regex(@"\s");
+MatchCollection mcoll2 = reg13_2.Matches("abc def");
+foreach (Match mat in mcoll2)
+{
+	Console.WriteLine(mat.Index);   //输出 3    这里要注意一个问题了，在用Matches时，当匹配不到时，会返回Empty，因此，可以认为每次都是匹配到的，但是匹配到空
+}
+
+"---".PadRight(20,'-').Dump();
+
+var reg13_3 = new Regex(@"\d");      //匹配数字
+Match m2 = reg13_3.Match("abc5def");
+Console.WriteLine(m2.Value);    //输出 5
+
+"---".PadRight(20,'-').Dump();
+
+//以下代码为完全复制上面的代码,只是改了命名与正则
+var reg13_4 = new Regex(@"\W?");
+MatchCollection mcoll3 = reg13_4.Matches("@你s_5");
+foreach (Match mat in mcoll2)
+{
+	Console.WriteLine(mat.Value);   //输出 @
+}
+
+"---".PadRight(20,'-').Dump();
+
+var reg13_5 = new Regex(@"\S");      //匹配非空格
+MatchCollection mcoll4 = reg13_5.Matches("abc def");
+foreach (Match mat in mcoll4)
+{
+	Console.WriteLine(mat.Value);   //输出 abcdef    这里要注意一个问题了，在用Matches时，当匹配不到时，会返回Empty，因此，可以认为每次都是匹配到的，但是匹配到空
+}
+
+"---".PadRight(20,'-').Dump();
+
+var reg13_6 = new Regex(@"\D");      //匹配非数字
+Match m3 = reg13_6.Match("abc5def");
+Console.WriteLine(m3.Value);    //输出 a  Match就是只匹配第一个

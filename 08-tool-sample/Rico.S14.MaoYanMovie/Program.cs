@@ -15,6 +15,7 @@ namespace Rico.S14.MaoYanMovie
             var crawler = abot.GetManuallyConfiguredWebCrawler();
             var result = crawler.Crawl(abot.FeedUrl);
             System.Console.WriteLine(result.ErrorException);
+            abot.SaveMovieToFile();
             abot.WriteLog("end");
         }
     }

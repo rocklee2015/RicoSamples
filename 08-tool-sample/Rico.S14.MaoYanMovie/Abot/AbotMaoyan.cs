@@ -2,17 +2,50 @@
 using Abot.Poco;
 using CsQuery.HtmlParser;
 using Newtonsoft.Json;
+using Rico.S14.MaoYanMovie.WdMovie;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Rico.S14.MaoYanMovie
 {
     public class AbotMaoyan
     {
+        public AbotMaoyan()
+        {
+            InitialMovieList();
+
+            ThreadPool.SetMaxThreads(10, 3);
+        }
+        private void InitialMovieList()
+        {
+            var basePath = AppDomain.CurrentDomain.BaseDirectory + MovieListFileName;
+            if (File.Exists(basePath))
+            {
+                var movieListJson = File.ReadAllText(basePath);
+                if (movieListJson.Length <= 0)
+                    MovieUrlList = new List<string>();
+                else
+                    MovieUrlList = JsonConvert.DeserializeObject<List<string>>(movieListJson);
+            }
+            else
+            {
+                MovieUrlList = new List<string>();
+            }
+
+            MovieScores = new List<MaoyanMovieScore>();
+        }
+        private string MovieListFileName = "movie-list.txt";
+        public void SaveMovieToFile()
+        {
+            var movieListJson = JsonConvert.SerializeObject(MovieUrlList);
+            File.WriteAllText(MovieListFileName, movieListJson);
+        }
         /// <summary>
         /// 猫眼主页
         /// </summary>
@@ -22,8 +55,9 @@ namespace Rico.S14.MaoYanMovie
         /// 猫眼主页分页的正则表达式
         /// showType=1 是正在热映
         /// showType=2 即将上映
+        /// 只抓取 第1至5页
         /// </summary>
-        public Regex MoviePageRegex = new Regex("^http://maoyan.com/films\\?showType=[1-2]&offset=[0-120]$", RegexOptions.Compiled);
+        public Regex MoviePageRegex = new Regex("^http://maoyan.com/films\\?showType=1&offset=[0|30|60|90|120]+$", RegexOptions.Compiled);
 
         /// <summary>
         /// 猫眼电影详细
@@ -68,8 +102,6 @@ namespace Rico.S14.MaoYanMovie
             crawler.ShouldCrawlPageLinks(ShouldCrawlPageLinks);
             //是否下载该页面
             crawler.ShouldDownloadPageContent(ShouldDownloadPageContent);
-
-
 
 
             //单个页面爬取开始 
@@ -117,49 +149,113 @@ namespace Rico.S14.MaoYanMovie
         {
             WriteLog("crawler_ProcessPageCrawlCompletedAsync:" + e.CrawledPage.Uri.AbsoluteUri);
             var uri = e.CrawledPage.Uri.AbsoluteUri;
-            ////判断是否是新闻详细页面
-            //if (MovieDetailRegex.IsMatch(e.CrawledPage.Uri.AbsoluteUri))
-            //{
-            //    var htmlText = e.CrawledPage.Content.Text;
 
-            //    var movie = MaoyanManager.FindMovieInfoFromHtml(htmlText);
-            //    if (movie == null)
-            //        return;
-            //    movie.Url = e.CrawledPage.Uri.AbsoluteUri;
+            //CrawlCompleted_1(uri,e.CrawledPage.Content.Text);
+            //CrawlCompleted_2(new CrawlParam { Url = uri, Text = e.CrawledPage.Content.Text });
+            ThreadPool.QueueUserWorkItem(new WaitCallback(CrawlCompleted_2), new CrawlParam { Url = uri, Text = e.CrawledPage.Content.Text });
 
-            //    var movieJson = JsonConvert.SerializeObject(movie);
-            //    System.IO.File.AppendAllText("movies.txt", $"{movie.MovieName}\t{movieJson}\r\n");
 
-            //}
-            ////if (e.CrawledPage.Uri.AbsoluteUri == "http://maoyan.com/films?showType=1" ||
-            ////    e.CrawledPage.Uri.AbsoluteUri == "http://maoyan.com/films")
-            ////{
+        }
+       
+        private void CrawlCompleted_2(object state)
+        {
+            var param = state as CrawlParam;
+            var uri = param.Url;
+            var text = param.Text;
+            if (MovieDetailRegex.IsMatch(uri))
+            {
 
-            ////}
-            //if (MoviePageRegex.IsMatch(e.CrawledPage.Uri.AbsoluteUri))
-            //{
-            //    var htmlText = e.CrawledPage.Content.Text;
-            //    var movieScores = MaoyanManager.FindMovieScoreFormHtml(htmlText);
-            //    if (movieScores.Count <= 0)
-            //        return;
+                var htmlText = text;
 
-            //    var movieJson = JsonConvert.SerializeObject(movieScores);
-            //    System.IO.File.AppendAllText("movie-scores.txt", $"{movieJson}\r\n");
-            //}
+                var movie = MaoyanManager.FindMovieInfoFromHtml(htmlText);
+                if (movie == null)
+                    return;
+                movie.Url = uri;
+
+                //匹配评分
+                var movieScore = MovieScores.FirstOrDefault(a => a.MoiveName == movie.MovieName);
+                if (movieScore != null)
+                {
+                    movie.MovieScore = movieScore.Score;
+                }
+
+                //同步到数据库
+                var result = CinemaManager.AddFilm(movie);
+
+                if (result == false)
+                {
+                    Console.WriteLine($"【{movie.MovieName}】         失败！");
+                    return;
+                }
+                   
+
+                if (!MovieUrlList.Contains(uri))
+                    MovieUrlList.Add(uri);
+
+                Console.WriteLine($"【{movie.MovieName}】 完成！");
+            }
+
+            if (MoviePageRegex.IsMatch(uri)||
+                uri== "http://maoyan.com/films?showType=1")
+            {
+                var htmlText = text;
+                var movieScores = MaoyanManager.FindMovieScoreFormHtml(htmlText);
+                if (movieScores.Count <= 0)
+                    return;
+
+                foreach (var item in movieScores)
+                {
+                    if (MovieScores.Count(a => a.MoiveName == item.MoiveName) <= 0)
+                    {
+                        MovieScores.Add(item);
+                    }
+                }
+            }
+        }
+        private void CrawlCompleted_1(string uri, string text)
+        {
+            //判断是否是新闻详细页面
+            if (MovieDetailRegex.IsMatch(uri))
+            {
+                var htmlText = text;
+
+                var movie = MaoyanManager.FindMovieInfoFromHtml(htmlText);
+                if (movie == null)
+                    return;
+                movie.Url = uri;
+
+                var movieJson = JsonConvert.SerializeObject(movie);
+                System.IO.File.AppendAllText("movies.txt", $"{movie.MovieName}\t{movieJson}\r\n");
+
+                if (!MovieUrlList.Contains(uri))
+                    MovieUrlList.Add(uri);
+            }
+
+            if (MoviePageRegex.IsMatch(uri))
+            {
+                var htmlText = text;
+                var movieScores = MaoyanManager.FindMovieScoreFormHtml(htmlText);
+                if (movieScores.Count <= 0)
+                    return;
+
+                var movieJson = JsonConvert.SerializeObject(movieScores);
+                System.IO.File.AppendAllText("movie-scores.txt", $"{movieJson}\r\n");
+            }
             if (MoviePageRegex.IsMatch(uri) ||
                 uri == "http://maoyan.com/films?showType=1" ||
                 uri == "http://maoyan.com/films")
             {
-                System.IO.File.AppendAllText("movie-url.txt", $"{e.CrawledPage.Uri.AbsoluteUri} 【匹配】\r\n");
+                System.IO.File.AppendAllText("movie-url.txt", $"{uri} 【匹配】\r\n");
             }
             else
             {
-                System.IO.File.AppendAllText("movie-url.txt", $"{e.CrawledPage.Uri.AbsoluteUri}\r\n");
+                System.IO.File.AppendAllText("movie-url.txt", $"{uri}\r\n");
             }
-           
-
         }
 
+        private static List<MaoyanMovieScore> MovieScores;
+
+        private static List<string> MovieUrlList;
 
         /// <summary>
         /// 页面链接不允许爬取事件
@@ -180,10 +276,19 @@ namespace Rico.S14.MaoYanMovie
         /// </summary>
         private CrawlDecision ShouldCrawlPage(PageToCrawl pageToCrawl, CrawlContext context)
         {
+            var uri = pageToCrawl.Uri.AbsoluteUri;
             if (pageToCrawl.IsRoot || pageToCrawl.IsRetry || FeedUrl == pageToCrawl.Uri
-                || MoviePageRegex.IsMatch(pageToCrawl.Uri.AbsoluteUri)
-                || MovieDetailRegex.IsMatch(pageToCrawl.Uri.AbsoluteUri))
+                || MoviePageRegex.IsMatch(uri)
+                || MovieDetailRegex.IsMatch(uri))
             {
+
+                if (MovieUrlList.Contains(uri))
+                {
+                    WriteLog("爬取过了：" + pageToCrawl.Uri.AbsoluteUri);
+                    return new CrawlDecision { Allow = false };
+                }
+
+
                 WriteLog("ShouldCrawlPage true:" + pageToCrawl.Uri.AbsoluteUri);
                 return new CrawlDecision { Allow = true };
             }
@@ -225,7 +330,6 @@ namespace Rico.S14.MaoYanMovie
         private CrawlDecision ShouldCrawlPageLinks(CrawledPage crawledPage, CrawlContext crawlContext)
         {
 
-
             if (!crawledPage.IsInternal)
                 return new CrawlDecision { Allow = false, Reason = "We dont crawl links of external pages" };
 
@@ -250,14 +354,20 @@ namespace Rico.S14.MaoYanMovie
         private static object lockObj = new object();
         public void WriteLog(string log)
         {
-            lock (lockObj)
-            {
-                System.IO.File.AppendAllText("log.txt", log);
-                System.IO.File.AppendAllText("log.txt", "\r\n==================\r\n");
-            }
+            //lock (lockObj)
+            //{
+            //    System.IO.File.AppendAllText("log.txt", log);
+            //    System.IO.File.AppendAllText("log.txt", "\r\n==================\r\n");
+            //}
 
-            Console.WriteLine(log);
+            //Console.WriteLine(log);
         }
 
+    }
+    public class CrawlParam
+    {
+        public string Url { get; set; }
+
+        public string Text { get; set; }
     }
 }

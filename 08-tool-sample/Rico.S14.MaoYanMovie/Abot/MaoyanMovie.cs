@@ -14,6 +14,8 @@ namespace Rico.S14.MaoYanMovie
         }
         public string Url { get; set; }
 
+        public string MovieCoverImage { get; set; }
+
         public string MovieName { get; set; }
 
         public string MovieEnglisName { get; set; }
@@ -22,11 +24,11 @@ namespace Rico.S14.MaoYanMovie
 
         public string MovieArea { get; set; }
 
-        public string MovieDuration { get; set; }
+        public int MovieDuration { get; set; }
 
         public string MovieReleaseTime { get; set; }
 
-        public double MovieScore { get; set; }
+        public decimal MovieScore { get; set; }
 
         public string MovieBrief { get; set; }
 
@@ -40,6 +42,6 @@ namespace Rico.S14.MaoYanMovie
     public class MaoyanMovieScore
     {
         public string MoiveName { get; set; }
-        public double Score { get; set; }
+        public decimal Score { get; set; }
     }
 }

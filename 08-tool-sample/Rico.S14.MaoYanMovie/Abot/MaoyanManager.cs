@@ -20,8 +20,8 @@ namespace Rico.S14.MaoYanMovie
             {
                 var movieName = item.Select(".movie-item-title").Attr("title");
                 var scoreText = item.Select(".integer").Text + item.Select(".fraction").Text;
-                double movieScore = 0;
-                double.TryParse(scoreText, out movieScore);
+                decimal movieScore = 0;
+                decimal.TryParse(scoreText, out movieScore);
                 movieScores.Add(new MaoyanMovieScore()
                 {
                     MoiveName = movieName,
@@ -37,6 +37,9 @@ namespace Rico.S14.MaoYanMovie
             NSoup.Nodes.Document doc = NSoup.NSoupClient.Parse(htmlDoc, "utf-8");
             var movieBrief = doc.GetElementsByClass("movie-brief-container");
 
+            var coverImg = doc.GetElementsByClass("avatar").Attr("src");
+            movie.MovieCoverImage = coverImg.Split('@')[0];
+
             if (movieBrief == null)
                 return null;
             //影片名称
@@ -50,9 +53,11 @@ namespace Rico.S14.MaoYanMovie
             var areaTime = movieBrief.Select("ul>li")[1].Text();
             var array = areaTime.Split('/');
             movie.MovieArea = array.Length > 0 ? array[0] : "";
-            var duration = array.Length > 1 ? array[1] : "";
-            movie.MovieDuration = System.Text.RegularExpressions.Regex.Replace(duration, @"[^0-9]+", "");
-
+            var durationAll = array.Length > 1 ? array[1] : "";
+            string durationStr = System.Text.RegularExpressions.Regex.Replace(durationAll, @"[^0-9]+", "");
+            int duration = 0;
+            int.TryParse(durationStr, out duration);
+            movie.MovieDuration = duration;
             //上映日期
             var releaseTime = movieBrief.Select("ul>li")[2].Text();
             releaseTime = System.Text.RegularExpressions.Regex.Replace(releaseTime, @"[^0-9|-]+", "");
@@ -61,8 +66,8 @@ namespace Rico.S14.MaoYanMovie
             //影评分手（评分是字体图标无法抓取）
             var scoreText = doc.GetElementsByClass("info-num").Select(".stonefont").Text;
             scoreText = HttpUtility.UrlDecode(scoreText);
-            double score = 0;
-            double.TryParse(scoreText, out score);
+            decimal score = 0;
+            decimal.TryParse(scoreText, out score);
             movie.MovieScore = score;
 
             //简介
@@ -72,14 +77,21 @@ namespace Rico.S14.MaoYanMovie
             movie.MovieDirector = doc.GetElementsByClass("celebrity-group")[0].Select(".name").Text;
 
             //导演
-            var actors = doc.GetElementsByClass("celebrity-group")[1].Select(".name").ToList().Select(a => a.Text());
-            movie.MovieActor = string.Join(",", actors);
+            var actorsDiv = doc.GetElementsByClass("celebrity-group");
+            if (actorsDiv.Count > 1)
+            {
+                var actors = actorsDiv[1].Select(".name").ToList().Select(a => a.Text());
+                movie.MovieActor = string.Join(",", actors);
+            }
+
+           
 
             //图集
             var photos = doc.GetElementsByClass("tab-img").Select("img").Take(30).ToList();
             foreach (var photo in photos)
             {
                 var photoUrl = photo.Attributes["data-src"];
+                photoUrl = photoUrl.Split('@')[0];
                 movie.MoviePhoto.Add(photoUrl);
             }
             return movie;

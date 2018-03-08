@@ -1,11 +1,11 @@
 <Query Kind="Expression">
   <Connection>
-    <ID>8f35cbb5-7d32-4780-9466-d2ea7df6801a</ID>
+    <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
-    <Server>192.168.1.218\mighost</Server>
+    <Server>101.132.69.71</Server>
     <SqlSecurity>true</SqlSecurity>
     <UserName>sa</UserName>
-    <Password>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABoybHsSXFUuz8AXaKmCqgAAAAAACAAAAAAAQZgAAAAEAACAAAAAY1L2xKXxTEwafKLsJIgRLp3lTtHAGIZJKfzP+Cm/fnQAAAAAOgAAAAAIAACAAAABFxQ3QIGCW+GW9ZwBRjYCQKjMVsx68ZWf41kU/8x/YExAAAADltx+Q8L+jR8smKtSA1KvTQAAAAAkFR+NNcSvAp0ax3jBbCKBrfQNaSCf3lR+Faqk/qDBA6Gqf9Zq2yxWWG/Dt5DcbvpxE6mq07V0vP7xoxwZR4r8=</Password>
+    <Password>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABoybHsSXFUuz8AXaKmCqgAAAAAACAAAAAAAQZgAAAAEAACAAAADlMDTg8rh8stUlZgjvxKWfJkLaoJu5GrJnhua9EICUhQAAAAAOgAAAAAIAACAAAAB7x+0HnQ6b0YgF1diupbyFoqj8o5uo5sGeSJrsiKJKHBAAAABM8IUq4NDIt9vX4B4yLwcyQAAAAJFB1V+gp2sgHISifMpmzqEsGAOnWOnhx7O3RcsGhbmZYn41eVGBCO7ch97kncwveJgTFqk5lA+bm4awvliGAl0=</Password>
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
@@ -32,11 +32,12 @@
 (from api in ApiRequests
  join user in Users  on api.UserName  equals user.Id.ToString()  into userTemp
  from user2 in userTemp.DefaultIfEmpty()
- where api.InerfaceName.Contains("confirm")
+ //where api.InerfaceName.Contains("confirm")
+ //where api.ResponseText.Contains("场次信息已经变化")
  orderby api.CreateTime descending
  select new { api,user2 }
  )
- .Take(20)
+ .Take(100)
 .Select(a => new
 {
 	a.user2.NickName,

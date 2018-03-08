@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="FilmPosterUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keyt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datas" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="filmId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilmPosterUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FilmPosterUploadResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="imagePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilmScreenUpload">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keyt" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="datas" type="s:base64Binary" />
+            <s:element minOccurs="1" maxOccurs="1" name="filmId" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FilmScreenUploadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FilmScreenUploadResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="imagePath" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FilmPosterUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:FilmPosterUpload" />
+  </wsdl:message>
+  <wsdl:message name="FilmPosterUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:FilmPosterUploadResponse" />
+  </wsdl:message>
+  <wsdl:message name="FilmScreenUploadSoapIn">
+    <wsdl:part name="parameters" element="tns:FilmScreenUpload" />
+  </wsdl:message>
+  <wsdl:message name="FilmScreenUploadSoapOut">
+    <wsdl:part name="parameters" element="tns:FilmScreenUploadResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FilmPhotoSoap">
+    <wsdl:operation name="FilmPosterUpload">
+      <wsdl:input message="tns:FilmPosterUploadSoapIn" />
+      <wsdl:output message="tns:FilmPosterUploadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FilmScreenUpload">
+      <wsdl:input message="tns:FilmScreenUploadSoapIn" />
+      <wsdl:output message="tns:FilmScreenUploadSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FilmPhotoSoap" type="tns:FilmPhotoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FilmPosterUpload">
+      <soap:operation soapAction="http://tempuri.org/FilmPosterUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilmScreenUpload">
+      <soap:operation soapAction="http://tempuri.org/FilmScreenUpload" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FilmPhotoSoap12" type="tns:FilmPhotoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FilmPosterUpload">
+      <soap12:operation soapAction="http://tempuri.org/FilmPosterUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FilmScreenUpload">
+      <soap12:operation soapAction="http://tempuri.org/FilmScreenUpload" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FilmPhoto">
+    <wsdl:port name="FilmPhotoSoap" binding="tns:FilmPhotoSoap">
+      <soap:address location="http://192.168.1.117:2006/FilmPhoto.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FilmPhotoSoap12" binding="tns:FilmPhotoSoap12">
+      <soap12:address location="http://192.168.1.117:2006/FilmPhoto.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
