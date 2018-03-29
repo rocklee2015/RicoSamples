@@ -11,7 +11,6 @@
   </Connection>
 </Query>
 
+--delete from film where createtime > '2018-03-08'
 
-delete from film where createtime > '2018-03-08'
-
-delete from FilmPhoto where createtime > '2018-03-08'
+--delete from FilmPhoto where createtime > '2018-03-08'

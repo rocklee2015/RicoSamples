@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -12,18 +12,26 @@
   <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-//.Where(a=>a.Data.Contains("支付宝支付回调"))
-.OrderByDescending(a => a.CreateTime)
-	   .Take(100)
-	   
-	   .ToList()
-	   .Select(a => new
-	   {
-		   a.Path,
-		   a.CreateTime,
-		   a.Level,
-		   a.Message,
-		   a.Data,
-		   a.Detail
-	   })
+
+var time=DateTime.Now; //今天
+time=time.AddDays(1);//明天
+
+FilmSchedules
+.Where(a=>
+a.IsDeleted
+)
+.OrderByDescending(a=>a.CreateTime)
+.Select(a => new{
+a.FilmName,
+a.CreateTime,
+a.ScheduleId,
+a.ScheduleKey,
+a.StandardPrice,
+a.LowestPrice,
+a.SettlePrice,
+a.TicketFee,
+a.ShowDateTime,
+a.IsDeleted,
+}).Dump();
+
+//D04DE356B8F1F6DE43973253CBDFC949

@@ -9,7 +9,6 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Configuration.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.dll</Reference>
@@ -31,23 +30,22 @@
 </Query>
 
 (from api in ApiRequests
- join user in Users  on api.UserName  equals user.Id.ToString()  into userTemp
+ join user in Users on api.UserName equals user.Id.ToString() into userTemp
  from user2 in userTemp.DefaultIfEmpty()
- //where api.InerfaceName.Contains("schedule.getSchedules")
- //where api.ResponseText.Contains("影院系统执行错误")
+	 //where api.InerfaceName.Contains("confirm")
+	 //where api.ResponseText.Contains("影院系统执行错误")
+	 //where api.InerfaceName.Contains("queryPrice") && api.ResponseText.Contains("场次信息无效")
+	 where api.Url.Contains("58671052") 
  orderby api.CreateTime descending
- select new { api,user2 }
+ select new
+ {
+	 api.CreateTime,
+	 user2.NickName,
+	 api.InterfaceDesc,
+	 api.InerfaceName,
+	 Url = HttpUtility.UrlDecode(api.Url),
+	 api.ResponseText,
+ }
  )
  .Take(100)
- .ToList()
-
-.Select(a => new
-{
-	a.user2?.NickName,
-	CreateTime=a.api.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	a.api.InterfaceDesc,
-	a.api.InerfaceName,
-	Url = HttpUtility.UrlDecode(a.api.Url),
-	a.api.ResponseText,
-	a.api.UserName
-})
+ .Dump()

@@ -9,21 +9,9 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-//.Where(a=>a.Data.Contains("支付宝支付回调"))
-.OrderByDescending(a => a.CreateTime)
-	   .Take(100)
-	   
-	   .ToList()
-	   .Select(a => new
-	   {
-		   a.Path,
-		   a.CreateTime,
-		   a.Level,
-		   a.Message,
-		   a.Data,
-		   a.Detail
-	   })
+FilmSchedules
+.Where(a=>a.ScheduleId.Contains("59333917"))
+
+//D04DE356B8F1F6DE43973253CBDFC949

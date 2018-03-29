@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -12,18 +12,10 @@
   <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-//.Where(a=>a.Data.Contains("支付宝支付回调"))
-.OrderByDescending(a => a.CreateTime)
-	   .Take(100)
-	   
-	   .ToList()
-	   .Select(a => new
-	   {
-		   a.Path,
-		   a.CreateTime,
-		   a.Level,
-		   a.Message,
-		   a.Data,
-		   a.Detail
-	   })
+OrderTickets.Where(a=>a.TicketFee==1).OrderBy(a=>a.CreateTime).Dump("有手续费");
+
+OrderTickets.Where(a=>a.TicketFee==0).OrderByDescending(a=>a.CreateTime).Dump("没有手续费");
+
+OrderTickets.Count(a=>a.TicketFee==0).Dump("没有手续费");
+
+OrderTickets.Where(a=>a.TicketFee==0).OrderByDescending(a=>a.CreateTime).Take(100).Dump("没有手续费");

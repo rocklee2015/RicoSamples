@@ -20,4 +20,5 @@ AdoLogs.OrderByDescending(a=>a.CreateTime)
 		a.Level,
 		a.Message,
 		a.Data,
+		a.Detail
 	   })

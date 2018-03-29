@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="SQL">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,21 +9,8 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-//.Where(a=>a.Data.Contains("支付宝支付回调"))
-.OrderByDescending(a => a.CreateTime)
-	   .Take(100)
-	   
-	   .ToList()
-	   .Select(a => new
-	   {
-		   a.Path,
-		   a.CreateTime,
-		   a.Level,
-		   a.Message,
-		   a.Data,
-		   a.Detail
-	   })
+--update OrderTicket set TicketFee=1 where createtime<='2018/3/7 20:06:09'
+
+
