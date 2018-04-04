@@ -12,6 +12,9 @@
 </Query>
 
 FilmSchedules
-.Where(a=>a.ScheduleId.Contains("59333917"))
+.Where(a=>a.ScheduleId.Contains("59369013")
+//&&a.ScheduleKey.Contains("10AA28C2E5F5D1E707D90B966893A5A2")
+)
 
 //D04DE356B8F1F6DE43973253CBDFC949
+//550FE216CFFD20373812503EB3DBEEB0 | 

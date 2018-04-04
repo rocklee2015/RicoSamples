@@ -35,7 +35,7 @@
 	 //where api.InerfaceName.Contains("confirm")
 	 //where api.ResponseText.Contains("影院系统执行错误")
 	 //where api.InerfaceName.Contains("queryPrice") && api.ResponseText.Contains("场次信息无效")
-	 where api.Url.Contains("58671052") 
+	 //where api.Url.Contains("58671052") 
  orderby api.CreateTime descending
  select new
  {

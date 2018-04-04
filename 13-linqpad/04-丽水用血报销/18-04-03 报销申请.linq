@@ -1,4 +1,4 @@
-<Query Kind="SQL">
+<Query Kind="Statements">
   <Connection>
     <ID>8f35cbb5-7d32-4780-9466-d2ea7df6801a</ID>
     <Persist>true</Persist>
@@ -11,16 +11,9 @@
   </Connection>
 </Query>
 
-delete from [User]
-delete from IdentityUser where UserName like '%Govsvr%'
-delete from IdentityUserLoginInfo where LoginProvider ='Govsvr'
-delete from Donor
-delete from Reimbursement
-delete from BloodDonationRecord
---delete from AdoLog
-delete from UseBloodInfo
-delete from SmsMessage
-delete from ServiceInvoke
-delete from BloodDonor
-delete from BloodUser
---delete from ClinicalFeeCriterion
+var entity=Reimbursements.OrderByDescending(a=>a.CreateTime).FirstOrDefault();
+entity.Dump();
+
+BloodDonors.Where(a=>a.ReimbursementId==entity.Id).Dump();
+
+BloodUsers.Where(a=>a.ReimbursementId==entity.Id).Dump();
