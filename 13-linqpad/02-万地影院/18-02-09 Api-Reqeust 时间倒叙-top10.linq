@@ -9,7 +9,6 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Configuration.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.dll</Reference>
@@ -34,6 +33,7 @@
  join user in Users  on api.UserName  equals user.Id.ToString()  into userTemp
  from user2 in userTemp.DefaultIfEmpty()
  where 1==1
+ &&api.ResponseText.Contains("1185200000999")
  //&& api.InerfaceName.Contains("schedule.getSchedules")
  //&& api.ResponseText.Contains("影院系统执行错误")
  //&& api.ResponseText.Contains("场次信息无效")

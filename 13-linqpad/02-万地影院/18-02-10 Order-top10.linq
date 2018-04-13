@@ -69,7 +69,7 @@
 </Query>
 
 Orders.OrderByDescending(a => a.CreateTime)
-.Where(a=>a.Status==(int)OrderStatus.Ticketed)
+.Where(a=>a.MerchantOrderId.Contains("20180110XX1185000002970200W729"))
 .Take(20).ToList().Select(a => new
 {
 	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),

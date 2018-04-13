@@ -1,4 +1,4 @@
-<Query Kind="Statements">
+<Query Kind="Program">
   <Connection>
     <ID>8f35cbb5-7d32-4780-9466-d2ea7df6801a</ID>
     <Persist>true</Persist>
@@ -9,12 +9,19 @@
     <Database>BloodDonation</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
 </Query>
 
-var entity=Reimbursements.OrderByDescending(a=>a.CreateTime).FirstOrDefault();
-entity.Dump();
+void Main()
+{
+	var str = "abcdefg.百图科技";
+	//Encoding.Default.Dump("默认编码");
+	Encoding.Default.GetBytes(str).Length.Dump("GB2312 字节 长度");
+	Encoding.UTF8.GetBytes(str).Length.Dump("UTF8 字节长度（UTF8一个汉字占3个字节）");
+	Encoding.Unicode.GetBytes(str).Length.Dump("Unicode 字节长度");
+	Encoding.ASCII.GetBytes(str).Length.Dump("ASCII 字节长度");
+	str.Length.Dump("字符长度");
 
-BloodDonors.Where(a=>a.ReimbursementId==entity.Id).Dump();
+	
+}
 
-BloodUsers.Where(a=>a.ReimbursementId==entity.Id).Dump();
+// Define other methods and classes here

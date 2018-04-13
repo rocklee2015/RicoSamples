@@ -66,80 +66,45 @@
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\System.Web.Webpages.Razor.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\WebGrease.dll</Reference>
   <Namespace>Cinema.Core.Domain.Models.Values</Namespace>
-  <Namespace>Cinema.YueKe.Service.Apis.CardApis.CardJson</Namespace>
-  <Namespace>Cinema.YueKe.Service.Apis.CardApis</Namespace>
-  <Namespace>Drapid.Domain.Configuration</Namespace>
-  <Namespace>Cinema.Audit</Namespace>
-  <Namespace>DRapid.Utility.Log</Namespace>
-  <Namespace>System.Threading.Tasks</Namespace>
-  <Namespace>DRapid.Utility.Http.Serialization</Namespace>
 </Query>
 
-AppConfiguration.Current.ComponentContainer.UseInstance<IApiRequestLogger>(new AipRequestTextLogger());
-Func<string, string, string, string, string> getVipPrice = (CinemaLinkId, CardNumber, ScheduleId, ScheduleKey) =>
- {
-	 var cardPriceParam = new QueryPriceParam()
-	 {
-		 CinemaLinkId = CinemaLinkId,
-		 CardNumber = CardNumber,
-		 ScheduleId = ScheduleId,
-		 ScheduleKey = ScheduleKey,
-		 SectionId = "0000000000000001"
-	 };
-	 var apiResult = CardApi.QueryPriceAsync(cardPriceParam).Result;
-
-	 var vipPrice = apiResult.Data.Tickets?
-									  .Where(s => s.IsCardDiscount)
-									  .OrderBy(s => s.Price)
-									  .FirstOrDefault();
-	 if (vipPrice == null) return vipPrice.Price;
-	 return "0";
- };
-
-(
-  from order in Orders
-  join user in Users.Where(a => !a.IsDeleted) on order.UserId equals user.Id
-  join leaguer in Leaguers.Where(a => !a.IsDeleted) on user.Id equals leaguer.UserId into userLeaguerEmpty
-  from userLeaguer in userLeaguerEmpty.DefaultIfEmpty()
-  join vipCard in VipCards.Where(a => !a.IsDeleted) on userLeaguer.GradeId equals vipCard.GradeId into vipCardEmpty
-  from userVipCard in vipCardEmpty.DefaultIfEmpty()
-  //where  (!userLeaguer.IsDeleted)
-  orderby order.CreateTime descending
-  select new { order, user, userLeaguer,userVipCard })
-.Take(100)
-.ToList()
-.Select(a => new
+var result=Orders
+.Where(a => (a.Status == (int)OrderStatus.Ticketed||a.Status == (int)OrderStatus.PrintTicket)
+&& a.CreateTime >= new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1).AddHours(6)
+&& a.CreateTime <= DateTime.Now.AddDays(1 - DateTime.Now.Day).Date.AddHours(6)
+&&a.PayType==(int)PayType.Alipay
+).OrderBy(a => a.CreateTime).ToList().Select(a => new
 {
-	a.user.NickName,
-	是否会员=a.userLeaguer!=null,
-	会员卡=a.userLeaguer?.CardNo,
-	卡类型=a.userVipCard?.GradeDesc,
-	创建时间 = a.order.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	状态 = ((OrderStatus)a.order.Status).ReadEnumDescription(),
-	支付方式 = ((PayType)a.order.PayType).ReadEnumDescription(),
-	a.order.TicketCount,
-	a.order.OldTotal,
-	a.order.Total,
-	a.order.CardTotal,
-	会员价=a.userLeaguer!=null?getVipPrice(a.order.CinemaLinkId,a.userLeaguer?.CardNo,a.order.FilmScheduleId,a.order.FilmScheduleKey):"0",
-	a.order.ThirdPay,
-	a.order.Mobile,
-
-	a.order.PayCardNum,
-	a.order.ConfirmationId,
-	a.order.MerchantOrderId,
-	a.order.ThirdpartyOrderId,
-	a.order.LimitDiscountId,
-	a.order.RedPacketId,
-	a.order.GoodsTotal,
-	a.order.TotalGoodsFee,
-	a.order.PickUpCode,
-	a.order.HoldId,
-	a.order.Id,
-	a.order.LockOrderId,
-	a.order.OutLockId,
-	a.order.BookingId,
-	a.order.OrderCode,
-	a.order.ExpireTime,
-	a.order.UserId,
-}).ToList().Dump();
+	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+	
+	状态 = ((OrderStatus)a.Status).ReadEnumDescription(),
+	支付方式 = ((PayType)a.PayType).ReadEnumDescription(),
+	a.TicketCount,
+	a.OldTotal,
+	a.Total,
+	a.CardTotal,
+	a.ThirdPay,
+	a.Mobile,
+	
+	a.PayCardNum,
+	a.ConfirmationId,
+	a.MerchantOrderId,
+	a.ThirdpartyOrderId,
+	a.LimitDiscountId,
+	a.RedPacketId,
+	a.GoodsTotal,
+	a.TotalGoodsFee,
+	a.PickUpCode,
+	a.HoldId,
+	a.Id,
+	a.LockOrderId,
+	a.OutLockId,
+	a.BookingId,
+	a.OrderCode,
+	a.ExpireTime,
+	a.FilmScheduleId,
+	Time=a.CreateTime,
+});
+result.Dump();
+//var groupyR = result.GroupBy(a => a.Time.Date).Select(a => new {Date=a.Key, Total=a.Sum(b=>b.ThirdPay)}).ToList();
+//groupyR.Dump();
