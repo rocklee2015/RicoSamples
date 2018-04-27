@@ -8,8 +8,8 @@
   -webkit-text-size-adjust: 100%;
   color: #000;
   overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
-  font-size: 14px;
+  font-family: "Microsoft Yahei","Simsun",Arial;
+  font-size: 15px;
   line-height: 1.6;
   word-wrap: break-word;
   width: 100%;
@@ -26,7 +26,7 @@
 
 .cnblogs-markdown strong {
   font-weight: bold;
-  color: red;
+  color: #ec3509;
 }
 
 .cnblogs-markdown img {
@@ -345,7 +345,7 @@
 .cnblogs-markdown ul,
 .cnblogs-markdown ol {
   padding-left: 2em;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .cnblogs-markdown ul ul,
