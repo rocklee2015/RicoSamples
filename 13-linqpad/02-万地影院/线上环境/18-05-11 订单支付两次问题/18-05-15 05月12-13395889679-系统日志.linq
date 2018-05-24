@@ -1,4 +1,4 @@
-<Query Kind="Statements">
+<Query Kind="Expression">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -12,26 +12,21 @@
   <Output>DataGrids</Output>
 </Query>
 
-
-var time=DateTime.Now; //今天
-time=time.AddDays(1);//明天
-
-FilmSchedules
-.Where(a=>
-a.IsDeleted
-)
+AdoLogs
+//.Where(a=>a.Message.Contains("订单状态"))
 .OrderByDescending(a=>a.CreateTime)
-.Select(a => new{
-a.FilmName,
-a.CreateTime,
-a.ScheduleId,
-a.ScheduleKey,
-a.StandardPrice,
-a.LowestPrice,
-a.SettlePrice,
-a.TicketFee,
-a.ShowDateTime,
-a.IsDeleted,
-}).Dump();
+ //.OrderBy(a=>a.CreateTime)
+ .Where(api=>api.CreateTime < DateTime.Parse("2018-05-12 21:50")
+  && api.CreateTime > DateTime.Parse("2018-05-12 20:40 "))
 
-//D04DE356B8F1F6DE43973253CBDFC949
+//.Where(a=>a.)
+.Take(200).ToList()
+.Select(a => new
+{
+	a.Path,
+	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+a.Level,
+a.Message,
+a.Data,
+a.Detail
+})

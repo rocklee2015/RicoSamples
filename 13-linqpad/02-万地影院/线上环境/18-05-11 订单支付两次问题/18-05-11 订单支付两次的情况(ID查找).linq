@@ -68,26 +68,49 @@
   <Namespace>Cinema.Core.Domain.Models.Values</Namespace>
 </Query>
 
-var result=Orders
-.Where(a => (a.Status == (int)OrderStatus.Ticketed||a.Status == (int)OrderStatus.PrintTicket)
-&& a.CreateTime >= new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1).AddMonths(-1).AddHours(6)
-&& a.CreateTime <= DateTime.Now.AddDays(1 - DateTime.Now.Day).Date.AddHours(6)
-&&a.PayType==(int)PayType.Alipay
-).OrderBy(a => a.CreateTime).ToList().Select(a => new
+/*
+用户13395889679，会员卡支付72元，支付宝支付 20180430XX1185000009384300W888
+*/
+
+//已确认支付的
+var confirmMechantOrderIds = new List<string>()
+{
+    "20180512XX1185000016712400W845",//用户13395889679，支付宝：75.80，    会员卡：1185200008292，交易时间：2018-05-12 20:45:51
+	"20180430XX1185000009384300W888",//用户13884364770，微信支付：65.8，   会员卡：1185200009770，交易时间：2018-04-30 14:27:42
+	"20180430XX1185000009384300W888",//用户13305885553，微信支付：159.60， 会员卡：1185200004235，交易时间：2018-03-18 11:02:36
+	"20180309XX1185000011373300W884",//用户13600609092，支付宝：132.00，   会员卡：1185200010234，交易时间：2018-03-09 18:51:11
+};
+var ids = new List<string>()
+{
+"2a774530-c250-49ec-8b7f-138c5a616d1f",
+"8d0c418b-c4df-49fa-a794-8eeaf96f8593",
+"28da3b14-3fae-4a59-b4d0-52d6bd79de96",
+"99435323-f5f9-4674-be45-51bfef902c20"
+};
+//可以确定这些用户是先用会员卡支付，然后又用支付宝或微信支付。
+var result = Orders.OrderByDescending(a => a.CreateTime)
+.Where(a=>ids.Contains(a.Id.ToString()))
+//.Where(a=>confirmMechantOrderIds.Contains(a.MerchantOrderId.ToString()))
+.Take(100).ToList().Select(a => new
 {
 	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	
+	电影名 = FilmSchedules.FirstOrDefault(b => b.ScheduleId == a.FilmScheduleId).FilmName,
 	状态 = ((OrderStatus)a.Status).ReadEnumDescription(),
 	支付方式 = ((PayType)a.PayType).ReadEnumDescription(),
+
 	a.TicketCount,
 	a.OldTotal,
 	a.Total,
 	a.CardTotal,
 	a.ThirdPay,
+	去除手续费 = a.ThirdPay - a.TicketCount * 1,
+	昵称=Users.FirstOrDefault(b=>b.Id==a.UserId).NickName,
 	a.Mobile,
-	
+
 	a.PayCardNum,
+	a.BookingId,
 	a.ConfirmationId,
+	a.OrderCode,
 	a.MerchantOrderId,
 	a.ThirdpartyOrderId,
 	a.LimitDiscountId,
@@ -99,12 +122,11 @@ var result=Orders
 	a.Id,
 	a.LockOrderId,
 	a.OutLockId,
-	a.BookingId,
-	a.OrderCode,
+
+
 	a.ExpireTime,
 	a.FilmScheduleId,
-	Time=a.CreateTime,
-});
-result.Dump();
-//var groupyR = result.GroupBy(a => a.Time.Date).Select(a => new {Date=a.Key, Total=a.Sum(b=>b.ThirdPay)}).ToList();
-//groupyR.Dump();
+	a.PayType,
+	付款时间 = a.PayTime.ToString("yyyy-MM-dd HH:mm:ss"),
+	
+}).Dump();

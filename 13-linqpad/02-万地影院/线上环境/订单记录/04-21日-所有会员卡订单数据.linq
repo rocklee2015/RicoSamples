@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,7 +9,9 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
+  <Output>DataGrids</Output>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Antlr3.Runtime.dll</Reference>
+  <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.AppWeb.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Audit.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Caches.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Core.dll</Reference>
@@ -66,24 +68,102 @@
   <Namespace>Cinema.Core.Domain.Models.Values</Namespace>
 </Query>
 
-LeaguerRecharges
-//.Where(a => a.RechargeStatus == 2)
-.OrderByDescending(a => a.CreateTime)
-.ToList()
-//.GroupBy(a=>a.PayType).ToList()
-.Select(a => new
+
+var bookingIds = new List<string>()
 {
-    
-	a.CreateTime,
+"1185018042174944",
+"1185018042175152",
+"1185018042175480",
+"1185018042175442",
+"1185018042175218",
+"1185018042174944",
+"1185018042175152",
+"1185018042175513",
+"1185018042175356",
+"1185018042174973",
+"1185018042175868",
+"1185018042175723",
+"1185018042175502",
+"1185018042175513",
+"1185018042175513",
+"1185018042175627",
+"1185018042175627",
+"1185018042175174",
+"1185018042175153",
+"1185018042175218",
+"1185018042174984",
+"1185018042175936",
+"1185018042175226",
+"1185018042175174",
+"1185018042175356",
+"1185018042175526",
+"1185018042175526",
+"1185018042174944",
+"1185018042175522",
+"1185018042175216",
+"1185018042175152",
+"1185018042175152",
+"1185018042175723",
+"1185018042175226",
+"1185018042175522",
+"1185018042175502",
+"1185018042175936",
+"1185018042175522",
+"1185018042175442",
+"1185018042174973",
+"1185018042175216",
+"1185018042175216",
+"1185018042175781",
+};
+
+//bookingIds = bookingIds.Distinct().ToList();
+bookingIds.Dump();
+//可以确定这些用户是先用会员卡支付，然后又用支付宝或微信支付。
+var result = Orders.OrderByDescending(a => a.CreateTime)
+.Where(a=>a.PayType==(int)PayType.LeaguerPay)
+.Where(a => a.Status > (int)OrderStatus.NoPay && a.Status <(int) OrderStatus.Deleted)
+.Where(a => a.CreateTime > DateTime.Parse("2018-04-21 06:00") && a.CreateTime < DateTime.Parse("2018-04-22 06:00"))
+.Take(100).ToList().Select(a => new
+{
+	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+	电影名 = FilmSchedules.FirstOrDefault(b => b.ScheduleId == a.FilmScheduleId).FilmName,
+	状态 = ((OrderStatus)a.Status).ReadEnumDescription(),
+	支付方式 = ((PayType)a.PayType).ReadEnumDescription(),
+	是否包涵在退票 = bookingIds.Contains(a.BookingId),
+	a.TicketCount,
+	a.OldTotal,
+	a.Total,
+	a.CardTotal,
+	a.ThirdPay,
+	去除手续费 = a.ThirdPay - a.TicketCount * 1,
+	昵称 = Users.FirstOrDefault(b => b.Id == a.UserId).NickName,
 	a.Mobile,
-	a.CardNo,
-	卡类型=VipCards.FirstOrDefault(c=>c.GradeId==Leaguers.FirstOrDefault(b=>b.CardNo==a.CardNo).GradeId).GradeDesc,
+
+	a.PayCardNum,
+	a.BookingId,
+	a.ConfirmationId,
+	a.OrderCode,
+	a.MerchantOrderId,
+	a.ThirdpartyOrderId,
+	a.LimitDiscountId,
+	a.RedPacketId,
+	a.GoodsTotal,
+	a.TotalGoodsFee,
+	a.PickUpCode,
+	a.HoldId,
+	a.Id,
+	a.LockOrderId,
+	a.OutLockId,
+
+
+	a.ExpireTime,
+	a.FilmScheduleId,
 	a.PayType,
-	支付类型 = ((PayType)a.PayType).ReadEnumDescription(),
-	a.ThirdPayNo,
-	a.Money,
-	a.RechargeStatus,
-	支付结果=((RechargeStatus)a.RechargeStatus).ReadEnumDescription(),
-	a.Description,
-	a.OutTradeNo
-})
+	付款时间 = a.PayTime.ToString("yyyy-MM-dd HH:mm:ss"),
+
+});
+result.Dump("订单");
+bookingIds.Except(result.Select(a=>a.BookingId).ToList()).Dump("差集");;
+
+
+

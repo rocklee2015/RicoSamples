@@ -1,4 +1,4 @@
-<Query Kind="Statements">
+<Query Kind="Expression">
   <Connection>
     <ID>8f35cbb5-7d32-4780-9466-d2ea7df6801a</ID>
     <Persist>true</Persist>
@@ -12,11 +12,4 @@
   <Output>DataGrids</Output>
 </Query>
 
-var entity = Reimbursements.OrderByDescending(a => a.CreateTime).FirstOrDefault();
-entity.Dump();
-if (entity != null)
-{
-	BloodDonors.Where(a => a.ReimbursementId == entity.Id).Dump();
-
-	BloodUsers.Where(a => a.ReimbursementId == entity.Id).Dump();
-}
+BloodDonationRecords.Where(a=>a.DonorId.Equals("1600196544"))

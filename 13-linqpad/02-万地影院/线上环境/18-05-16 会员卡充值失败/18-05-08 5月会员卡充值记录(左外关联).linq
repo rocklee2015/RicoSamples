@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,7 +9,6 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Antlr3.Runtime.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.AppWeb.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Audit.dll</Reference>
@@ -66,37 +65,37 @@
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\System.Web.Webpages.Razor.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\WebGrease.dll</Reference>
   <Namespace>Cinema.Core.Domain.Models.Values</Namespace>
+  <Namespace>Cinema.Core.Domain.QueryEntries.OutputDtos</Namespace>
 </Query>
 
-Orders.OrderByDescending(a => a.CreateTime)
-.Where(a=>a.Status==(int)OrderStatus.Ticketed||a.Status==(int)OrderStatus.PrintTicket)
-.Take(20).ToList().Select(a => new
-{
-	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	状态=((OrderStatus)a.Status).ReadEnumDescription(),
-	支付方式=((PayType)a.PayType).ReadEnumDescription(),
-	a.TicketCount,
-	a.OldTotal,
-	a.Total,
-	a.CardTotal,
-	a.ThirdPay,
-	a.Mobile,
-	
-	a.PayCardNum,
-	a.ConfirmationId,
-	a.MerchantOrderId,
-	a.ThirdpartyOrderId,
-	a.LimitDiscountId,
-	a.RedPacketId,
-	a.GoodsTotal,
-	a.TotalGoodsFee,
-	a.PickUpCode,
-	a.HoldId,
-	a.Id,
-	a.LockOrderId,
-	a.OutLockId,
-	a.BookingId,
-	a.OrderCode,
-	a.ExpireTime,
-	a.FilmScheduleId
-})
+var query = (from a in LeaguerRecharges.Where(a=>!a.IsDeleted)
+			 join b in Leaguers.Where(a=>!a.IsDeleted) on a.CardNo equals b.CardNo into bT
+			 from bb in bT.DefaultIfEmpty()
+			 join c in VipCards.Where(a=>!a.IsDeleted) on bb.GradeId equals c.GradeId into cT
+			  from cc in cT.DefaultIfEmpty()
+			 join d in Users.Where(a=>!a.IsDeleted) on a.UserId equals d.Id into dT
+			  from dd in dT.DefaultIfEmpty()
+			 where a.CreateTime > DateTime.Parse("2018-05-01") && a.CreateTime < DateTime.Now
+			 && a.RechargeStatus != (int)RechargeStatus.NoPay
+			 && a.RechargeStatus != (int)RechargeStatus.UnEnable
+//			 select new {
+//			  a,
+//			  b,
+//			  c,
+//			  d
+//			 }
+			 select new ReChargeCheckOutput
+			 {
+				 NickName = dd.NickName,
+				 Mobile = a.Mobile,
+				 CardNo = a.CardNo,
+				 CardType = cc.GradeDesc,
+				 RechargeTime = a.CreateTime,
+				 Money = a.Money,
+				 PayType = (PayType)a.PayType,
+				 RechargeStatus = (RechargeStatus)a.RechargeStatus,
+				 OutTradeNo = a.OutTradeNo
+			 }
+);
+
+query.OrderBy(f=>f.RechargeTime).Dump();

@@ -33,6 +33,12 @@
  join user in Users  on api.UserName  equals user.Id.ToString()  into userTemp
  from user2 in userTemp.DefaultIfEmpty()
  where 1==1
+ &&api.InterfaceDesc.Contains("确认")
+// &&api.Url.Contains("1185200004235")
+// &&api.CreateTime< DateTime.Parse("2018-05-13")
+//  &&api.CreateTime> DateTime.Parse("2018-05-12")
+  &&user2.Mobile.Equals("15215783585")
+ // &&api.ResponseText.Contains("请求超时")
  //&&api.ResponseText.Contains("1185200000999")
  //&& api.InerfaceName.Contains("schedule.getSchedules")
  //&& api.ResponseText.Contains("影院系统执行错误")
@@ -47,6 +53,7 @@
 .Select(a => new
 {
 	a.user2?.NickName,
+	a.user2?.Mobile,
 	CreateTime=a.api.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
 	a.api.InterfaceDesc,
 	a.api.InerfaceName,

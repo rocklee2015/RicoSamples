@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="SQL">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -11,10 +11,13 @@
   </Connection>
 </Query>
 
-FilmSchedules
-.Where(a=>a.ScheduleId.Contains("59369013")
-//&&a.ScheduleKey.Contains("10AA28C2E5F5D1E707D90B966893A5A2")
-)
 
-//D04DE356B8F1F6DE43973253CBDFC949
-//550FE216CFFD20373812503EB3DBEEB0 | 
+select * from LeaguerRecharge where  id in (
+'cbf41367-1e99-4688-b981-512ca0983b26',
+'46f6d345-ec21-450e-a522-e2fd153e2dbb')
+--
+--update LeaguerRecharge set  RechargeStatus =1
+--
+--where  id in (
+--'cbf41367-1e99-4688-b981-512ca0983b26',
+--'46f6d345-ec21-450e-a522-e2fd153e2dbb')

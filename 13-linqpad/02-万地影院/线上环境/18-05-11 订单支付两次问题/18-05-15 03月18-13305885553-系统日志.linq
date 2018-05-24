@@ -13,17 +13,20 @@
 </Query>
 
 AdoLogs
-//.Where(a=>a.Data.Contains("支付宝支付回调"))
-.OrderByDescending(a => a.CreateTime)
-	   .Take(100)
-	   
-	   .ToList()
-	   .Select(a => new
-	   {
-		   a.Path,
-		   a.CreateTime,
-		   a.Level,
-		   a.Message,
-		   a.Data,
-		   a.Detail
-	   })
+//.Where(a=>a.Message.Contains("订单状态"))
+.OrderByDescending(a=>a.CreateTime)
+ //.OrderBy(a=>a.CreateTime)
+ .Where(api=>api.CreateTime < DateTime.Parse("2018-03-18 11:10")
+  && api.CreateTime > DateTime.Parse("2018-03-18 11:01 "))
+
+//.Where(a=>a.)
+.Take(200).ToList()
+.Select(a => new
+{
+	a.Path,
+	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+a.Level,
+a.Message,
+a.Data,
+a.Detail
+})
