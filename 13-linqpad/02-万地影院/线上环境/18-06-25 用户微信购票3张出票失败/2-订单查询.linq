@@ -69,6 +69,7 @@
 </Query>
 
 var result = Orders.OrderByDescending(a => a.CreateTime)
+.Where(a=>a.MerchantOrderId.Contains("20180624XX1185000004582500W684"))
 //.Where(a => (a.Status == (int)OrderStatus.Ticketed || a.Status == (int)OrderStatus.PrintTicket))
 //.Where(a=>a.CreateTime > DateTime.Now.AddMonths(-1).GetMonthFirstDay().AddHours(6))
 //.Where(a=>a.CreateTime < DateTime.Now.AddMonths(0).GetMonthFirstDay().AddHours(6))
@@ -77,8 +78,6 @@ var result = Orders.OrderByDescending(a => a.CreateTime)
 //.Where(a => a.Total != a.ThirdPay )
 //.Where(a => a.PayType == (int)PayType.LeaguerPay)
 //.Where(a => a.CardTotal != a.ThirdPay)
-//.Where(a=>a.BookingId.Contains("1185018061115237"))
-.Where(a=>a.PayCardNum.Contains("1185300013276"))
 .Take(100).ToList()
 .Select(a => new
 {

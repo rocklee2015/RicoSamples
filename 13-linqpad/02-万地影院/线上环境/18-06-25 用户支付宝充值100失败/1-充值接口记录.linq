@@ -30,14 +30,15 @@
   <Namespace>System.Web</Namespace>
 </Query>
 
+//用户手机号13884391239，支付宝充值100，
 (from api in ApiRequests
  join user in Users  on api.UserName  equals user.Id.ToString()  into userTemp
  from user2 in userTemp.DefaultIfEmpty()
  where 1==1
  &&api.InterfaceDesc.Contains("充值")
  //&&api.Url.Contains("11851200005279")
- //&&api.CreateTime< DateTime.Parse("2018-06-26")
- // &&api.CreateTime> DateTime.Parse("2018-03-01")
+// &&api.CreateTime< DateTime.Parse("2018-06-26")
+//  &&api.CreateTime> DateTime.Parse("2018-03-01")
  // &&api.ResponseText.Contains("请求超时")
  //&&api.ResponseText.Contains("1185200000999")
  //&& api.InerfaceName.Contains("schedule.getSchedules")

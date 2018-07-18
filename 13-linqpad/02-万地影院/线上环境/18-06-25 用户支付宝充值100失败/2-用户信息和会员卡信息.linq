@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,22 +9,12 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-.Where(a=>a.CreateTime>DateTime.Parse("2018-06-30 18:37:00"))
-.Where(a=>a.CreateTime<DateTime.Parse("2018-06-30 18:40:00"))
-.OrderByDescending(a=>a.CreateTime)
-//.OrderBy(a=>a.CreateTime)
+var user=Users.Where(a=>a.Mobile.Contains("13884391239"));
+user.Dump();
+var leaguer=Leaguers.Where(a=>a.UserId.Equals("0d97faa6-9d70-47a8-a3c6-d9b18bda2610"));
+leaguer.Dump();
 
-//.Where(a=>a.)
-.Take(200).ToList()
-.Select(a => new {
-a.Path,
-创建时间=a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-a.Level,
-a.Message,
-a.Data,
-a.Detail
-})
+var leaguer2=Leaguers.Where(a=>a.CardNo.Contains("1185300008542"));
+leaguer2.Dump();

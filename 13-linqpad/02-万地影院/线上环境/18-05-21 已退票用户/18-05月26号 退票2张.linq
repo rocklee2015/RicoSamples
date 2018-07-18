@@ -68,54 +68,58 @@
   <Namespace>Cinema.Core.Domain.Models.Values</Namespace>
 </Query>
 
-var result = Orders.OrderByDescending(a => a.CreateTime)
-//.Where(a => (a.Status == (int)OrderStatus.Ticketed || a.Status == (int)OrderStatus.PrintTicket))
-//.Where(a=>a.CreateTime > DateTime.Now.AddMonths(-1).GetMonthFirstDay().AddHours(6))
-//.Where(a=>a.CreateTime < DateTime.Now.AddMonths(0).GetMonthFirstDay().AddHours(6))
-//.Where(a=>a.Mobile.Equals("13884364770"))
-//.Where(a=>a.PayType != (int)PayType.LeaguerPay)
-//.Where(a => a.Total != a.ThirdPay )
-//.Where(a => a.PayType == (int)PayType.LeaguerPay)
-//.Where(a => a.CardTotal != a.ThirdPay)
-//.Where(a=>a.BookingId.Contains("1185018061115237"))
-.Where(a=>a.PayCardNum.Contains("1185300013276"))
-.Take(100).ToList()
-.Select(a => new
+var bookingIds = new List<string>()
 {
-    订单ID前5位=a.Id.ToString().Substring(0,5),
+"1185018052605999"
+
+};
+//根据bookingID找不到 
+bookingIds = bookingIds.Distinct().ToList();
+//bookingIds.Dump();
+
+var result = Orders.OrderByDescending(a => a.CreateTime)
+//.Where(a => bookingIds.Contains(a.BookingId))
+.Where(a=>a.Mobile.Contains("13905786212"))
+.Take(100).ToList().Select(a => new
+{
 	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+	电影名 = FilmSchedules.FirstOrDefault(b => b.ScheduleId == a.FilmScheduleId).FilmName,
+
+	开始结束= FilmSchedules.FirstOrDefault(b => b.ScheduleId == a.FilmScheduleId).ShowDateTime,
 	状态 = ((OrderStatus)a.Status).ReadEnumDescription(),
 	支付方式 = ((PayType)a.PayType).ReadEnumDescription(),
-	手机号=	a.Mobile,
-	会员卡 = a.PayCardNum,
-	票数=a.TicketCount,
-	
-	非会员价=a.Total,
-	会员价=a.CardTotal,
-	实际支付=a.ThirdPay,
-
-	红包 = a.RedMoney,
-	a.RedPacketId,
-
-	限时优惠 = a.LimitDiscountId != null,
-	a.LimitDiscountId,
+    是否包涵在退票=bookingIds.Contains(a.BookingId),
+	a.TicketCount,
 	a.OldTotal,
+	a.Total,
+	a.CardTotal,
+	a.ThirdPay,
+	去除手续费 = a.ThirdPay - a.TicketCount * 1,
+	昵称 = Users.FirstOrDefault(b => b.Id == a.UserId).NickName,
+	a.Mobile,
 
-	卖品 = a.GoodsTotal,
-	卖品手续费 = a.TotalGoodsFee,
-	取货码 = a.PickUpCode,
-
-	a.ExpireTime,
-	a.FilmScheduleId,
-
+	a.PayCardNum,
 	a.BookingId,
 	a.ConfirmationId,
 	a.OrderCode,
+	a.MerchantOrderId,
+	a.ThirdpartyOrderId,
+	a.LimitDiscountId,
+	a.RedPacketId,
+	a.GoodsTotal,
+	a.TotalGoodsFee,
+	a.PickUpCode,
+	a.HoldId,
+	a.Id,
 	a.LockOrderId,
 	a.OutLockId,
-	商户号 = a.MerchantOrderId,
-	支付流水号 = a.ThirdpartyOrderId,
-	a.Id,
+
+
+	a.ExpireTime,
+	a.FilmScheduleId,
+	a.PayType,
+	付款时间 = a.PayTime.ToString("yyyy-MM-dd HH:mm:ss"),
+
 });
 result.Dump("Order-订单");
 
@@ -156,3 +160,14 @@ var result3 = LimitDiscounts.Where(a => limitDicounts.Contains(a.Id)).ToList()
 });
 
 result3.Dump("特价活动");
+
+var filmScheduleIds = result.Select(a => a.FilmScheduleId).ToList();
+var result4 = FilmSchedules.Where(a => filmScheduleIds.Contains(a.ScheduleId))
+.Select(a => new
+{
+	a.ScheduleId,
+	a.FilmName,
+	a.FilmShortName
+}).ToList();
+
+result4.Dump("订单电影");

@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="SQL">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,22 +9,19 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-.Where(a=>a.CreateTime>DateTime.Parse("2018-06-30 18:37:00"))
-.Where(a=>a.CreateTime<DateTime.Parse("2018-06-30 18:40:00"))
-.OrderByDescending(a=>a.CreateTime)
-//.OrderBy(a=>a.CreateTime)
+-- 6月26日 20180625XX1185000002925700W949 客户支付62 没有出票
+update  [order] set 
+Status=4,
+PayCardNum='1185018062626899',
+PayTime=CreateTime,
+ThirdPay=CardTotal
+where id='342acf09-4802-41ea-9dc7-6cf5e8310d71'
 
-//.Where(a=>a.)
-.Take(200).ToList()
-.Select(a => new {
-a.Path,
-创建时间=a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-a.Level,
-a.Message,
-a.Data,
-a.Detail
-})
+update  [order] set 
+Status=4,
+PayCardNum='1185018062626898',
+PayTime=CreateTime,
+ThirdPay=CardTotal
+where id='7ef5a13d-34b4-4f37-9e59-6e7560b86174'

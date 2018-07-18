@@ -3,6 +3,7 @@ using Rico.S14.MaoYanMovie.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -43,30 +44,33 @@ namespace Rico.S14.MaoYanMovie.WdMovie
             {
                 using (var dbContext = new CinemaDb())
                 {
+                    bool isUpdate = false;
                     Film film = null;
                     if (movie.Url == null)
                         return false;
-                    film = dbContext.Film.FirstOrDefault(a => a.SourceUrl == movie.Url);
+                    film = dbContext.Film.FirstOrDefault(a => a.FilmName == movie.MovieName || a.SourceUrl == movie.Url);
                     if (film != null)
                     {
-                        return false;
+                        isUpdate = true;
                     }
                     else
                     {
                         film = new Film { Id = Guid.NewGuid() };
+                        film.CreateTime = DateTime.Now;
+
+                        var client = new FilmPhotoSoapClient();
+                        if (movie.MovieCoverImage.Length > 0)
+                        {
+                            var picture = ImageHelper.DownloadPicture(movie.MovieCoverImage).Result;
+                            string path;
+                            string message;
+                            client.FilmPosterUpload(password, picture, film.Id, out path, out message);
+                            film.CoverPath = path;
+                        }
                     }
 
-                    var client = new FilmPhotoSoapClient();
-                    if (movie.MovieCoverImage.Length > 0)
-                    {
-                        var picture = ImageHelper.DownloadPicture(movie.MovieCoverImage).Result;
-                        string path;
-                        string message;
-                        client.FilmPosterUpload(password, picture, film.Id, out path, out message);
-                        film.CoverPath = path;
-                    }
 
-                    film.CreateTime = DateTime.Now;
+
 
                     film.FilmName = movie.MovieName;
                     film.ScoreAmount = movie.MovieScore;
@@ -78,7 +82,7 @@ namespace Rico.S14.MaoYanMovie.WdMovie
                     film.Duration = movie.MovieDuration;
                     film.MainActor = movie.MovieActor;
                     string dateTimeStr = string.Empty;
-                    if (movie.MovieReleaseTime.Length > 10)
+                    if (movie.MovieReleaseTime.Length >= 10)
                     {
                         dateTimeStr = movie.MovieReleaseTime.Substring(0, 10);
                     }
@@ -112,14 +116,26 @@ namespace Rico.S14.MaoYanMovie.WdMovie
                         film.Category = categories.Aggregate((c, n) => c | n);
                     }
 
+                    if (isUpdate)
+                    {
+                        dbContext.Entry(film).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        dbContext.Film.Add(film);
 
-                    dbContext.Film.Add(film);
+                    }
 
                     var imgSvc = new FilmPhotoSoapClient();
 
                     int num = 1;
                     foreach (var imgUrl in movie.MoviePhoto)
                     {
+                        var isExist = dbContext.FilmPhoto.FirstOrDefault(a => a.SourcePath == imgUrl);
+                        if (isExist != null)
+                        {
+                            continue;
+                        }
                         var movieImg = ImageHelper.DownloadPicture(imgUrl).Result;
                         var path = "";
                         var message = "";
@@ -134,11 +150,14 @@ namespace Rico.S14.MaoYanMovie.WdMovie
                             Sort = num++,
                             CreateTime = DateTime.Now
                         };
+
+
                         dbContext.FilmPhoto.Add(filmPhoto);
-                        dbContext.SaveChanges();
+
                         Console.WriteLine($"【{movie.MovieName}】 完成{((double)num / (double)movie.MoviePhoto.Count).ToString("0%")}");
-                        Thread.Sleep(100);
+                        Thread.Sleep(1000);
                     }
+                    dbContext.SaveChanges();
                     return true;
                 }
 

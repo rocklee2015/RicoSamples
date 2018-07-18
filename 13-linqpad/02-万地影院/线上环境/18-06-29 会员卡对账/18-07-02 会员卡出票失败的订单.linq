@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,7 +9,6 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Configuration.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.dll</Reference>
@@ -23,43 +22,42 @@
   <Reference>&lt;RuntimeDirectory&gt;\System.ServiceProcess.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.Services.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\Microsoft.Build.Utilities.v4.0.dll</Reference>
+  <Reference>&lt;RuntimeDirectory&gt;\System.Runtime.Caching.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\Microsoft.Build.Framework.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\Microsoft.Build.Tasks.v4.0.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Windows.Forms.dll</Reference>
-  <Reference>&lt;RuntimeDirectory&gt;\System.Runtime.Caching.dll</Reference>
   <Namespace>System.Web</Namespace>
 </Query>
 
-(from api in ApiRequests
- join user in Users  on api.UserName  equals user.Id.ToString()  into userTemp
- from user2 in userTemp.DefaultIfEmpty()
- where 1==1
- &&api.InterfaceDesc.Contains("充值")
- //&&api.Url.Contains("11851200005279")
- //&&api.CreateTime< DateTime.Parse("2018-06-26")
- // &&api.CreateTime> DateTime.Parse("2018-03-01")
- // &&api.ResponseText.Contains("请求超时")
- //&&api.ResponseText.Contains("1185200000999")
- //&& api.InerfaceName.Contains("schedule.getSchedules")
- //&& api.ResponseText.Contains("影院系统执行错误")
- //&& api.ResponseText.Contains("场次信息无效")
- //&& api.Url.Contains("1185300008542")
- orderby api.CreateTime  descending  
- select new { api,user2 }
- )
- .Take(100)
- .ToList()
+var merchantId = new List<string>() {
+"20180611XX1185000001428500W93",
+"20180611XX1185000001406800W604",
+//"220180625XX1185000002925700W949",
+"20180626XX1185000002603400W8",
+"20180626XX1185000002574000W396"
+};
+var orders=Orders.Where(a => merchantId.Contains(a.MerchantOrderId)).Select(a => new {
+//a.MerchantOrderId,
+a.LockOrderId,
+a.OutLockId,
+a.PayCardNum
+}).Dump();
 
-.Select(a => new
-{
-	a.user2?.NickName,
-	a.user2?.Mobile,
-	CreateTime = a.api.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	a.api.InterfaceDesc,
-	a.api.InerfaceName,
+var locakOrderIds = orders.Select(a => a.LockOrderId).ToList();
+merchantId[0].Dump();
 
-	Url = HttpUtility.UrlDecode(a.api.Url),
-	a.api.ResponseText,
-	a.api.UserName,
-	UrlEncode = a.api.Url,
+ApiRequests.Where(a=>
+a.CreateTime>DateTime.Parse("2018-06-01") &&(
+a.Url.Contains(locakOrderIds[0])&&a.InterfaceDesc.Contains("确认")||
+a.Url.Contains(locakOrderIds[1])&&a.InterfaceDesc.Contains("确认")||
+a.Url.Contains(locakOrderIds[2])&&a.InterfaceDesc.Contains("确认")||
+a.Url.Contains(locakOrderIds[3])&&a.InterfaceDesc.Contains("确认")
+)
+)
+.Select(a => new {
+a.CreateTime,
+a.InterfaceDesc,
+Url = HttpUtility.UrlDecode(a.Url),
+a.ResponseText,
 })
+.OrderBy(a=>a.CreateTime).Dump();

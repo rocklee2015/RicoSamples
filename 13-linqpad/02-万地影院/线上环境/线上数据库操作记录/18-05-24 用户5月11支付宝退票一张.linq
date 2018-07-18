@@ -15,6 +15,6 @@
 -- 用户 18957088113 支付宝购票两张退票一张
 --select 141.80-69.9
 
-select thirdpay,TicketCount from [order] where id='1fdb9456-fec1-43dd-bbc8-6156f2c140c0'
+select thirdpay,TicketCount,MerchantOrderId,FilmScheduleId from [order] where id='1fdb9456-fec1-43dd-bbc8-6156f2c140c0'
 
 --update [order] set ThirdPay=141.80-69.9,TicketCount=1 where id='1fdb9456-fec1-43dd-bbc8-6156f2c140c0'

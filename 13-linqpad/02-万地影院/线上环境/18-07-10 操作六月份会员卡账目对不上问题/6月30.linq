@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="SQL">
   <Connection>
     <ID>edb569e0-1029-4670-bd56-f4981986d255</ID>
     <Persist>true</Persist>
@@ -9,22 +9,14 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
 </Query>
 
-AdoLogs
-.Where(a=>a.CreateTime>DateTime.Parse("2018-06-30 18:37:00"))
-.Where(a=>a.CreateTime<DateTime.Parse("2018-06-30 18:40:00"))
-.OrderByDescending(a=>a.CreateTime)
-//.OrderBy(a=>a.CreateTime)
+-- 6月30日 用户13735969959，购票四张，9排04座,9排05座,9排06座,9排07座，取票号2018063033804649
+--支付宝支付的钱已退还
+update  [order] set 
+PayType=1,
+PayCardNum='1185200030795',
 
-//.Where(a=>a.)
-.Take(200).ToList()
-.Select(a => new {
-a.Path,
-创建时间=a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-a.Level,
-a.Message,
-a.Data,
-a.Detail
-})
+ThirdPay=CardTotal
+where id='66738075-8f9f-4781-9bdc-5164eef2ef03'
+

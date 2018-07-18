@@ -11,7 +11,6 @@
   </Connection>
   <Output>DataGrids</Output>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Antlr3.Runtime.dll</Reference>
-  <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.AppWeb.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Audit.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Caches.dll</Reference>
   <Reference>D:\00-baitu-tfs\TFS-2013\Cinema\master\src\Cinema.AppWeb\bin\Cinema.Core.dll</Reference>
@@ -68,91 +67,41 @@
   <Namespace>Cinema.Core.Domain.Models.Values</Namespace>
 </Query>
 
-var result = Orders.OrderByDescending(a => a.CreateTime)
-//.Where(a => (a.Status == (int)OrderStatus.Ticketed || a.Status == (int)OrderStatus.PrintTicket))
-//.Where(a=>a.CreateTime > DateTime.Now.AddMonths(-1).GetMonthFirstDay().AddHours(6))
-//.Where(a=>a.CreateTime < DateTime.Now.AddMonths(0).GetMonthFirstDay().AddHours(6))
-//.Where(a=>a.Mobile.Equals("13884364770"))
-//.Where(a=>a.PayType != (int)PayType.LeaguerPay)
-//.Where(a => a.Total != a.ThirdPay )
-//.Where(a => a.PayType == (int)PayType.LeaguerPay)
-//.Where(a => a.CardTotal != a.ThirdPay)
-//.Where(a=>a.BookingId.Contains("1185018061115237"))
-.Where(a=>a.PayCardNum.Contains("1185300013276"))
-.Take(100).ToList()
+//支付宝回调失败
+var failOutTrade = new List<string>() {
+"20180624142419052800",
+"20180324122442041751",
+"20180324182423924070"
+};
+var result=LeaguerRecharges
+.Where(a=>failOutTrade.Contains(a.OutTradeNo))
+//.Where(a=>a.Mobile.Contains("18205780753"))
+//.Where(a=>a.OutTradeNo.Contains("20180624142419052800"))
+//.Where(a=>a.OutTradeNo.Contains("20180324122442041751"))
+//.Where(a=>a.OutTradeNo.Contains("20180324182423924070"))
+//.Where(a => a.RechargeStatus == 2)
+//.Where(a=>a.CreateTime>DateTime.Now.GetMonthFirstDay()&&a.CreateTime<DateTime.Now.AddMonths(1).GetMonthFirstDay())
+//.Where(a=>a.OutTradeNo.Contains("20180428222834329435"))
+//.Where(a=>a.OutTradeNo.Contains("20180324122442041751"))
+.OrderByDescending(a => a.CreateTime)
+.Take(100)
+.ToList()
+
+//.GroupBy(a=>a.PayType).ToList()
 .Select(a => new
 {
-    订单ID前5位=a.Id.ToString().Substring(0,5),
-	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	状态 = ((OrderStatus)a.Status).ReadEnumDescription(),
-	支付方式 = ((PayType)a.PayType).ReadEnumDescription(),
-	手机号=	a.Mobile,
-	会员卡 = a.PayCardNum,
-	票数=a.TicketCount,
-	
-	非会员价=a.Total,
-	会员价=a.CardTotal,
-	实际支付=a.ThirdPay,
-
-	红包 = a.RedMoney,
-	a.RedPacketId,
-
-	限时优惠 = a.LimitDiscountId != null,
-	a.LimitDiscountId,
-	a.OldTotal,
-
-	卖品 = a.GoodsTotal,
-	卖品手续费 = a.TotalGoodsFee,
-	取货码 = a.PickUpCode,
-
-	a.ExpireTime,
-	a.FilmScheduleId,
-
-	a.BookingId,
-	a.ConfirmationId,
-	a.OrderCode,
-	a.LockOrderId,
-	a.OutLockId,
-	商户号 = a.MerchantOrderId,
-	支付流水号 = a.ThirdpartyOrderId,
-	a.Id,
+    
+	创建时间=a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+	a.Mobile,
+	a.CardNo,
+	卡类型=VipCards.FirstOrDefault(c=>c.GradeId==Leaguers.FirstOrDefault(b=>b.CardNo==a.CardNo).GradeId).GradeDesc,
+	a.PayType,
+	支付类型 = ((PayType)a.PayType).ReadEnumDescription(),
+	a.ThirdPayNo,
+	a.Money,
+	a.RechargeStatus,
+	支付结果=((RechargeStatus)a.RechargeStatus).ReadEnumDescription(),
+	a.Description,
+	a.OutTradeNo
 });
-result.Dump("Order-订单");
-
-//座位
-var orderIds = result.Select(a => a.Id).ToList();
-var seatResult = OrderTickets.Where(a => orderIds.Contains(a.OrderId)).OrderByDescending(a => a.CreateTime).ToList()
-.Select(a => new
-{
-	订单ID前5位 = a.OrderId.ToString().Substring(0, 5),
-	创建时间 = a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-	a.FilmTicketCode,
-
-	实际售价 = a.TicketPrice,
-	是否会员卡 = a.VipTicket,
-	会员卡票价 = a.VipTicketPrice,
-	非会员票价 = a.NormalTicketPrice,
-	手续费 = a.TicketFee,
-	参与特价活动 = a.InDiscount,
-	使用红包 = a.UseRed,
-	a.SeatCode,
-
-});
-seatResult.Dump("订单-座位");
-
-var limitDicounts = result.Select(a => a.LimitDiscountId).ToList();
-
-var result3 = LimitDiscounts.Where(a => limitDicounts.Contains(a.Id)).ToList()
-.Select(a => new
-{
-	a.Id,
-	a.Title,
-	非会员价 = a.TicketPrice,
-	会员价 = a.VipTicketPrice,
-	总票数 = a.TicketCount,
-	单次使用数量 = a.SingleTicketCount,
-	开始时间 = a.StartTime,
-	结束时间 = a.EndTime
-});
-
-result3.Dump("特价活动");
+result.Dump();

@@ -4,6 +4,7 @@ using CsQuery.HtmlParser;
 using Newtonsoft.Json;
 using Rico.S14.MaoYanMovie.WdMovie;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,11 +17,57 @@ namespace Rico.S14.MaoYanMovie
 {
     public class AbotMaoyan
     {
+        private Queue MovieQueues = new Queue();
         public AbotMaoyan()
         {
             InitialMovieList();
 
             ThreadPool.SetMaxThreads(10, 3);
+        }
+        private bool IsStart { get; set; }
+        public void StartDownMovie()
+        {
+            var thread = new Thread(StartDownMovieThread);
+            thread.Start();
+        }
+        private void StartDownMovieThread()
+        {
+            IsStart = true;
+            while (IsStart || MovieQueues.Count > 0)
+            {
+                if (MovieQueues.Count > 0)
+                {
+                    var movie = (MaoyanMovie)MovieQueues.Dequeue();
+                    //匹配评分
+                    var movieScore = MovieScores.FirstOrDefault(a => a.MoiveName == movie.MovieName);
+                    if (movieScore != null)
+                    {
+                        movie.MovieScore = movieScore.Score;
+                    }
+
+                    //同步到数据库
+                    var result = CinemaManager.AddFilm(movie);
+
+                    if (result == false)
+                    {
+                        Console.WriteLine($"【{movie.MovieName}】 失败！");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"【{movie.MovieName}】 完成！");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"休息10秒");
+                    Thread.Sleep(TimeSpan.FromSeconds(10));
+                }
+            }
+            Console.WriteLine($"退出循环！");
+        }
+        public void EndDownMovie()
+        {
+            IsStart = false;
         }
         private void InitialMovieList()
         {
@@ -57,7 +104,7 @@ namespace Rico.S14.MaoYanMovie
         /// showType=2 即将上映
         /// 只抓取 第1至5页
         /// </summary>
-        public Regex MoviePageRegex = new Regex("^http://maoyan.com/films\\?showType=1&offset=[0|30|60|90|120]+$", RegexOptions.Compiled);
+        public Regex MoviePageRegex = new Regex("^http://maoyan.com/films\\?showType=1&offset=[0]+$", RegexOptions.Compiled);
 
         /// <summary>
         /// 猫眼电影详细
@@ -156,7 +203,7 @@ namespace Rico.S14.MaoYanMovie
 
 
         }
-       
+
         private void CrawlCompleted_2(object state)
         {
             var param = state as CrawlParam;
@@ -172,31 +219,33 @@ namespace Rico.S14.MaoYanMovie
                     return;
                 movie.Url = uri;
 
-                //匹配评分
-                var movieScore = MovieScores.FirstOrDefault(a => a.MoiveName == movie.MovieName);
-                if (movieScore != null)
-                {
-                    movie.MovieScore = movieScore.Score;
-                }
+                MovieQueues.Enqueue(movie);
 
-                //同步到数据库
-                var result = CinemaManager.AddFilm(movie);
+                ////匹配评分
+                //var movieScore = MovieScores.FirstOrDefault(a => a.MoiveName == movie.MovieName);
+                //if (movieScore != null)
+                //{
+                //    movie.MovieScore = movieScore.Score;
+                //}
 
-                if (result == false)
-                {
-                    Console.WriteLine($"【{movie.MovieName}】         失败！");
-                    return;
-                }
-                   
+                ////同步到数据库
+                //var result = CinemaManager.AddFilm(movie);
 
-                if (!MovieUrlList.Contains(uri))
-                    MovieUrlList.Add(uri);
+                //if (result == false)
+                //{
+                //    Console.WriteLine($"【{movie.MovieName}】         失败！");
+                //    return;
+                //}
 
-                Console.WriteLine($"【{movie.MovieName}】 完成！");
+
+                //if (!MovieUrlList.Contains(uri))
+                //    MovieUrlList.Add(uri);
+
+                //Console.WriteLine($"【{movie.MovieName}】 完成！");
             }
 
-            if (MoviePageRegex.IsMatch(uri)||
-                uri== "http://maoyan.com/films?showType=1")
+            if (MoviePageRegex.IsMatch(uri) ||
+                uri == "http://maoyan.com/films?showType=1")
             {
                 var htmlText = text;
                 var movieScores = MaoyanManager.FindMovieScoreFormHtml(htmlText);

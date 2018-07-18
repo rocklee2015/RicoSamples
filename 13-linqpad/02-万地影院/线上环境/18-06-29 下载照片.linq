@@ -9,22 +9,14 @@
     <Database>CinemaWd</Database>
     <ShowServer>true</ShowServer>
   </Connection>
-  <Output>DataGrids</Output>
+  <Namespace>System.Net</Namespace>
 </Query>
 
-AdoLogs
-.Where(a=>a.CreateTime>DateTime.Parse("2018-06-30 18:37:00"))
-.Where(a=>a.CreateTime<DateTime.Parse("2018-06-30 18:40:00"))
+FilmPhotos
+.Where(a=>a.FilmId.ToString()=="34d2fa08-9cef-47bf-aefd-f8885e515921")
 .OrderByDescending(a=>a.CreateTime)
-//.OrderBy(a=>a.CreateTime)
-
-//.Where(a=>a.)
-.Take(200).ToList()
+.Take(15)
 .Select(a => new {
-a.Path,
-创建时间=a.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
-a.Level,
-a.Message,
-a.Data,
-a.Detail
+Image=Util.Image(new WebClient().DownloadData(a.SourcePath)),
+a.Path
 })

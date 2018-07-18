@@ -78,7 +78,7 @@ var result = Orders.OrderByDescending(a => a.CreateTime)
 //.Where(a => a.PayType == (int)PayType.LeaguerPay)
 //.Where(a => a.CardTotal != a.ThirdPay)
 //.Where(a=>a.BookingId.Contains("1185018061115237"))
-.Where(a=>a.PayCardNum.Contains("1185300013276"))
+.Where(a=>a.Mobile.Equals("13735969959"))
 .Take(100).ToList()
 .Select(a => new
 {
