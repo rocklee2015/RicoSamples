@@ -96,7 +96,7 @@ namespace Rico.S14.MaoYanMovie
         /// <summary>
         /// 猫眼主页
         /// </summary>
-        public readonly Uri FeedUrl = new Uri(@"http://maoyan.com/films?showType=1");
+        public readonly Uri FeedUrl = new Uri(@"http://maoyan.com/films?showType=1&ci=192");
 
         /// <summary>
         /// 猫眼主页分页的正则表达式
@@ -245,7 +245,7 @@ namespace Rico.S14.MaoYanMovie
             }
 
             if (MoviePageRegex.IsMatch(uri) ||
-                uri == "http://maoyan.com/films?showType=1")
+                uri == FeedUrl.AbsoluteUri)
             {
                 var htmlText = text;
                 var movieScores = MaoyanManager.FindMovieScoreFormHtml(htmlText);

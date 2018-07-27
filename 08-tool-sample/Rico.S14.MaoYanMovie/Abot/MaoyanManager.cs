@@ -74,7 +74,12 @@ namespace Rico.S14.MaoYanMovie
             movie.MovieBrief = doc.GetElementsByClass("mod-content").Select(".dra").Text;
 
             //导演
-            movie.MovieDirector = doc.GetElementsByClass("celebrity-group")[0].Select(".name").Text;
+            var director = doc.GetElementsByClass("celebrity-group");
+            if (director != null && director.Count > 0)
+            {
+                movie.MovieDirector = doc.GetElementsByClass("celebrity-group")[0].Select(".name").Text;
+            }
+          
 
             //导演
             var actorsDiv = doc.GetElementsByClass("celebrity-group");

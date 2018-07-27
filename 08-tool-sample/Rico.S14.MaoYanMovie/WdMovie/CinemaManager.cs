@@ -21,6 +21,7 @@ namespace Rico.S14.MaoYanMovie.WdMovie
         static CinemaManager()
         {
             Container.RegisterType(typeof(CinemaDb), new PerThreadLifetimeManager());
+            client = new FilmPhotoSoapClient();
         }
         /// <summary>
         /// 数据库上下文 使用依赖注入生成
@@ -37,6 +38,7 @@ namespace Rico.S14.MaoYanMovie.WdMovie
 
         private static string password = "1qaz~xsw2";
 
+        private static FilmPhotoSoapClient client;
 
         public static bool AddFilm(MaoyanMovie movie)
         {
@@ -58,23 +60,28 @@ namespace Rico.S14.MaoYanMovie.WdMovie
                         film = new Film { Id = Guid.NewGuid() };
                         film.CreateTime = DateTime.Now;
 
-                        var client = new FilmPhotoSoapClient();
-                        if (movie.MovieCoverImage.Length > 0)
-                        {
-                            var picture = ImageHelper.DownloadPicture(movie.MovieCoverImage).Result;
-                            string path;
-                            string message;
-                            client.FilmPosterUpload(password, picture, film.Id, out path, out message);
-                            film.CoverPath = path;
-                        }
+                       
                     }
-
+                    if (client == null)
+                    {
+                        throw new Exception("FilmPhotoSoapClient 未实例化！");
+                    }
+                   
+                    if (movie.MovieCoverImage.Length > 0 && movie.MovieCoverImage!= film.SourceCover)
+                    {
+                        var picture = ImageHelper.DownloadPicture(movie.MovieCoverImage).Result;
+                        string path;
+                        string message;
+                       
+                        client.FilmPosterUpload(password, picture, film.Id, out path, out message);
+                        film.CoverPath = path;
+                        film.SourceCover = movie.MovieCoverImage;
+                    }
 
 
 
                     film.FilmName = movie.MovieName;
                     film.ScoreAmount = movie.MovieScore;
-                    film.SourceCover = movie.MovieCoverImage;
                     film.SourceUrl = movie.Url;
                     film.Area = movie.MovieArea;
                     film.BriefIntroduction = movie.MovieBrief;
@@ -90,7 +97,7 @@ namespace Rico.S14.MaoYanMovie.WdMovie
                     {
                         dateTimeStr = movie.MovieReleaseTime.Substring(0, 7);
                     }
-                    else if (movie.MovieReleaseTime.Length < 5)
+                    else if (movie.MovieReleaseTime.Length ==4)
                     {
                         dateTimeStr = movie.MovieReleaseTime.Substring(0, 4);
                     }
@@ -126,9 +133,9 @@ namespace Rico.S14.MaoYanMovie.WdMovie
 
                     }
 
-                    var imgSvc = new FilmPhotoSoapClient();
+                 
 
-                    int num = 1;
+                    int num = 0;
                     foreach (var imgUrl in movie.MoviePhoto)
                     {
                         var isExist = dbContext.FilmPhoto.FirstOrDefault(a => a.SourcePath == imgUrl);
@@ -139,7 +146,7 @@ namespace Rico.S14.MaoYanMovie.WdMovie
                         var movieImg = ImageHelper.DownloadPicture(imgUrl).Result;
                         var path = "";
                         var message = "";
-                        imgSvc.FilmScreenUpload(password, movieImg, film.Id, out path, out message);
+                        client.FilmScreenUpload(password, movieImg, film.Id, out path, out message);
 
                         var filmPhoto = new FilmPhoto
                         {
