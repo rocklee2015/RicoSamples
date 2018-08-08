@@ -258,6 +258,13 @@ namespace Rico.S14.MaoYanMovie
                     {
                         MovieScores.Add(item);
                     }
+                    else
+                    {
+                        var movieScore = MovieScores.FirstOrDefault(a => a.MoiveName == item.MoiveName);
+                        if (movieScore != null)
+                            MovieScores.Remove(movieScore);
+                        MovieScores.Add(item);
+                    }
                 }
             }
         }

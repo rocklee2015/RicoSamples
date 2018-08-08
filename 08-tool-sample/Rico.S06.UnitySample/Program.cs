@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rico.S06.UnitySample.Unity3_AOP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,17 @@ namespace Rico.S06.UnitySample
     {
         static void Main(string[] args)
         {
+            try
+            {
+                Unity3Main.SimpleTest();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
+
+            Console.Read();
         }
     }
 }
