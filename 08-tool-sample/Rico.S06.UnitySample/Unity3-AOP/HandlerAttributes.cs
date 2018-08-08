@@ -27,4 +27,11 @@ namespace Rico.S06.UnitySample.Unity3_AOP
             return new ExceptionHandler() { Order = this.Order };
         }
     }
+    public class CheckNameHandlerAttribute : HandlerAttribute  //异常处理
+    {
+        public override ICallHandler CreateHandler(IUnityContainer container)
+        {
+            return new CheckNameHandler() { Order = this.Order };
+        }
+    }
 }

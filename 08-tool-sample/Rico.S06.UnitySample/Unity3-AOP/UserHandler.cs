@@ -8,6 +8,7 @@ namespace Rico.S06.UnitySample.Unity3_AOP
         public int Order { get; set; }
         public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
         {
+            IMethodReturn methodReturn = getNext()(input, getNext);
             User user = input.Inputs[0] as User;
             if (user.Password.Length < 10)
             {
@@ -15,7 +16,8 @@ namespace Rico.S06.UnitySample.Unity3_AOP
             }
             Console.WriteLine("参数检测无误");
 
-            IMethodReturn methodReturn = getNext.Invoke().Invoke(input, getNext);
+           
+           // IMethodReturn methodReturn = getNext.Invoke().Invoke(input, getNext);
 
             return methodReturn;
         }
@@ -40,6 +42,7 @@ namespace Rico.S06.UnitySample.Unity3_AOP
         public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
         {
             IMethodReturn methodReturn = getNext()(input, getNext);
+
             if (methodReturn.Exception == null)
             {
                 Console.WriteLine("无异常");
@@ -48,6 +51,22 @@ namespace Rico.S06.UnitySample.Unity3_AOP
             {
                 Console.WriteLine("异常:{0}", methodReturn.Exception.Message);
             }
+            return methodReturn;
+        }
+    }
+    public class CheckNameHandler : ICallHandler   //异常处理的行为
+    {
+        public int Order { get; set; }
+        public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
+        {
+            IMethodReturn methodReturn = getNext()(input, getNext);
+            User user = input.Inputs[0] as User;
+            if (user.UserName.Contains("Mao"))
+            {
+                return input.CreateExceptionMethodReturn(new Exception("特殊字符不能使用！"));
+            }
+            //IMethodReturn methodReturn = getNext.Invoke().Invoke(input, getNext);
+          
             return methodReturn;
         }
     }
