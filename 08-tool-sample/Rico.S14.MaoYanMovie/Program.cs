@@ -15,7 +15,7 @@ namespace Rico.S14.MaoYanMovie
         {
             DownMovie(null, null);
             //方法二：使用System.Timers.Timer类
-            System.Timers.Timer t = new System.Timers.Timer(TimeSpan.FromDays(1).TotalMilliseconds);//实例化Timer类，设置时间间隔
+            System.Timers.Timer t = new System.Timers.Timer(TimeSpan.FromHours(12).TotalMilliseconds);//实例化Timer类，设置时间间隔
             t.Elapsed += new System.Timers.ElapsedEventHandler(DownMovie);//到达时间的时候执行事件
             t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)
             t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件
@@ -24,7 +24,13 @@ namespace Rico.S14.MaoYanMovie
          
             Console.Read();
         }
+        private static string[]  FeedUrl = {
+            "http://maoyan.com/films?showType=1&ci=50",
+            "http://maoyan.com/films?showType=2"
+        };
 
+        
+        
         public static void DownMovie(object source, System.Timers.ElapsedEventArgs e)
         {
             Console.Clear();
@@ -33,8 +39,12 @@ namespace Rico.S14.MaoYanMovie
 
 
             var crawler = abot.GetManuallyConfiguredWebCrawler();
-            var result = crawler.Crawl(abot.FeedUrl);
+          
+            crawler.Crawl(abot.FeedUri);
+
             abot.EndDownMovie();
+
+
             Console.Title = $"=======第 {Count} 次爬取  已经结束 {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}========";
 
 
