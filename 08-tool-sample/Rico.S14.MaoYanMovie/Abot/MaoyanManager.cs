@@ -92,7 +92,7 @@ namespace Rico.S14.MaoYanMovie
            
 
             //图集
-            var photos = doc.GetElementsByClass("tab-img").Select("img").Take(30).ToList();
+            var photos = doc.GetElementsByClass("tab-img").Select("img").Take(10).ToList();
             foreach (var photo in photos)
             {
                 var photoUrl = photo.Attributes["data-src"];

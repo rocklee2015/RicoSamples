@@ -22,13 +22,9 @@ namespace Rico.S14.MaoYanMovie
 
             t.Start();
          
-            Console.Read();
+            Console.ReadKey();
         }
-        private static string[]  FeedUrl = {
-            "http://maoyan.com/films?showType=1&ci=50",
-            "http://maoyan.com/films?showType=2"
-        };
-
+   
         
         
         public static void DownMovie(object source, System.Timers.ElapsedEventArgs e)

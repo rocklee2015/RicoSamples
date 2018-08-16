@@ -21,7 +21,7 @@ namespace Rico.S14.MaoYanMovie
         public AbotMaoyan()
         {
             InitialMovieList();
-            Type = 1;
+            Type = 2;
             ThreadPool.SetMaxThreads(10, 3);
         }
         private bool IsStart { get; set; }
@@ -101,11 +101,7 @@ namespace Rico.S14.MaoYanMovie
         {
             get
             {
-                if (Type == 1)
-                    Type = 2;
-                else if (Type == 2)
-                    Type = 1;
-                    
+                Type = Type == 1 ? 2 : 1;
                 return new Uri(@"http://maoyan.com/films?showType=" + Type + "&ci=50");
             }
         }

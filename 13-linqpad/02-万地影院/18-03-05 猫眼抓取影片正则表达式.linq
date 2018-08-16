@@ -37,7 +37,7 @@ void Main()
     var result4 = regex4.IsMatch("http://maoyan.com/films?showType=1&offset=0");
 	result4.Dump();
 
-
+	
 }
 
 // Define other methods and classes here
