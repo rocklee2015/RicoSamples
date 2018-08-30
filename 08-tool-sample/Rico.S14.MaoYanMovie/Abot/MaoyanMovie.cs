@@ -37,6 +37,8 @@ namespace Rico.S14.MaoYanMovie
         public string MovieActor { get; set; }
 
         public List<string> MoviePhoto { get; set; }
+
+        public string MovieShowType { get; set; }
     }
 
     public class MaoyanMovieScore

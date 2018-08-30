@@ -8,24 +8,27 @@ void Main()
 	result.Dump();
 
 	//var regex2 = new Regex("^http://maoyan.com/films\\?showType=[1-2]&offset=\\d+$", RegexOptions.Compiled);
-	var regex2 = new Regex("^http://maoyan.com/films\\?showType=1&offset=[0|30|60|90|120]+$", RegexOptions.Compiled);
-    //var regex2 = new Regex("^http://maoyan.com/films\\?showType=1&offset=[0-120]+$", RegexOptions.Compiled);
+	var regex2 = new Regex("^http://maoyan.com/films\\?showType=[1|2][&ci=50]*[&offset=0|&offset=30]*$", RegexOptions.Compiled);
+	//var regex2 = new Regex("^http://maoyan.com/films\\?showType=1&offset=[0-120]+$", RegexOptions.Compiled);
 	var urls = new List<string>() {
-	 "http://maoyan.com/films",
-	 "http://maoyan.com/films?showType=1&offset=30",
-	 "http://maoyan.com/films?showType=1&offset=60",
-	 "http://maoyan.com/films?showType=1&offset=80",
-	 "http://maoyan.com/films?showType=1&offset=81",
-	 "http://maoyan.com/films?showType=1&offset=89",
-	 "http://maoyan.com/films?showType=1&offset=90",
-	 "http://maoyan.com/films?showType=1&offset=99",
-	 "http://maoyan.com/films?showType=1&offset=100",
-	 "http://maoyan.com/films?showType=1&offset=120",
-	 "http://maoyan.com/films?showType=1&offset=tt"
+	 "http://maoyan.com/films?offset=30",
+	  "http://maoyan.com/films?showType=1",
+		"http://maoyan.com/films?showType=2",
+		"http://maoyan.com/films?showType=3",
+		"http://maoyan.com/films?showType=3&offset=30",
+		"http://maoyan.com/films?showType=3&ci=50&offset=0",
+		"http://maoyan.com/films?showType=3&ci=50&offset=30",
+	 "http://maoyan.com/films?showType=1&ci=50&offset=0",
+	 "http://maoyan.com/films?showType=1&ci=50&offset=30",
+	 "http://maoyan.com/films?showType=1&ci=50&offset=60",
+	 "http://maoyan.com/films?showType=1&ci=50&offset=80",
+	  "http://maoyan.com/films?showType=2&ci=50&offset=0",
+	 "http://maoyan.com/films?showType=2&ci=50&offset=30",
+	  "http://maoyan.com/films?showType=2&ci=50&offset=60",
 	};
 	foreach (var url in urls)
 	{
-	   regex2.IsMatch(url).Dump(url+"是否匹配");
+		regex2.IsMatch(url).Dump(url + "是否匹配");
 	}
 
 
@@ -34,10 +37,26 @@ void Main()
 	result3.Dump();
 
 	var regex4 = new Regex("^http://maoyan.com/films\\?showType=[1-2]&offset=[0-120]$", RegexOptions.Compiled);
-    var result4 = regex4.IsMatch("http://maoyan.com/films?showType=1&offset=0");
+	var result4 = regex4.IsMatch("http://maoyan.com/films?showType=1&offset=0");
 	result4.Dump();
 
-	
+	var maoYanUrl = "http://maoyan.com/films?showType=2&offset=30";
+	var showTypeValue = GetQueryString("showType", maoYanUrl);
+	showTypeValue.Dump();
+}
+
+public string GetQueryString(string name, string url)
+{
+	System.Text.RegularExpressions.Regex re = new System.Text.RegularExpressions.Regex(@"(^|&)?(\w+)=([^&]+)(&|$)?", System.Text.RegularExpressions.RegexOptions.Compiled);
+	System.Text.RegularExpressions.MatchCollection mc = re.Matches(url);
+	foreach (System.Text.RegularExpressions.Match m in mc)
+	{
+		if (m.Result("$2").Equals(name))
+		{
+			return m.Result("$3");
+		}
+	}
+	return "";
 }
 
 // Define other methods and classes here

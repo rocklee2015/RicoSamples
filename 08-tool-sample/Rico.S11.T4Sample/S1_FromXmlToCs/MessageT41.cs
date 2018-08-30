@@ -10,7 +10,7 @@ namespace Rico.T4Sample.S1_FromXmlToCs
 			     	    }
                   public static class  Confirmation
         {
-			            public static MessageEntry ReallyDelete = new MessageEntry("ReallyDelete","Do you really want to delete the {0}.","Confirmation");
+			            public static MessageEntry ReallyDelete = new MessageEntry("ReallyDelete","你真的想删除 {0}么？","Confirmation");
 			     	    }
               }
 }

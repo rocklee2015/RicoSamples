@@ -29,3 +29,5 @@ obj
 /08-tool-sample/.vs/Rico.ToolFramework
 /04-javascript/Rico.Vuejs/my-first-vuejs/node_modules
 /09-book-sample/.vs
+/02-aspnet/Rico.AspNet/packages
+/02-aspnet/Rico.AspNet/.vs

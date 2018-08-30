@@ -15,7 +15,7 @@ namespace Rico.S14.MaoYanMovie
         {
             DownMovie(null, null);
             //方法二：使用System.Timers.Timer类
-            System.Timers.Timer t = new System.Timers.Timer(TimeSpan.FromHours(12).TotalMilliseconds);//实例化Timer类，设置时间间隔
+            System.Timers.Timer t = new System.Timers.Timer(TimeSpan.FromHours(24).TotalMilliseconds);//实例化Timer类，设置时间间隔
             t.Elapsed += new System.Timers.ElapsedEventHandler(DownMovie);//到达时间的时候执行事件
             t.AutoReset = true;//设置是执行一次（false）还是一直执行(true)
             t.Enabled = true;//是否执行System.Timers.Timer.Elapsed事件

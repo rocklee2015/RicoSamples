@@ -35,6 +35,7 @@
  from user2 in userTemp.DefaultIfEmpty()
  where 1==1
  &&api.InterfaceDesc.Contains("确认订单-混合支付")
+ &&api.Url.Contains("20180813XX1185000000451000")
  //&&user2.Mobile.Contains("13735969959")
 // &&api.Url.Contains("1185200004235")
 // &&api.CreateTime< DateTime.Parse("2018-05-13")
