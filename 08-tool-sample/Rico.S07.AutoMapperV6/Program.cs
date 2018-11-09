@@ -15,6 +15,7 @@ namespace Rico.S07.AutoMapperV6
                 cfg.CreateMap<Source, Destination>();
                // cfg.CreateMap<User, UserDto>();
                 cfg.CreateMap<UserDto, User>();
+                cfg.CreateMap<User, UserOutputDto>();
             });
             var source = new Source();
             source.SomeValue = 10;
@@ -56,6 +57,11 @@ namespace Rico.S07.AutoMapperV6
         public string Name { get; set; }
 
         public int Age { get; set; }
+    }
+
+    public class UserOutputDto
+    {
+        public string Name { get; set; }
     }
     public class Source
     {

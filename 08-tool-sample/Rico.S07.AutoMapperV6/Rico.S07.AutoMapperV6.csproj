@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapperExtension.cs" />
+    <Compile Include="AutoMapperManager.cs" />
+    <Compile Include="IInputDto.cs" />
+    <Compile Include="IOutputDto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
