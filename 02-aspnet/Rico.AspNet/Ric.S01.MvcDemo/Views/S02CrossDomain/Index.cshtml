@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>javascript跨域请求</h2>
+<div class="container">
+    <button id="btnJson" class="btn  btn-default">本地Json请求</button>
+    <button id="btnCorsFail" class="btn btn-danger">跨域失败</button>
+    <button id="btnServerAddHead" class="btn btn-success">跨域后端代码允许跨域</button>
+    <button id="btnServerConfig" class="btn btn-success">跨域后端config全局配置</button>
+    <button id="btnJsonp" class="btn btn-success">跨域Jsonp</button>
+</div>
+<div class="container">
+    <code id="result">
+        请求结果
+    </code>
+</div>
+
+@section scripts{
+    <script>
+        $(function () {
+            //本地
+            $('#btnJson').click(function () {
+                $.ajax({
+                    type: "get",
+                    async: false,
+                    url: '@Url.Action("HunterByGet")',
+                    success: function (res) {
+                        $('#result').html(res);
+                    },
+                    error: function () {
+
+                    }
+                });
+            });
+
+            //跨域
+            $('#btnCorsFail').click(function () {
+                $.ajax({
+                    type: "get",
+                    async: false,
+                    url: 'http://localhost:1090/S02CrossDomain/HunterByGet',
+                    success: function (res) {
+                        $('#result').html(res);
+                    },
+                    error: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        $('#result').html(data.statusText);
+                    }
+                });
+            });
+
+
+            //方法一：服务器端允许跨域域名访问
+            $('#btnServerAddHead').click(function () {
+                $.ajax({
+                    type: "get",
+                    async: false,
+                    url: 'http://localhost:1090/S02CrossDomain/HunterAddHeadByCode',
+                    success: function (res) {
+                       
+                        $('#result').html(res);
+                    },
+                    error: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        $('#result').html(data.statusText);
+                    }
+                });
+            });
+
+            window.showData=function(data) {
+                console.info("showData");
+                var result = JSON.stringify(data);
+                $("#result").html(result);
+            };
+            //方法二：jsonp
+            $('#btnJsonp').click(function () {
+                $.ajax({
+                    type: "get",
+                    async: false,
+                    dataType: "jsonp", //指定服务器返回的数据类型,
+                    //jsonpCallback: "showData",  //指定回调函数名称
+                    url: 'http://localhost:1090/S02CrossDomain/HunterByJsonp',
+                    success: function (res) {
+                        console.log('success');
+                        var result = JSON.stringify(res);
+                        $("#result").html(result);
+                       
+                    },
+                    error: function (data, textStatus, jqXHR) {
+                        console.log(data);
+                        $('#result').html(data.statusText);
+                    }
+                });
+            });
+        });
+       
+    </script>
+
+}
