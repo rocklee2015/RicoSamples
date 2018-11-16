@@ -78,6 +78,8 @@ namespace Ric.S01.MvcDemo.Controllers
             var json = JsonConvert.SerializeObject(Hunters);
             var result = callback + "(" + json + ")";
             //var result = callback +"(" + "{\"name\":\"KILLUA\",\"age\":12},{\"name\":\"GON\",\"age\":12}" + ")";
+
+            //注：不能用json返回，会报错
             //return Json(result, JsonRequestBehavior.AllowGet);
             return Content(result);
         }
