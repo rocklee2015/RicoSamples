@@ -422,13 +422,14 @@
 }
 
 .cnblogs-markdown code {
-  color: #e96900;
+  /*color: #e96900;*/
+  color: #ec0606;
   padding: 3px,5px;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   margin: 0;
   font-family: "Roboto Mono", Monaco, courier, monospace;
-  font-size: 1em;
+  font-size: 14px;
   /*font-weight: bold;*/
 
   background-color: #f8f8f8!important;
@@ -459,7 +460,7 @@
 
 .cnblogs-markdown .highlight pre,
 .cnblogs-markdown pre {
-  padding: 16px;
+  padding: 5px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;

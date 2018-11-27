@@ -196,6 +196,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\S01ClientBrowser\Index.cshtml" />
     <Content Include="Views\S02CrossDomain\Index.cshtml" />
+    <Content Include="Views\S02CrossDomain\DomanNameData1090.cshtml" />
+    <Content Include="Views\S02CrossDomain\DomanNameData1070.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

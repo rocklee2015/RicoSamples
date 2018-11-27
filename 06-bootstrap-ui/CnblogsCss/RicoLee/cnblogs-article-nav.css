@@ -97,7 +97,7 @@
 }
 #sideCatalog li.h3Offset {
 	text-indent: 36px;/*文本缩进*/
-	font-size: 10px;
+	font-size: 12px;
 	font-weight: normal;
 }
 #sideCatalog li.h4Offset {
@@ -112,7 +112,7 @@
 #sideCatalog a {
 	text-decoration: none;
 	color: #555;
-	font-weight: bold
+	/*font-weight: bold;*/
 }
 /*目录前的小圆点*/
 .sideCatalog-dot {

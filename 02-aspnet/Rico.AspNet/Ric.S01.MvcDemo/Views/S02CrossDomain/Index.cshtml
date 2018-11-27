@@ -16,8 +16,99 @@
         请求结果
     </code>
 </div>
+<div class="container">
+    <button id="btnWindowName" class="btn btn-success">window.name 跨域</button>
+    <div>
+        <iframe src="http://localhost:1090/S02CrossDomain/DomanNameData1090" id="iframeWindowName" style="display:none"></iframe>
+    </div>
+    <code id="result2">
+        请求结果
+    </code>
+
+</div>
+<div class="container">
+    <button id="btnLocationHash" class="btn btn-success">location hash 跨域</button>
+    <div>
+        <iframe src="http://localhost:1090/S02CrossDomain/DomanNameData1090" id="iframeLocationHash" style="display:none"></iframe>
+    </div>
+    <code id="result3">
+        请求结果
+    </code>
+
+</div>
+
+<div class="container">
+    <button id="btnPostMessage" class="btn btn-success">postMessage 跨域</button>
+    <div>
+        <iframe style="width:500px;height:300px;" src="http://localhost:1090/S02CrossDomain/DomanNameData1090" id="iframePostMessage"></iframe>
+    </div>
+    <code id="result4">
+        请求结果
+    </code>
+</div>
+
 
 @section scripts{
+    <script>
+       
+        $(function () {
+            //window
+            $('#btnWindowName').click(function () {
+                var iframe = document.getElementById('iframeWindowName');
+
+                // 重置 iframe 的 onload 事件程序，
+                // 此时经过后面代码重置 src 之后，
+                // http://www.laixiangran.cn/a.html 页面与该 iframe 在同一个源了，可以相互访问了
+                iframe.onload = function () {
+                    var name = iframe.contentWindow.name; // 4. 获取 iframe 里的 window.name
+                    console.log(name); 
+                    var hunters = iframe.contentWindow.Hunters; 
+                    console.log(hunters); 
+                    $('#result2').html(name+hunters);
+                };
+
+                // 3. 重置一个与 http://www.laixiangran.cn/a.html 页面同源的页面
+                iframe.src = 'http://localhost:1070/S02CrossDomain/DomanNameData1070';
+            });
+
+            //
+            $('#btnLocationHash').click(function () {
+                var data = window.location.hash;
+                $('#result3').html(data);
+            });
+
+            //postMessage
+            window.addEventListener('message', function (messageEvent) {
+                var data = messageEvent.data;
+                $('#result4').html('子窗口：' + data);
+            }, false);
+            $('#btnPostMessage').click(function () {
+                var iframe = document.getElementById('iframePostMessage');
+                iframe.contentWindow.postMessage('我是来自localhost:1080的消息', '*');
+            });
+        })
+    </script>
+    @*<script type="text/javascript">
+            var iframe = document.createElement('iframe');
+            iframe.style.display = 'none';
+            var state = 0;
+
+            iframe.onload = function () {
+                if (state === 1) {
+                    var data = iframe.contentWindow.name;
+                    console.log(data);
+                    iframe.contentWindow.document.write('');
+                    iframe.contentWindow.close();
+                    document.body.removeChild(iframe);
+                } else if (state === 0) {
+                    state = 1;
+                    iframe.contentWindow.location =
+                        'http://localhost:1090/S02CrossDomain/DomanNameData1090';
+                }
+            };
+            document.body.appendChild(iframe);
+        </script>*@
+ 
     <script>
         $(function () {
             //本地
@@ -59,7 +150,6 @@
                     async: false,
                     url: 'http://localhost:1090/S02CrossDomain/HunterAddHeadByCode',
                     success: function (res) {
-                       
                         $('#result').html(res);
                     },
                     error: function (data, textStatus, jqXHR) {
@@ -75,6 +165,7 @@
                 $("#result").html(result);
             };
             //方法二：jsonp
+            //localhost: 1080 请求1090 API
             $('#btnJsonp').click(function () {
                 $.ajax({
                     type: "get",
@@ -86,7 +177,7 @@
                         console.log('success');
                         var result = JSON.stringify(res);
                         $("#result").html(result);
-                       
+
                     },
                     error: function (data, textStatus, jqXHR) {
                         console.log(data);
@@ -95,7 +186,7 @@
                 });
             });
         });
-       
+
     </script>
 
 }

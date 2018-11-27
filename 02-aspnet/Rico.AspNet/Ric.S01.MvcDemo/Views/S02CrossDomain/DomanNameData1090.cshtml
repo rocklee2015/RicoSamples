@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "DomanNameData";
+}
+
+<h2>DomanNameData1090</h2>
+<div class="container">
+    <button id="btnPostMessageSon" class="btn btn-success">向父窗口发送消息</button>
+
+    <code id="result4_1">
+        请求结果
+    </code>
+</div>
+@section scripts{
+    <script>
+        window.Hunters = '[{"name":"KILLUA","age":12,"date":"2018-11-23 14:26:30"},{"name":"GON","age":12,"date":"2018-11-23 14:26:30"}]';
+        window.name = "通过 name 获取的 hello！";
+        parent.location.hash = "通过hash 获取的 hello !";
+        window.onmessage = function (e) {
+            e = e || event; // 获取事件对象
+            $('#result4_1').html('父窗口信息：' + e.data);
+            //console.log(e.data); // 通过 data 属性得到发送来的消息
+        }
+        $(function () {
+            $('#btnPostMessageSon').click(function () {
+                parent.postMessage('我是子窗口', '*');
+            });
+        })
+    </script>
+}

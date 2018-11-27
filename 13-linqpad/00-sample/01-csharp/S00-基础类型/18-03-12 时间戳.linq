@@ -13,7 +13,20 @@
 
 void Main()
 {
-	var time = GetTimeFromStamp(1523342084);
+	//unix时间转为DateTime
+	var unixTime = 1523342084;
+	var time = GetTimeFromStamp(unixTime);
+	time.Dump("unix时间转为DateTime");
+
+    //方法一：DateTime转为unix时间
+    GetTimeStamp();
+	
+	
+    //方法二：DateTime转为unix时间
+	var unixtTime = (DateTime.Now.ToUnixTime() / 1000);
+	unixtTime.Dump();
+	
+	time = GetTimeFromStamp(unixtTime);
 	time.Dump();
 }
 
@@ -35,4 +48,14 @@ DateTime GetTimeFromStamp(long timeLong)
 	DateTime dtStart = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
 	return dtStart.AddSeconds(timeLong);
 }
+
+public static class DateTimeExtension
+{
+	public static long ToUnixTime(this DateTime nowTime)
+	{
+		DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1, 0, 0, 0, 0));
+		return (long)Math.Round((nowTime - startTime).TotalMilliseconds, MidpointRounding.AwayFromZero);
+	}
+}
+
 // Define other methods and classes here

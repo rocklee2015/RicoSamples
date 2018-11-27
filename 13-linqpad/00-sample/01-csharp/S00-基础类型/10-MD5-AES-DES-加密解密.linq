@@ -4,16 +4,27 @@
 
 void Main()
 {
-	var str = "123456789";
-    var key="ricolee";
-	
+
+	var str = DateTime.Now.ToString("yyyyMMddHHmmss");
+	var key = "ricolee";
+	var strChina = "ricolee中";
 	//MD5
 	var result = EncryptKit.ToLowerMd5(str, Encoding.UTF8);
 	result.Dump("UTF8-MD5");
+	result.Length.Dump();
+
+	//MD5
+	result = EncryptKit.ToLowerMd5(strChina, Encoding.UTF8);
+	result.Dump("UTF8-MD5");
+	result.Length.Dump();
+
 
 	//MD5
 	result = EncryptKit.ToLowerMd5(str, Encoding.Default);
 	result.Dump("Default-MD5");
+
+	result = EncryptKit.ToLowerMd5("8888Time", Encoding.Default);
+	result.Dump("丽水-Token");
 
 	//MD5
 	result = EncryptKit.ToLowerMd5_2(str, Encoding.Default);
@@ -30,9 +41,9 @@ void Main()
 	result.Dump("Base64 解密");
 
 	//AES
-	result = EncryptKit.AESEncode(str,key);
+	result = EncryptKit.AESEncode(str, key);
 	result.Dump("AES 加密");
-	result = EncryptKit.AESDecode(result,key);
+	result = EncryptKit.AESDecode(result, key);
 	result.Dump("AES 解密");
 
 	//DES

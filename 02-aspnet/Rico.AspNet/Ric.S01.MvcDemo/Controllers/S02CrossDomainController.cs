@@ -77,7 +77,6 @@ namespace Ric.S01.MvcDemo.Controllers
             Response.ContentType = "application/json;charset=utf-8";
             var json = JsonConvert.SerializeObject(Hunters);
             var result = callback + "(" + json + ")";
-            //var result = callback +"(" + "{\"name\":\"KILLUA\",\"age\":12},{\"name\":\"GON\",\"age\":12}" + ")";
 
             //注：不能用json返回，会报错
             //return Json(result, JsonRequestBehavior.AllowGet);
@@ -89,6 +88,15 @@ namespace Ric.S01.MvcDemo.Controllers
         {
             var json = JsonConvert.SerializeObject(Hunters);
             return Json(json);
+        }
+
+        public ActionResult DomanNameData1090()
+        {
+            return View();
+        }
+        public ActionResult DomanNameData1070()
+        {
+            return View();
         }
     }
     public class Hunter
