@@ -55,19 +55,18 @@
             //window
             $('#btnWindowName').click(function () {
                 var iframe = document.getElementById('iframeWindowName');
-
                 // 重置 iframe 的 onload 事件程序，
                 // 此时经过后面代码重置 src 之后，
-                // http://www.laixiangran.cn/a.html 页面与该 iframe 在同一个源了，可以相互访问了
+                // http://localhost:1090/S02CrossDomain/DomanNameData1090 页面与该 iframe 在同一个源了，可以相互访问了
                 iframe.onload = function () {
-                    var name = iframe.contentWindow.name; // 4. 获取 iframe 里的 window.name
+                    var name = iframe.contentWindow.name; // window.name
                     console.log(name); 
                     var hunters = iframe.contentWindow.Hunters; 
                     console.log(hunters); 
                     $('#result2').html(name+hunters);
                 };
 
-                // 3. 重置一个与 http://www.laixiangran.cn/a.html 页面同源的页面
+                // 3
                 iframe.src = 'http://localhost:1070/S02CrossDomain/DomanNameData1070';
             });
 

@@ -343,7 +343,7 @@
 .cnblogs-markdown ul,
 .cnblogs-markdown ol {
   padding-left: 2em;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .cnblogs-markdown ul ul,
@@ -398,7 +398,9 @@
 }
 
 .cnblogs-markdown table th {
-  font-weight: bold;
+  font-weight: initial ;
+  background-color: #f2f2f2;
+      /* border: 1px solid silver; */
 }
 
 .cnblogs-markdown table th,
@@ -413,7 +415,7 @@
 }
 
 .cnblogs-markdown table tr:nth-child(2n) {
-  background-color: #F6F8FA;
+  /*background-color: #F6F8FA;*/
 }
 
 .cnblogs-markdown img {

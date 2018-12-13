@@ -85,7 +85,7 @@ li {
 }
 #cnblogs_post_body h2{
   color:#000;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   text-indent: -4px;
   /*padding: 5px;*/
@@ -100,6 +100,7 @@ line-height: 0.6;
 
 #cnblogs_post_body ul{
   margin-left: 42px;
+  font-size: 15px;
 }
 /*ͼƬ*/
 #cnblogs_post_body img {
@@ -125,6 +126,7 @@ text-indent: 12px;
       text-indent: 0px;
     margin: 10px auto;
     margin-left: 26px;
+    font-size: 15px;
 }
 #cnblogs_post_body ul li p{
     margin-left: -10px;
@@ -133,9 +135,13 @@ text-indent: 12px;
 border: 0px solid silver;
     margin-left: 26px;
 }
-#cnblogs_post_body table thead tr{
-background: #f4f5f9;
-    border-bottom: 1px solid #e7e7eb;
+/*
+#cnblogs_post_body th, #cnblogs_post_body td, .cnblogs-post-body th, .cnblogs-post-body td {
+    border: px solid silver;
+}
+*/
+#cnblogs_post_body th{
+  background-color: #f2f2f2;
 }
 #cnblogs_post_body td{
 	padding: 5px 10px;
@@ -161,8 +167,37 @@ margin-top: 5px;
     margin: 0;
     padding: 0;
     color: #155fa6;
-    text-indent: 0px;
+    text-indent: 26px;
+
+    background-image: url(https://dotnet.microsoft.com/images/redesign/alert-success.svg);
+    background-repeat: no-repeat;
+    background-position: 0px 3px;
 }
 #post_detail .postDesc{ width:80%;}
 
-.cnblogs-markdown code{ font-size: 14px!important; }
+.cnblogs-markdown ol code,
+.cnblogs-markdown p code{     
+       font-size: 14px!important;
+    /* font-weight: bold; */
+    padding: 1px 0px !important;
+    color: #c7254e;
+    background-color: #f9f2f4 !important;
+    font-family: Consolas, "Courier New", Courier, monospace !important;
+    line-height: 1;
+}
+/**/
+.cnblogs-markdown .hljs{  
+font-family: Consolas, "Courier New", Courier, monospace !important;
+    font-size: 14px!important;
+}
+
+.cnblogs-markdown em{
+  font-size: 14px!important;
+padding: 2px 6px !important;
+background-color: #fafafa !important;
+font-family: Consolas, "Courier New", Courier, monospace !important;
+line-height: 1;
+border: 0.5px solid #ccc!important;
+font-style: initial;
+border-radius: 3px!important;
+}

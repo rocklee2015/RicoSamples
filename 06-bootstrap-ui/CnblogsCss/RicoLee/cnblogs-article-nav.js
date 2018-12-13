@@ -77,7 +77,9 @@ $(document).ready(function() {
             //h1,h2,h3 如果需要在前面自动生成序号就添加<li><span>' + l + '.&nbsp</span>)
             //j += '<li><span>' + l + '.&nbsp</span><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
             j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
-        } else if (v.localName === 'h3') {
+        }
+        /*
+         else if (v.localName === 'h3') {
             m++;
             n = 0;
             if (q) {
@@ -85,12 +87,13 @@ $(document).ready(function() {
                 j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a></li>';
             }
         } else if (v.localName === 'h4') {
+           
             n++;
             if (r) {
                 if (text.length > 26) text = text.substr(0, 26) + "...";
                 j += '<li class="h3Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a></li>';
             }
-        }
+        }*/
     });
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');

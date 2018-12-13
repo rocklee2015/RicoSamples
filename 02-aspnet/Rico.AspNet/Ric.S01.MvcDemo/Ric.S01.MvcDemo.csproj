@@ -148,6 +148,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\S03PostmanController.cs" />
     <Compile Include="Controllers\S01ClientBrowserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\S02CrossDomainController.cs" />
@@ -202,6 +203,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Postman\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

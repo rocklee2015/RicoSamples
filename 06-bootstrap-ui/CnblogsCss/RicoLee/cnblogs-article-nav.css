@@ -42,7 +42,7 @@
 	height: 460px;/*文章目录的高度*/
 	padding-top: 18px;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	/*overflow-y: scroll;*/
 	padding-left: 23px;
 	position: relative
 }
