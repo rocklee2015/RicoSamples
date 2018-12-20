@@ -1,4 +1,4 @@
-/*---------ÍÆ¼ö-start-----*/
+/*---------æ¨è-start-----*/
 #div_digg{
   position:fixed;
   bottom:10px;
@@ -10,14 +10,14 @@
   border-radius:5px 5px 5px 5px !important;
   box-shadow:0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
 }
-/*---------ÍÆ¼ö-end-----*/
+/*---------æ¨è-end-----*/
 
-/*---------ÃûÆ¬-start-----*/
+/*---------åç‰‡-start-----*/
 #MySignature {
     background-color: #f8f8f8;
     padding: 6px 10px;
     padding-left: 170px;
-    /*×ó²à¸½Í¼Æ¬*/
+    /*å·¦ä¾§é™„å›¾ç‰‡*/
     /*background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/zhaoqingqing/491952/o_avatar_qingqing.png) no-repeat scroll 1% 50%;*/
     background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/ricolee/885995/t_webchat.png) no-repeat scroll 1% 50%;
     border: 1px solid #ccc;
@@ -31,7 +31,7 @@
 }
 
 
-/*Ç©ÃûÀ¸Í¼Æ¬ - Î´ÓĞ*/
+/*ç­¾åæ å›¾ç‰‡ - æœªæœ‰*/
 
 #MySignatureImg {
     background: url(http://images.cnblogs.com/cnblogs_com/ricolee/885995/o_webchat.png) no-repeat scroll 1% 50%;
@@ -44,10 +44,10 @@
     border-radius: 6px !important;
     cursor: pointer;
 }
-/*---------ÃûÆ¬-end-----*/
+/*---------åç‰‡-end-----*/
 
 
-/*---------ÏòÉÏ,ÏòÏÂ °´Å¥-start-----*/
+/*---------å‘ä¸Š,å‘ä¸‹ æŒ‰é’®-start-----*/
 
 #toTop:hover,
 #toBottom:hover {
@@ -73,7 +73,7 @@
 
 #toBottom {
     background: url(http://files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
-    /*Í¼Æ¬Ë®Æ½·­×ª*/
+    /*å›¾ç‰‡æ°´å¹³ç¿»è½¬*/
     -moz-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
     -o-transform: scaleY(-1);
@@ -82,9 +82,9 @@
     /*IE*/
     bottom: 5%;
 }
-/*---------ÏòÉÏ,ÏòÏÂ °´Å¥-end-----*/
+/*---------å‘ä¸Š,å‘ä¸‹ æŒ‰é’®-end-----*/
 
-/*---------±êÌâ-start-----*/
+/*---------æ ‡é¢˜-start-----*/
 #cnblogs_post_body h2{
 color:#000;
 font-size: 18px;
@@ -110,10 +110,10 @@ text-indent: 12px;
   margin-left: 26px;
   color: tomato;
 }
-/*---------±êÌâ-end-----*/
+/*---------æ ‡é¢˜-end-----*/
 
 
-/*---------ÁĞ±í-start-----*/
+/*---------åˆ—è¡¨-start-----*/
 ul {
     word-break: break-all;
 }
@@ -130,7 +130,7 @@ ul {
     margin-left: -10px;
 }
 
-/*---------ÁĞ±í-end-----*/
+/*---------åˆ—è¡¨-end-----*/
 #cnblogs_post_body p{
 text-indent: 0px;
 margin: 10px auto;
@@ -167,7 +167,7 @@ border: 0px solid silver;
 
 /*-------table-end---------*/
 
-/*-------ÒıÓÃ-start---------*/
+/*-------å¼•ç”¨-start---------*/
 #topics .postBody blockquote {
   padding: 11px;
   color: #3a87ad;
@@ -198,7 +198,7 @@ margin-top: 5px;
   color:#155fa6;
   border: 0px solid #fff!important;
 }
-/*-------ÒıÓÃ-start---------*/
+/*-------å¼•ç”¨-start---------*/
 
 
 /*-------mardown-start---------*/
@@ -230,7 +230,7 @@ border-radius: 3px!important;
 }
 /*-------mardown-end---------*/
 
-/*»Ø¸´*/
+/*å›å¤*/
 #post_detail .postDesc{ width:80%;}
 
 .sidebar-block ul li{
@@ -240,7 +240,7 @@ border-radius: 3px!important;
 font-weight: normal;
 }
 
-/*Í¼Æ¬*/
+/*å›¾ç‰‡*/
 #cnblogs_post_body img {
 }
 

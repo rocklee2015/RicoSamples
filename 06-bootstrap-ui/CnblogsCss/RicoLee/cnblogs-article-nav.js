@@ -1,8 +1,8 @@
 ﻿/*
-功能：	自动为博客园文章生成目录
-原理：	抓取页面中的h1,h2,h3，生成<li>
-参考：	http://www.cnblogs.com/marvin/p/ExtendWizNoteAutoNnavigation.html
-	  http://www.cnblogs.com/asxinyu/p/Bolg_Category_For_BlogBeauty.html
+功能： 自动为博客园文章生成目录
+原理： 抓取页面中的h1,h2,h3，生成<li>
+参考： http://www.cnblogs.com/marvin/p/ExtendWizNoteAutoNnavigation.html
+      http://www.cnblogs.com/asxinyu/p/Bolg_Category_For_BlogBeauty.html
 */
 
 //cnblogs生成右侧目录 start
@@ -59,16 +59,17 @@ $(document).ready(function() {
         var title = u.text();
         var text = u.text();
 
-        u.attr('id', 'autoid-' + l + '-' + m + '-' + n)
+        u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
+    
             //if (!u.attr('id')) {
             //    u.attr('id', 'autoid-' + l + '-' + m + '-' + n)
             //};
 
         /*文章目录节点：
-		    标题1/标题2: <li>
-			    标题3: h2Offset
+            标题1/标题2: <li>
+                标题3: h2Offset
                     标题4: h3Offset
-		*/
+        */
         if (v.localName === 'h1' || v.localName === 'h2') {
             l++;
             m = 0;
@@ -77,24 +78,25 @@ $(document).ready(function() {
             //h1,h2,h3 如果需要在前面自动生成序号就添加<li><span>' + l + '.&nbsp</span>)
             //j += '<li><span>' + l + '.&nbsp</span><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
             j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
-        }
-        /*
-         else if (v.localName === 'h3') {
+        } else if (v.localName === 'h3') {
             m++;
             n = 0;
             if (q) {
                 if (text.length > 28) text = text.substr(0, 28) + "...";
                 j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a></li>';
             }
-        } else if (v.localName === 'h4') {
-           
+        } 
+        /*
+        else if (v.localName === 'h4') {
             n++;
-            if (r) {
+            if (true) {
                 if (text.length > 26) text = text.substr(0, 26) + "...";
                 j += '<li class="h3Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a></li>';
+                
             }
         }*/
     });
+   
     $('#' + f + '>ul').html(j);
     b.data('spy', 'scroll');
     b.data('target', '.sideCatalogBg');
@@ -122,7 +124,7 @@ $(document).ready(function() {
         var t = $(document).scrollTop();
         //我要一直显示文章目录
          if (t > k) {
-	    if($('#' + sideCatalogCtrl).hasClass('sideCatalogBtnDisable')==true)
+        if($('#' + sideCatalogCtrl).hasClass('sideCatalogBtnDisable')==true)
            {
                $sideToolbar.css('display', 'block');
             }

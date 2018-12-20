@@ -1,4 +1,3 @@
-/*---------Õ∆ºˆ-start-----*/
 #div_digg{
   position:fixed;
   bottom:10px;
@@ -10,16 +9,21 @@
   border-radius:5px 5px 5px 5px !important;
   box-shadow:0 0 0 1px #5F5A4B, 1px 1px 6px 1px rgba(10, 10, 0, 0.5);
 }
-/*---------Õ∆ºˆ-end-----*/
+ul {
+    word-break: break-all;
+}
 
-/*---------√˚∆¨-start-----*/
+li {
+    list-style: none;
+    line-height: 25px;
+}
 #MySignature {
     background-color: #f8f8f8;
     padding: 6px 10px;
     padding-left: 170px;
-    /*◊Û≤‡∏ΩÕº∆¨*/
-    /*background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/zhaoqingqing/491952/o_avatar_qingqing.png) no-repeat scroll 1% 50%;*/
-    background: #FFFEFE url(http://images.cnblogs.com/cnblogs_com/ricolee/885995/t_webchat.png) no-repeat scroll 1% 50%;
+    /*Â∑¶‰æßÈôÑÂõæÁâá*/
+    /*background: #FFFEFE url(//images.cnblogs.com/cnblogs_com/zhaoqingqing/491952/o_avatar_qingqing.png) no-repeat scroll 1% 50%;*/
+    background: #FFFEFE url(//images.cnblogs.com/cnblogs_com/ricolee/885995/t_webchat.png) no-repeat scroll 1% 50%;
     border: 1px solid #ccc;
     font-size: 14px;
     overflow: hidden;
@@ -31,10 +35,10 @@
 }
 
 
-/*«©√˚¿∏Õº∆¨ - Œ¥”–*/
+/*Á≠æÂêçÊ†èÂõæÁâá - Êú™Êúâ*/
 
 #MySignatureImg {
-    background: url(http://images.cnblogs.com/cnblogs_com/ricolee/885995/o_webchat.png) no-repeat scroll 1% 50%;
+    background: url(//images.cnblogs.com/cnblogs_com/ricolee/885995/o_webchat.png) no-repeat scroll 1% 50%;
     position: fixed;
     width: 130px;
     height: 130px;
@@ -44,10 +48,7 @@
     border-radius: 6px !important;
     cursor: pointer;
 }
-/*---------√˚∆¨-end-----*/
-
-
-/*---------œÚ…œ,œÚœ¬ ∞¥≈•-start-----*/
+/*Âêë‰∏ä,Âêë‰∏ã ÊåâÈíÆ*/
 
 #toTop:hover,
 #toBottom:hover {
@@ -66,14 +67,14 @@
 }
 
 #toTop {
-    background: url(http://files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
+    background: url(//files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
     bottom: 20%;
     /* width:  20px; */
 }
 
 #toBottom {
-    background: url(http://files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
-    /*Õº∆¨ÀÆ∆Ω∑≠◊™*/
+    background: url(//files.cnblogs.com/files/ricolee/o_o_toTop.gif) no-repeat -70px top;
+    /*ÂõæÁâáÊ∞¥Âπ≥ÁøªËΩ¨*/
     -moz-transform: scaleY(-1);
     -webkit-transform: scaleY(-1);
     -o-transform: scaleY(-1);
@@ -82,64 +83,54 @@
     /*IE*/
     bottom: 5%;
 }
-/*---------œÚ…œ,œÚœ¬ ∞¥≈•-end-----*/
-
-/*---------±ÍÃ‚-start-----*/
 #cnblogs_post_body h2{
-color:#000;
-font-size: 18px;
-font-weight: bold;
-text-indent: -4px;
-/*padding: 5px;*/
-background-color:#fff;
-border-left: 3px solid #17b11b;
-/*border-left: 3px solid #00a4ff;*/
-/*  margin-left: 35px;*/
-margin: 10px 0;
+  color:#000;
+  font-size: 15px;
+  font-weight: bold;
+  text-indent: -4px;
+  /*padding: 5px;*/
+  background-color:#fff;
+  border-left: 3px solid #17b11b;
+  /*border-left: 3px solid #00a4ff;*/
+ /*  margin-left: 35px;*/
+ margin: 10px 0;
 line-height: 0.6;
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
-
-#cnblogs_post_body h3{
-text-indent: 12px;
-  font-size: 17px;
-}
-#cnblogs_post_body h4{
-  font-size: 16px !important;
-  margin-left: 26px;
-  color: tomato;
-}
-/*---------±ÍÃ‚-end-----*/
-
-
-/*---------¡–±Ì-start-----*/
-ul {
-    word-break: break-all;
-}
-
-#cnblogs_post_body ol li,
-#cnblogs_post_body ul li {
-    line-height: 30px;
-}
 #cnblogs_post_body ul{
   margin-left: 42px;
   font-size: 15px;
 }
+/*ÂõæÁâá*/
+#cnblogs_post_body img {
+    /*
+    max-width: 700px;
+    height: auto;
+    max-height: 300px;
+    */
+}
+#cnblogs_post_body h3{
+text-indent: 12px;
+  font-size: 15px;
+  /*
+  margin-top: 14px;
+  margin-bottom: 14px;
+    */
+}
+#cnblogs_post_body h4{
+  margin-left: 26px;
+  color: tomato;
+}
+#cnblogs_post_body p{
+      text-indent: 0px;
+    margin: 10px auto;
+    margin-left: 26px;
+    font-size: 15px;
+}
 #cnblogs_post_body ul li p{
     margin-left: -10px;
 }
-
-/*---------¡–±Ì-end-----*/
-#cnblogs_post_body p{
-text-indent: 0px;
-margin: 10px auto;
-margin-left: 26px;
-font-size: 16px;
-line-height: 30px;
-}
-
-/*-------table-start---------*/
 #cnblogs_post_body table{
 border: 0px solid silver;
     margin-left: 26px;
@@ -150,24 +141,17 @@ border: 0px solid silver;
 }
 */
 #cnblogs_post_body th{
-  background-color: #f6f8f9;
-  color: #8d8d8d;
-  text-align: left;
+  background-color: #f2f2f2;
 }
 #cnblogs_post_body td{
-  padding: 5px 10px;
-  text-align: left;
+	padding: 5px 10px;
 }
-#cnblogs_post_body th,
-#cnblogs_post_body td,
-.cnblogs-post-body th,
-.cnblogs-post-body td {
-    border:0px solid silver;
+.sidebar-block ul li{
+/*padding: 5px 5px 5px 20px;*/
 }
-
-/*-------table-end---------*/
-
-/*-------“˝”√-start---------*/
+#sideCatalog a{
+font-weight: normal;
+}
 #topics .postBody blockquote {
   padding: 11px;
   color: #3a87ad;
@@ -187,26 +171,15 @@ margin-top: 5px;
 
     background-image: url(https://dotnet.microsoft.com/images/redesign/alert-success.svg);
     background-repeat: no-repeat;
-    background-position: 0px 6px;
+    background-position: 0px 3px;
 }
-#topics .postBody blockquote strong{
-  color:#155fa6;
-}
-#topics .postBody blockquote code,
-#topics .postBody blockquote em
-{
-  color:#155fa6;
-  border: 0px solid #fff!important;
-}
-/*-------“˝”√-start---------*/
+#post_detail .postDesc{ width:80%;}
 
-
-/*-------mardown-start---------*/
 .cnblogs-markdown ol code,
 .cnblogs-markdown p code{     
-       font-size: 15px!important;
+       font-size: 14px!important;
     /* font-weight: bold; */
-    padding: 3px 0px !important;
+    padding: 1px 0px !important;
     color: #c7254e;
     background-color: #f9f2f4 !important;
     font-family: Consolas, "Courier New", Courier, monospace !important;
@@ -219,7 +192,7 @@ font-family: Consolas, "Courier New", Courier, monospace !important;
 }
 
 .cnblogs-markdown em{
-font-size: 15px!important;
+  font-size: 14px!important;
 padding: 2px 6px !important;
 background-color: #fafafa !important;
 font-family: Consolas, "Courier New", Courier, monospace !important;
@@ -227,24 +200,4 @@ line-height: 1;
 border: 0.5px solid #ccc!important;
 font-style: initial;
 border-radius: 3px!important;
-}
-/*-------mardown-end---------*/
-
-/*ªÿ∏¥*/
-#post_detail .postDesc{ width:80%;}
-
-.sidebar-block ul li{
-/*padding: 5px 5px 5px 20px;*/
-}
-#sideCatalog a{
-font-weight: normal;
-}
-
-/*Õº∆¨*/
-#cnblogs_post_body img {
-}
-
-
-#cnblogs_post_body a {
-  border-bottom: 0px dotted #333; 
 }

@@ -33,3 +33,5 @@ update SafeguardingRights set IsDeleted=1
 
 
 delete from RoleAreas
+
+delete from Organization

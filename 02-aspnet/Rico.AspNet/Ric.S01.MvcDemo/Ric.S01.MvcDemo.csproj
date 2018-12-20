@@ -148,14 +148,34 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <None Include="Content\markdown\demo.md" />
     <Compile Include="Controllers\S03PostmanController.cs" />
     <Compile Include="Controllers\S01ClientBrowserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\S02CrossDomainController.cs" />
+    <Compile Include="Controllers\S04MarkdownCodeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCore.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreDefault.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreDjango.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreEclipse.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreEmacs.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreFadeToGrey.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreMDUltra.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreMidnight.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreRDark.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeDefault.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeDjango.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeEclipse.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeEmacs.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeFadeToGrey.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeMDUltra.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeMidnight.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeRDark.scss" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\_theme_template.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -181,7 +201,44 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mark\highlighters.js" />
+    <Content Include="Scripts\mark\marked.min.js" />
+    <Content Include="Scripts\mark\mdjs.min.js" />
+    <Content Include="Scripts\mark\Parser.js" />
+    <Content Include="Scripts\mark\strapdown.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shAutoloader.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushAppleScript.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushAS3.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushBash.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushColdFusion.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushCpp.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushCSharp.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushCss.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushDelphi.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushDiff.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushErlang.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushGroovy.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushHaxe.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushJava.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushJavaFX.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushJScript.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushPerl.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushPhp.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushPlain.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushPowerShell.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushPython.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushRuby.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushSass.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushScala.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushSql.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushTAP.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushTypeScript.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushVb.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shBrushXml.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shCore.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\js\shLegacy.js" />
+    <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shCoreEclipse.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -199,6 +256,7 @@
     <Content Include="Views\S02CrossDomain\Index.cshtml" />
     <Content Include="Views\S02CrossDomain\DomanNameData1090.cshtml" />
     <Content Include="Views\S02CrossDomain\DomanNameData1070.cshtml" />
+    <Content Include="Views\S04MarkdownCode\HighLight.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
