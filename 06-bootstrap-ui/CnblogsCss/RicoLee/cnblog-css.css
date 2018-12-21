@@ -85,16 +85,20 @@
 /*---------向上,向下 按钮-end-----*/
 
 /*---------标题-start-----*/
+
+#cnblogs_post_body h4,
+#cnblogs_post_body h5,
+#cnblogs_post_body h6
+{
+    margin-left: 26px;
+}
 #cnblogs_post_body h2{
 color:#000;
 font-size: 18px;
 font-weight: bold;
 text-indent: -4px;
-/*padding: 5px;*/
 background-color:#fff;
 border-left: 3px solid #17b11b;
-/*border-left: 3px solid #00a4ff;*/
-/*  margin-left: 35px;*/
 margin: 10px 0;
 line-height: 0.6;
   margin-top: 30px;
@@ -107,7 +111,7 @@ text-indent: 12px;
 }
 #cnblogs_post_body h4{
   font-size: 16px !important;
-  margin-left: 26px;
+
   color: tomato;
 }
 /*---------标题-end-----*/
@@ -203,7 +207,7 @@ margin-top: 5px;
 
 /*-------mardown-start---------*/
 .cnblogs-markdown ol code,
-.cnblogs-markdown p code{     
+.cnblogs-markdown p code{
        font-size: 15px!important;
     /* font-weight: bold; */
     padding: 3px 0px !important;
@@ -213,20 +217,20 @@ margin-top: 5px;
     line-height: 1;
 }
 /**/
-.cnblogs-markdown .hljs{  
+.cnblogs-markdown .hljs{
 font-family: Consolas, "Courier New", Courier, monospace !important;
     font-size: 14px!important;
 }
 
 .cnblogs-markdown em{
 font-size: 15px!important;
-padding: 2px 6px !important;
+padding: 4px 6px !important;
 background-color: #fafafa !important;
 font-family: Consolas, "Courier New", Courier, monospace !important;
 line-height: 1;
 border: 0.5px solid #ccc!important;
 font-style: initial;
-border-radius: 3px!important;
+border-radius: 2px!important;
 }
 /*-------mardown-end---------*/
 
@@ -246,5 +250,22 @@ font-weight: normal;
 
 
 #cnblogs_post_body a {
-  border-bottom: 0px dotted #333; 
+  border-bottom: 0px dotted #333;
+}
+
+/*类名*/
+.hljs-function .hljs-title{
+  color: #000;
+}
+.hljs-title{
+  color: #2b91af;
+}
+.hljs-string{
+  color:#a31515;
+}
+.hljs-attr{
+  color: #2b91af;
+}
+.hljs-string .hljs-subst{
+  color: #000;
 }
