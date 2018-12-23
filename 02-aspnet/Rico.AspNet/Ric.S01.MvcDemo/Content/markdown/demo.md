@@ -18,37 +18,9 @@ namespace MyApplication
     }
 }
 ```
-```cs
-	/// <summary>
-	/// 阶乘
-	/// </summary>
-	public void Factorial()
-	{
-		//1*2*3*4*5
-		Func<int, int> fib = null;
-		fib = n => (n == 1) ? 1 : fib(n - 1) * n;
-
-		var result = fib(5);
-
-		result.Dump();
-	}
-	[TestMethod]
-	public void RecursionGetFiles()
-	{
-		var recGetFiles =
-				Functional.Y<string, IEnumerable<string>>
-				(f => d => Directory.GetFiles(d).Concat(Directory.GetDirectories(d).SelectMany(f)));
-
-		foreach (var f in recGetFiles(Directory.GetCurrentDirectory()))
-			Console.WriteLine(f);
-
-	}
-
-```
 ### JavaScript
 `<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>`
 ```javascript
-
 
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
