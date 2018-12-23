@@ -46,10 +46,10 @@ namespace MyApplication
 
 ```
 ### JavaScript
+`<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>`
 ```javascript
-<script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
-```
-```javascript
+
+
 function getQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");

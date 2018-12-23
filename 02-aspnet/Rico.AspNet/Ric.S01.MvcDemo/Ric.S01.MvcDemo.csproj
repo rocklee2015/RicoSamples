@@ -154,6 +154,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\S02CrossDomainController.cs" />
     <Compile Include="Controllers\S04MarkdownCodeController.cs" />
+    <Compile Include="Controllers\S05BootstrapController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +177,7 @@
     <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeMidnight.scss" />
     <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\shThemeRDark.scss" />
     <Content Include="Scripts\syntaxhighlighter-3.0.90\sass\_theme_template.scss" />
+    <Content Include="Views\S05Bootstrap\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

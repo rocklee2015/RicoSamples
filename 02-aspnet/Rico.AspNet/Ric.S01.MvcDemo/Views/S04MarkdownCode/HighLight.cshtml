@@ -2,11 +2,36 @@
 @{
     ViewBag.Title = "HighLight";
 }
+
+
 <h2>Markdown 代码高亮</h2>
-<div class="btn-group">
-    <button id="btnHighLightJs" type="button" class="btn btn-default">HighLightJs</button>
-    <button id="btnsyntaxhighlighter" type="button" class="btn btn-default">syntaxhighlighter</button>
-    <button type="button" class="btn btn-default">按钮 3</button>
+<div class="panel panel-default">
+    <div class="panel-heading">
+       代码着色插件
+    </div>
+    <div class="panel-body">
+        <div class="btn-group">
+            <button id="btnHighLightJs" type="button" class="btn btn-default">HighLightJs</button>
+            <button id="btnsyntaxhighlighter" type="button" class="btn btn-danger">syntaxhighlighter</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        HighLightJs 样式
+    </div>
+    <div class="panel-body">
+        <select class="selectpicker">
+            <option value="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">default</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/vs.min.css">vs</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/solarized-dark.min.css">solarized-dark</option>
+            <option value="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark-reasonable.min.css">atom-one-dark</option>
+            <option value="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">default</option>
+        </select>
+    </div>
+
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -14,24 +39,25 @@
     </div>
     <div class="panel-body">
         <ul id="myTab" class="nav nav-tabs">
-            <li><a href="#strapdown" data-toggle="tab">strapdown</a></li>
-            <li><a href="#marked" data-toggle="marked">marked</a></li>
+            <li><a href="#marked" data-toggle="tab">marked</a></li>
             <li><a href="#mdjs" data-toggle="tab">mdjs</a></li>
             <li><a href="#hyperDown" data-toggle="tab">hyperDown</a></li>
+            <li><a href="#strapdown" data-toggle="tab">strapdown[暂未实现]</a></li>
         </ul>
         <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade in active" id="strapdown">
-                <h3>strapdown效果</h3>
-                <div id="strapdownDemo">
-
-                </div>
-            </div>
             <div class="tab-pane fade" id="marked">
                 <h3>marked效果</h3>
                 <div id="markedDemo">
 
                 </div>
             </div>
+            <div class="tab-pane fade " id="strapdown">
+                <h3>strapdown效果</h3>
+                <div id="strapdownDemo">
+
+                </div>
+            </div>
+
             <div class="tab-pane fade" id="mdjs">
                 <h3>mdjs效果</h3>
                 <div id="mdjsDemo">
@@ -49,32 +75,61 @@
 </div>
 
 @*<link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css" rel="stylesheet" >*@
-<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/vs.min.css" rel="stylesheet" />
+@*<link  id="highlight-style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/vs.min.css" rel="stylesheet" />*@
 @*<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/xcode.min.css" rel="stylesheet" />*@
 @*<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/solarized-dark.min.css" rel="stylesheet" />*@
 @*<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark-reasonable.min.css" rel="stylesheet" />*@
 @*<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-light.min.css" rel="stylesheet" />*@
 @*<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/atom-one-dark.min.css" rel="stylesheet" />*@
 <link href="" rel="stylesheet" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+@section scripts{
+    <!--highlight.js-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+    <!--bootstrap-select.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
+    <!--markdwon解析js-->
+    <script src="~/Scripts/mark/marked.min.js"></script>
+    <script src="~/Scripts/mark/Parser.js"></script>
+    <script src="~/Scripts/mark/strapdown.js"></script>
+    <script src="~/Scripts/mark/mdjs.min.js"></script>
+    <script>
+        $(document).ready(function () {
 
-<!--markdwon解析-->
-<script src="~/Scripts/mark/marked.min.js"></script>
-<script src="~/Scripts/mark/Parser.js"></script>
-<script src="~/Scripts/mark/strapdown.js"></script>
-<script src="~/Scripts/mark/mdjs.min.js"></script>
+        });
 
-<script src="~/Scripts/syntaxhighlighter-3.0.90/js/shCore.js"></script>
-
-<script>
+    </script>
+    <script>
     $(function () {
-        $('#myTab li:eq(1) a').tab('show');
-    });
-</script>
-<script>
-    $(function () {
-       
+        $('#myTab li:eq(0) a').tab('show');
+
+        //selectpicker事件
+        $('.selectpicker').selectpicker();
+        $('.selectpicker').on('changed.bs.select', function (e) {
+            //$("#highlight-style").href = e.target.value;
+            console.log(e);
+            //hljs.initHighlightingOnLoad();
+            //
+            addCss(e.target.value);
+        });
+        var addCss = function (path) {
+            if (!path || path.length === 0) {
+                throw new Error('argument "path" is required !');
+            }
+            var old = document.getElementById("highlight-style");
+            if (old) {
+                old.remove();
+            }
+            var head = document.getElementsByTagName('head')[0];
+            var link = document.createElement('link');
+            link.id = "highlight-style";
+            link.href = path;
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            head.appendChild(link);
+        };
+        //加载markdown文件
         $.ajax({
             type: "get",
             url: "@Url.Action("MarkdonwFile")",
@@ -83,10 +138,8 @@
             success: function (response, status, request) {
                 //mdjs
                 $('#mdjsDemo').html(Mdjs.md2html(response));
-
                 //marked
                 $('#markedDemo').html(marked(response));
-
                 //HyperDown
                 var parser = new HyperDown;
                 $('#hyperDownDemo').html(parser.makeHtml(response));
@@ -103,4 +156,11 @@
         });
     })
 
-</script>  
+    </script>
+
+}
+
+
+
+@*<script src="~/Scripts/syntaxhighlighter-3.0.90/js/shCore.js"></script>*@
+
