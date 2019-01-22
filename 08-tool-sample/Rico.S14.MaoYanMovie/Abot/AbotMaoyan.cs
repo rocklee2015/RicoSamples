@@ -22,7 +22,7 @@ namespace Rico.S14.MaoYanMovie
         /// <summary>
         /// 猫眼主页
         /// </summary>
-        public Uri FeedUri = new Uri(@"http://maoyan.com/films?ci=50");
+        public Uri FeedUri = new Uri(@"https://maoyan.com/films?ci=50");
 
 
         private bool IsStart { get; set; }
@@ -33,12 +33,12 @@ namespace Rico.S14.MaoYanMovie
         /// <summary>
         /// 猫眼主页分页的正则表达式，showType(1正在热映,2 即将上映),前两页。ci=50匹配的杭州地区
         /// </summary>
-        public Regex MoviePageRegex = new Regex("^http://maoyan.com/films\\?showType=[1|2][&ci=50]*[&offset=0|&offset=30]*$", RegexOptions.Compiled);
+        public Regex MoviePageRegex = new Regex("^https://maoyan.com/films\\?showType=[1|2][&ci=50]*[&offset=0|&offset=30]*$", RegexOptions.Compiled);
 
         /// <summary>
         /// 猫眼电影详细
         /// </summary>
-        public Regex MovieDetailRegex = new Regex("^http://maoyan.com/films/\\d+$", RegexOptions.Compiled);
+        public Regex MovieDetailRegex = new Regex("^https://maoyan.com/films/\\d+$", RegexOptions.Compiled);
 
 
 

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>Contacts Example</title>
+<style type="text/css">
+body,html{
+width: 100%;
+height: 80%;
+font-size: 62.5%;
+background: rgb(245,245,245);
+}
+
+
+*{
+margin: 0;
+padding: 0;
+}
+ul{
+list-style: none;
+}
+a{
+text-decoration: none;
+}
+.list-h{
+width: 95%;
+padding-left: 5%;
+height: 3rem;
+padding-top: 1rem;
+padding-bottom: 1rem;
+border-bottom: 1px solid #DDDDDD;
+}
+.list-h>p{
+display: inline-block;
+width: 3rem;
+height: 3rem;
+border-radius: 50%;
+background: #29ACBA;
+line-height: 3rem;
+text-align: center;
+color: #FFFFFF;
+}
+.list-h>h3{
+width: 70%;
+height: 3rem;
+line-height: 3rem;
+font-size: 1.4rem;
+display: inline-block;
+margin-left: 1rem;
+}
+</style>
+<script src="js/jquery-2.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+// 监听plusready事件 ?
+document.addEventListener( "plusready", function(){
+}, false );
+function find(){
+plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, function (addressbook) {
+addressbook.find(["displayName","phoneNumbers"],function(contacts){
+var list="";
+for(var i=0;i<contacts.length;i++){
+if(contacts[i].phoneNumbers.length > 0){
+var str=contacts[i].displayName.substr(contacts[i].displayName.length -2, 2);
+list+="<div class='list-h'><p>"+str+"</p><h3>"+contacts[i].displayName+"("+contacts[i].phoneNumbers[0].value+")"+"</h3></div>";
+}else{
+
+}
+}
+$("body").append(list);
+}, function () {
+alert("error");
+},{multiple:true});
+},function(e){
+alert("Get address book failed: " + e.message);
+});
+}
+
+
+</script>
+</head>
+<body>
+<div class='list-h'><p>安丽</p><h3>安丽（15545090181）</h3></div>
+<button onclick="find()">Find</button>
+</body>
+</html>
+
+

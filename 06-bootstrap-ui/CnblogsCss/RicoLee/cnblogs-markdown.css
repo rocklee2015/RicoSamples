@@ -8,11 +8,12 @@
   -webkit-text-size-adjust: 100%;
   color: #000;
   overflow: hidden;
-  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;*/
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
   font-size: 14px;
   line-height: 1.6;
   word-wrap: break-word;
-  width: 82%;
+  width: 80%;
 }
 
 .cnblogs-markdown a {
@@ -89,7 +90,7 @@
 }
 
 .cnblogs-markdown a {
-  color: #4183c4;
+  color: #0366d6;
   text-decoration: none;
 }
 
@@ -284,12 +285,14 @@
 }
 */
 
-.cnblogs-markdown h1, .cnblogs-markdown h2 , .cnblogs-markdown h3 {
+.cnblogs-markdown h1, .cnblogs-markdown h2  {
   /*font-size: 2em;*/
   margin-bottom: 5px;
   padding-left:15px;
+  
   padding-bottom: 5px;
   padding-top: 5px;
+  
 }
 .cnblogs-markdown h1 .anchor, .cnblogs-markdown h2 .anchor {
   line-height: 1;
@@ -344,7 +347,7 @@
 
 .cnblogs-markdown ul,
 .cnblogs-markdown ol {
-  padding-left: 2em;
+  padding-left: 1em;
   font-size: 16px;
 }
 
@@ -442,7 +445,6 @@ line-height: 30px;
   background-color: #f8f8f8!important;
   border-radius: 3px;
   display: initial;
-  border: 0px solid #ccc!important; 
 }
 
 .cnblogs-markdown code:before,
@@ -482,7 +484,7 @@ line-height: 30px;
 
 .cnblogs-markdown pre {
   word-wrap: normal;
-  margin-left: 26px;
+  
 }
 
 .cnblogs-markdown pre code {

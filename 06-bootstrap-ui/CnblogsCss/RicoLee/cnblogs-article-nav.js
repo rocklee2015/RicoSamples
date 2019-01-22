@@ -15,7 +15,7 @@ $(document).ready(function() {
         sideCatalogCtrl = 'sideCatalogBtn',
         h = 'sideToolbar-up',
         //默认显示文章目录
-        navcontaint = '<div id="sideToolbar">\<div class="sideCatalogBg"id="sideCatalog">\<div id="sideCatalog-sidebar">\<div class="sideCatalog-sidebar-top"></div>\<div class="sideCatalog-sidebar-bottom"></div>\</div>\<div id="sideCatalog-catalog">\<ul class="nav"style="width:300px;zoom:1">\</ul>\</div>\</div>\</div>\<a href="javascript:void(0);" title="[隐藏/显示]目录" id="sideCatalogBtn" class="sideCatalogBtnDisable"></a>',
+        navcontaint = '<div id="sideToolbar">\<div class="sideCatalogBg"id="sideCatalog">\<div id="sideCatalog-sidebar">\<div class="sideCatalog-sidebar-top"></div>\<div class="sideCatalog-sidebar-bottom"></div>\</div>\<div id="sideCatalog-catalog">\<ul class="nav"style="zoom:1">\</ul>\</div>\</div>\</div>\<a href="javascript:void(0);" title="[隐藏/显示]目录" id="sideCatalogBtn" class="sideCatalogBtnDisable"></a>',
         j = '',
         k = 200,
         l = 0,
@@ -51,7 +51,7 @@ $(document).ready(function() {
             //q = false //如果h2和h3太多，依然要生成h3
         }
     };
-
+    var sidebarHeight=40;
     o.each(function(t) {
         var u = $(this),
             v = u[0];
@@ -78,12 +78,14 @@ $(document).ready(function() {
             //h1,h2,h3 如果需要在前面自动生成序号就添加<li><span>' + l + '.&nbsp</span>)
             //j += '<li><span>' + l + '.&nbsp</span><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
             j += '<li><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a><span class="sideCatalog-dot"></span></li>';
+            sidebarHeight+=25;
         } else if (v.localName === 'h3') {
             m++;
             n = 0;
             if (q) {
                 if (text.length > 28) text = text.substr(0, 28) + "...";
                 j += '<li class="h2Offset"><a href="#' + u.attr('id') + '" title="' + title + '">' + text + '</a></li>';
+                sidebarHeight+=25;
             }
         } 
         /*
@@ -98,6 +100,8 @@ $(document).ready(function() {
     });
    
     $('#' + f + '>ul').html(j);
+    
+    $('#sideCatalog-sidebar').css('height',sidebarHeight+'px');
     b.data('spy', 'scroll');
     b.data('target', '.sideCatalogBg');
     $('body').scrollspy({

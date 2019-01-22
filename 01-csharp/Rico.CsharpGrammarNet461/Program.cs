@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rico.CsharpGrammarNet461.S12.InteretAlgorithm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Rico.CsharpGrammarNet461
     {
         static void Main(string[] args)
         {
+            P02_Money.Mains();
         }
     }
 }

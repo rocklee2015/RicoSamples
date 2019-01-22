@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace Rico.S14.MaoYanMovie
         private static int Count = 1;
         static void Main(string[] args)
         {
+          
             DownMovie(null, null);
             //方法二：使用System.Timers.Timer类
             System.Timers.Timer t = new System.Timers.Timer(TimeSpan.FromHours(24).TotalMilliseconds);//实例化Timer类，设置时间间隔

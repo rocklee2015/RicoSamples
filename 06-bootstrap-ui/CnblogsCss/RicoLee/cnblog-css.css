@@ -90,7 +90,7 @@
 #cnblogs_post_body h5,
 #cnblogs_post_body h6
 {
-    margin-left: 26px;
+   
 }
 #cnblogs_post_body h2{
 color:#000;
@@ -106,13 +106,13 @@ line-height: 0.6;
 
 
 #cnblogs_post_body h3{
-text-indent: 12px;
+  padding-left: 0px;
   font-size: 17px;
 }
 #cnblogs_post_body h4{
   font-size: 16px !important;
-
-  color: tomato;
+  margin:0px 0px;
+  color: #000;
 }
 /*---------标题-end-----*/
 
@@ -121,13 +121,17 @@ text-indent: 12px;
 ul {
     word-break: break-all;
 }
-
+.cnblogs-markdown ol {
+  padding-left: 1em;
+}
 #cnblogs_post_body ol li,
 #cnblogs_post_body ul li {
     line-height: 30px;
 }
+#cnblogs_post_body ol {
+    padding-left: 1em;
+}
 #cnblogs_post_body ul{
-  margin-left: 42px;
   font-size: 15px;
 }
 #cnblogs_post_body ul li p{
@@ -137,16 +141,15 @@ ul {
 /*---------列表-end-----*/
 #cnblogs_post_body p{
 text-indent: 0px;
-margin: 10px auto;
-margin-left: 26px;
+margin: 16px auto;
 font-size: 16px;
-line-height: 30px;
+line-height: 1.5;
+color: #24292e;
 }
 
 /*-------table-start---------*/
 #cnblogs_post_body table{
 border: 0px solid silver;
-    margin-left: 26px;
 }
 /*
 #cnblogs_post_body th, #cnblogs_post_body td, .cnblogs-post-body th, .cnblogs-post-body td {
@@ -173,48 +176,63 @@ border: 0px solid silver;
 
 /*-------引用-start---------*/
 #topics .postBody blockquote {
-  padding: 11px;
-  color: #3a87ad;
-  /*border-left: 4px solid #ddd;*/
+  padding: .75rem 1.25rem;
+  color: #0c5460;
   border: 1px solid rgba(0,165,255,.15);
-  margin-left: 26px;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
   border-radius: 4px;
-margin-top: 5px;
+  margin-top: 5px;
+  background-image: url(https://raw.githubusercontent.com/rocklee2015/BlogImg/master/2018/181226-pinfull18.png);
+  background-position: 4px 4px;
+  background-repeat: no-repeat;
 }
 #topics .postBody blockquote p {
-    margin: 0;
+    margin: 0 12px;
     padding: 0;
-    color: #155fa6;
-    text-indent: 26px;
-
+    color: #0c5460;
+    /*前面的图片*/
+    /* 
+    text-indent: 22px;
     background-image: url(https://dotnet.microsoft.com/images/redesign/alert-success.svg);
-    background-repeat: no-repeat;
     background-position: 0px 6px;
+    */
+    
 }
 #topics .postBody blockquote strong{
-  color:#155fa6;
+  color:#0c5460;
 }
-#topics .postBody blockquote code,
-#topics .postBody blockquote em
+#topics .postBody blockquote code
 {
-  color:#155fa6;
+  color:#000;
   border: 0px solid #fff!important;
+  background-color: #fff !important;
 }
+
 /*-------引用-start---------*/
 
 
 /*-------mardown-start---------*/
+.cnblogs-markdown code{
+  border: 0px solid #ccc!important;
+}
+.cnblogs-markdown ul code,
 .cnblogs-markdown ol code,
 .cnblogs-markdown p code{
-       font-size: 15px!important;
+    font-size: 85% !important;
     /* font-weight: bold; */
     padding: 3px 0px !important;
-    color: #c7254e;
-    background-color: #f9f2f4 !important;
+    color: #24292e;
+    background-color: rgba(27,31,35,.05) !important;
     font-family: Consolas, "Courier New", Courier, monospace !important;
-    line-height: 1;
+    line-height: 2;
+    margin: 0px 4px;
+    border: 0px solid #ccc!important; 
+}
+.cnblogs-markdown ul code,
+.cnblogs-markdown ol code{
+border: 1px solid #ccc!important; 
+
 }
 /**/
 .cnblogs-markdown .hljs{
@@ -223,14 +241,16 @@ font-family: Consolas, "Courier New", Courier, monospace !important;
 }
 
 .cnblogs-markdown em{
+  /*
 font-size: 15px!important;
-padding: 4px 6px !important;
+padding: 2px 6px !important;
 background-color: #fafafa !important;
 font-family: Consolas, "Courier New", Courier, monospace !important;
 line-height: 1;
 border: 0.5px solid #ccc!important;
 font-style: initial;
 border-radius: 2px!important;
+*/
 }
 /*-------mardown-end---------*/
 
@@ -252,7 +272,10 @@ font-weight: normal;
 #cnblogs_post_body a {
   border-bottom: 0px dotted #333;
 }
-
+/*刷新评论，刷新页面*/
+#comment_nav {
+  margin-right: 320px;
+}
 /*类名*/
 .hljs-function .hljs-title{
   color: #000;

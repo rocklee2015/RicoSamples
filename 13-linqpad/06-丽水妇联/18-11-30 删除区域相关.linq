@@ -11,25 +11,6 @@
   </Connection>
 </Query>
 
-update  Article set IsDeleted=1
-
-update  Activities set IsDeleted=1
-
-
-update  Aspirations set IsDeleted=1
-
-update  QuestionAnswers set IsDeleted=1
-
-update  Questionnaires set IsDeleted=1
-
-update  QuestionOptions set IsDeleted=1
-
-
-update Vote set IsDeleted=1
-
---update VoteInfo set IsDeleted=1
-
-update SafeguardingRights set IsDeleted=1
 
 
 delete from RoleAreas
