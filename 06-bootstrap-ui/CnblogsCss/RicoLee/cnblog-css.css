@@ -101,7 +101,8 @@ background-color:#fff;
 border-left: 3px solid #17b11b;
 margin: 10px 0;
 line-height: 0.6;
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
@@ -183,7 +184,7 @@ border: 0px solid silver;
   border-color: #bee5eb;
   border-radius: 4px;
   margin-top: 5px;
-  background-image: url(https://raw.githubusercontent.com/rocklee2015/BlogImg/master/2018/181226-pinfull18.png);
+  /*background-image: url(https://raw.githubusercontent.com/rocklee2015/BlogImg/master/2018/181226-pinfull18.png);*/
   background-position: 4px 4px;
   background-repeat: no-repeat;
 }
@@ -292,3 +293,14 @@ font-weight: normal;
 .hljs-string .hljs-subst{
   color: #000;
 }
+/*xml*/
+.xml .hljs-name{
+  color: #A31535;
+}
+.xml .hljs-attr{
+  color: #FF0038;
+}
+.xml .hljs-string{
+  color: #00f;
+}
+
