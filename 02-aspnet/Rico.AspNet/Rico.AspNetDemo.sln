@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ric.S01.MvcDemo", "Ric.S01.MvcDemo\Ric.S01.MvcDemo.csproj", "{80B4F34D-646B-44A2-9A3A-89077688FED6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.AspnetMvcDemo", "Rico.S01.AspnetMvcDemo\Rico.S01.AspnetMvcDemo.csproj", "{6622D03B-962E-44E0-8757-23E767DBEEED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{80B4F34D-646B-44A2-9A3A-89077688FED6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80B4F34D-646B-44A2-9A3A-89077688FED6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80B4F34D-646B-44A2-9A3A-89077688FED6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80B4F34D-646B-44A2-9A3A-89077688FED6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6622D03B-962E-44E0-8757-23E767DBEEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6622D03B-962E-44E0-8757-23E767DBEEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6622D03B-962E-44E0-8757-23E767DBEEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6622D03B-962E-44E0-8757-23E767DBEEED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

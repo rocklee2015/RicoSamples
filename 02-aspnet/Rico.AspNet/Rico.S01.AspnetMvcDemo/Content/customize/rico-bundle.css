@@ -1,0 +1,11 @@
+﻿.bundle {
+    width: 200px;
+    height: 80px;
+}
+.bluecloud1 {
+    background: url(../image/bluecloud.jpg) no-repeat;
+}
+
+.bluecloud2 {
+    background: url(/Content/image/bluecloud.jpg) no-repeat;
+}

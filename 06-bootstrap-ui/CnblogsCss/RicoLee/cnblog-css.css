@@ -86,14 +86,16 @@
 
 /*---------标题-start-----*/
 
+#cnblogs_post_body h1,
+#cnblogs_post_body h2,
+#cnblogs_post_body h3,
 #cnblogs_post_body h4,
 #cnblogs_post_body h5,
 #cnblogs_post_body h6
 {
-   
+   color:#314659;
 }
 #cnblogs_post_body h2{
-color:#000;
 font-size: 18px;
 font-weight: bold;
 text-indent: -4px;
@@ -104,16 +106,22 @@ line-height: 0.6;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+#cnblogs_post_body h6{
+  font-size: 16px !important;
+  border-left: 4px solid #FF5151;
+  padding-left: 15px;
+  margin: 20px 0px 20px 15px;
+  font-weight: inherit;
+}
 
 
 #cnblogs_post_body h3{
   padding-left: 0px;
-  font-size: 17px;
+  font-size: 16px;
 }
 #cnblogs_post_body h4{
-  font-size: 16px !important;
+  font-size: 15px !important;
   margin:0px 0px;
-  color: #000;
 }
 /*---------标题-end-----*/
 
@@ -145,12 +153,13 @@ text-indent: 0px;
 margin: 16px auto;
 font-size: 16px;
 line-height: 1.5;
-color: #24292e;
+color: #314659;
 }
 
 /*-------table-start---------*/
 #cnblogs_post_body table{
 border: 0px solid silver;
+margin-top: 10px;
 }
 /*
 #cnblogs_post_body th, #cnblogs_post_body td, .cnblogs-post-body th, .cnblogs-post-body td {
@@ -158,9 +167,11 @@ border: 0px solid silver;
 }
 */
 #cnblogs_post_body th{
-  background-color: #f6f8f9;
-  color: #8d8d8d;
+  background-color: #d8f0f4;
+  color: #314659;
+  font-weight: bold;
   text-align: left;
+  padding: 8px 8px;
 }
 #cnblogs_post_body td{
   padding: 5px 10px;
@@ -178,9 +189,9 @@ border: 0px solid silver;
 /*-------引用-start---------*/
 #topics .postBody blockquote {
   padding: .75rem 1.25rem;
-  color: #0c5460;
+  color: #314659;
   border: 1px solid rgba(0,165,255,.15);
-  background-color: #d1ecf1;
+  /*background-color: #fff;*/
   border-color: #bee5eb;
   border-radius: 4px;
   margin-top: 5px;
@@ -189,9 +200,9 @@ border: 0px solid silver;
   background-repeat: no-repeat;
 }
 #topics .postBody blockquote p {
-    margin: 0 12px;
+    margin: 0 0px;
     padding: 0;
-    color: #0c5460;
+    color: #314659;
     /*前面的图片*/
     /* 
     text-indent: 22px;
@@ -207,7 +218,7 @@ border: 0px solid silver;
 {
   color:#000;
   border: 0px solid #fff!important;
-  background-color: #fff !important;
+  background-color: #f2f4f5  !important;
 }
 
 /*-------引用-start---------*/
@@ -238,7 +249,14 @@ border: 1px solid #ccc!important;
 /**/
 .cnblogs-markdown .hljs{
 font-family: Consolas, "Courier New", Courier, monospace !important;
-    font-size: 14px!important;
+font-size: 14px!important;
+background-color: #F2F4F5 !important;
+}
+
+.cnblogs-markdown{
+  font-family: Lato,"PingFang SC","Microsoft YaHei",sans-serif!important;
+  color: #314659 !important;
+
 }
 
 .cnblogs-markdown em{
@@ -264,9 +282,13 @@ border-radius: 2px!important;
 #sideCatalog a{
 font-weight: normal;
 }
+#sideCatalog-sidebar{
+  max-height: 650px;
+}
 
 /*图片*/
 #cnblogs_post_body img {
+  max-width: none;
 }
 
 
@@ -277,6 +299,12 @@ font-weight: normal;
 #comment_nav {
   margin-right: 320px;
 }
+
+.floatButton {position:fixed;top:50%;right:0;z-index:9999999;}
+@media screen and (max-width: 767px) {
+	.floatButton {display:none;}
+}
+
 /*类名*/
 .hljs-function .hljs-title{
   color: #000;
@@ -304,3 +332,28 @@ font-weight: normal;
   color: #00f;
 }
 
+/*css*/
+.css .hljs-selector-class{
+  color: #A31535;
+}
+.css .hljs-attribute{
+  color: #FF0038;
+}
+.css .hljs-number{
+  color: #00f;
+}
+
+.postTitle{
+  font-size: 18px;
+  color: #0c5460;
+}
+
+/*图片注解*/
+.img-caption{
+  padding: 5px;
+  margin: 0 auto;
+  /*border-bottom: 1px solid #d9d9d9;*/
+  font-size: 14px;
+  color: #969696;
+  line-height: 1.7;
+}
