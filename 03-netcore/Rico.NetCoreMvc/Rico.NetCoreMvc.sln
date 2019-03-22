@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.FirstNetCoreMvc", "Rico.S01.FirstNetCoreMvc\Rico.S01.FirstNetCoreMvc.csproj", "{B0C2B4C1-F5C0-4553-ABD4-DA30A30EB780}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rico.S01.FirstNetCoreMvc", "Rico.S01.FirstNetCoreMvc\Rico.S01.FirstNetCoreMvc.csproj", "{B0C2B4C1-F5C0-4553-ABD4-DA30A30EB780}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rico.S02.ConsoleSample", "Rico.S02.ConsoleSample\Rico.S02.ConsoleSample.csproj", "{49239E2B-162F-4EB5-9458-45EB99A0F854}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S03.AopCastle", "Rico.S03.AopCastle\Rico.S03.AopCastle.csproj", "{D18C1247-9840-4C5B-A876-356042E01F77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B0C2B4C1-F5C0-4553-ABD4-DA30A30EB780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0C2B4C1-F5C0-4553-ABD4-DA30A30EB780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0C2B4C1-F5C0-4553-ABD4-DA30A30EB780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49239E2B-162F-4EB5-9458-45EB99A0F854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49239E2B-162F-4EB5-9458-45EB99A0F854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49239E2B-162F-4EB5-9458-45EB99A0F854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49239E2B-162F-4EB5-9458-45EB99A0F854}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18C1247-9840-4C5B-A876-356042E01F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18C1247-9840-4C5B-A876-356042E01F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18C1247-9840-4C5B-A876-356042E01F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18C1247-9840-4C5B-A876-356042E01F77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function A() {
+            function B() {
+                console.log("Hello Closure!");
+            }
+            return B;
+        }
+        var c = A();
+        c(); //Hello Closure!
+    </script>
+
+    <script>
+        for (var i = 0; i < 5; i++) {
+            (function(){
+                setTimeout(function () {
+                                console.log(new Date, i);
+                            }, 1000);
+            })();
+            
+        }
+        console.log(new Date, i);
+    </script>
+     
+</body>
+
+</html>

@@ -3,12 +3,38 @@
 
 }
 .entrylist .entrylistPosttitle{
-	margin: 10px 0 0px;
-	border-bottom: 0px solid #ddd;
+    margin: 10px 0 0px;
+    font-weight: normal;
+    border-bottom: 1px dashed #ddd;
+    padding-bottom: 10px;
+    
 }
 .entrylistItemPostDesc{
-	border-bottom: 1px solid #ddd;
+	border-bottom: 0px solid #ddd;
     color: #999;
     text-align: left;
     padding-bottom: 0px;
+    /* padding-left:10px; 
+    background: url(https://www.cnblogs.com/images/cnblogs_com/ricolee/885995/o_posted_time.pngimages/posted_time.png) no-repeat 0 5px; */
+}
+
+
+.day .postCon{
+    display: none;
+ 
+ }
+ .day .postTitle{
+     margin: 10px 0 0px;
+     font-weight: normal;
+     font-size: 15px;
+     border-bottom: 1px dashed #ddd;
+     padding-bottom: 10px;
+ }
+ .day .postDesc{
+	border-bottom: 0px solid #ddd;
+    color: #999;
+    text-align: left;
+    padding-bottom: 0px;
+    /* padding-left:10px; 
+    background: url(https://www.cnblogs.com/images/cnblogs_com/ricolee/885995/o_posted_time.png) no-repeat 0 5px; */
 }
