@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S01.ThreadSample", "Rico.S01.ThreadSample\Rico.S01.ThreadSample.csproj", "{6FAA0179-D67E-4350-B425-DF8AF725453A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S02.YouMustKnowNet", "Rico.S02.YouMustKnowNet\Rico.S02.YouMustKnowNet.csproj", "{AC277735-0F8C-465F-B6CF-A0D0001DCF1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +17,15 @@ Global
 		{6FAA0179-D67E-4350-B425-DF8AF725453A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FAA0179-D67E-4350-B425-DF8AF725453A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FAA0179-D67E-4350-B425-DF8AF725453A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC277735-0F8C-465F-B6CF-A0D0001DCF1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC277735-0F8C-465F-B6CF-A0D0001DCF1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC277735-0F8C-465F-B6CF-A0D0001DCF1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC277735-0F8C-465F-B6CF-A0D0001DCF1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D373848-42EF-4498-B6A0-93517A06AC66}
 	EndGlobalSection
 EndGlobal
