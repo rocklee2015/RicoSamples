@@ -58,8 +58,12 @@ $(document).ready(function() {
 
         var title = u.text();
         var text = u.text();
-
-        u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
+         
+        //只有h1,h2,h3才能有锚点，其它不能有，否则会定位偏
+        if(v.localName === 'h1' || v.localName === 'h2'|| v.localName === 'h3'){
+            u.attr('id', 'autoid-' + l + '-' + m + '-' + n);
+        }
+      
     
             //if (!u.attr('id')) {
             //    u.attr('id', 'autoid-' + l + '-' + m + '-' + n)

@@ -96,7 +96,7 @@
 /*缩进2： h1/h2 目录的缩进 都是二级节点*/ 
 #sideCatalog li.h1Offset,#sideCatalog li.h2Offset {
 	text-indent: 16px;
-	font-size: 13px;
+	font-size: 12px;
 }
 #sideCatalog li.h3Offset {
 	text-indent: 36px;/*文本缩进*/
