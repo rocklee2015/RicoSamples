@@ -1,5 +1,0 @@
-﻿
-我是input.txt 文档
-菜鸟教程官网地址：www.runoob.com
-
-程序执行结束!
