@@ -33,3 +33,6 @@ obj
 /02-aspnet/Rico.AspNet/.vs
 /06-bootstrap-ui/CnblogsCss/RicoLee/.vscode
 /03-netcore/Rico.NetCoreMvc/.vs
+/06-bootstrap-ui/.vs
+/08-test/.vs
+/08-tool-sample/.vs
