@@ -146,7 +146,7 @@ $(document).ready(function() {
 
 // 在文章正文顶部生成TOC start
 $(document).ready(function() {
-    buildTocTable();
+    //buildTocTable();
     });
 
 function buildTocTable() {
