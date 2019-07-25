@@ -9,9 +9,9 @@
 {
    color:#262626;
 }
-#cnblogs_post_body h2{font-size: 18px;}
-#cnblogs_post_body h3{font-size: 16px;}
-#cnblogs_post_body h4{font-size: 16px !important;}
+#cnblogs_post_body h2{font-size: 15px;}
+#cnblogs_post_body h3{font-size: 15px;}
+#cnblogs_post_body h4{font-size: 15px !important;}
 #cnblogs_post_body h5{font-size: 15px;}
 #cnblogs_post_body h6{font-size: 15px !important;}
 
@@ -200,7 +200,7 @@ margin-top: 10px;
 }
 */
 #cnblogs_post_body th{
-  background-color: #d8f0f4;
+  background-color: #fff;
   color: #314659;
   font-weight: bold;
   text-align: left;
@@ -317,7 +317,7 @@ font-weight: normal;
 
 /*ͼƬ*/
 #cnblogs_post_body img {
-  /* max-width: none; */
+   max-width: 1050px; 
 }
 
 
@@ -373,8 +373,9 @@ font-weight: normal;
 }
 
 .postTitle{
-  font-size: 18px;
+  font-size: 15px;
   color: #0c5460;
+  margin-bottom: 20px;
 }
 
 /*ͼƬע��*/
