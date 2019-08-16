@@ -1,0 +1,114 @@
+.cnblogs-markdown .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    line-height: 1.3em;
+    color: #abb2bf;
+    background: #282c34;
+    border-radius: 5px
+}
+
+.cnblogs-markdown .hljs-keyword,
+.cnblogs-markdown .hljs-operator {
+    color: #F92672
+}
+
+.cnblogs-markdown .hljs-pattern-match {
+    color: #F92672
+}
+
+.cnblogs-markdown .hljs-pattern-match .hljs-constructor {
+    color: #61aeee
+}
+
+.cnblogs-markdown .hljs-function {
+    color: #61aeee
+}
+
+.cnblogs-markdown .hljs-function .hljs-params {
+    color: #A6E22E
+}
+
+.cnblogs-markdown .hljs-function .hljs-params .hljs-typing {
+    color: #FD971F
+}
+
+.cnblogs-markdown .hljs-module-access .hljs-module {
+    color: #7e57c2
+}
+
+.cnblogs-markdown .hljs-constructor {
+    color: #e2b93d
+}
+
+.cnblogs-markdown .hljs-constructor .hljs-string {
+    color: #9CCC65
+}
+
+.cnblogs-markdown .hljs-comment,
+.cnblogs-markdown .hljs-quote {
+    color: #b18eb1;
+    font-style: italic
+}
+
+.cnblogs-markdown .hljs-doctag,
+.cnblogs-markdown .hljs-formula {
+    color: #c678dd
+}
+
+.cnblogs-markdown .hljs-section,
+.cnblogs-markdown .hljs-name,
+.cnblogs-markdown .hljs-selector-tag,
+.cnblogs-markdown .hljs-deletion,
+.cnblogs-markdown .hljs-subst {
+    color: #e06c75
+}
+
+.cnblogs-markdown .hljs-literal {
+    color: #56b6c2
+}
+
+.cnblogs-markdown .hljs-string,
+.cnblogs-markdown .hljs-regexp,
+.cnblogs-markdown .hljs-addition,
+.cnblogs-markdown .hljs-attribute,
+.cnblogs-markdown .hljs-meta-string {
+    color: #98c379
+}
+
+.cnblogs-markdown .hljs-built_in,
+.cnblogs-markdown .hljs-class .hljs-title {
+    color: #e6c07b
+}
+
+.cnblogs-markdown .hljs-attr,
+.cnblogs-markdown .hljs-template-variable,
+.cnblogs-markdown .hljs-type,
+.cnblogs-markdown .hljs-variable,
+.cnblogs-markdown .hljs-selector-class,
+.cnblogs-markdown .hljs-selector-attr,
+.cnblogs-markdown .hljs-selector-pseudo,
+.cnblogs-markdown .hljs-number {
+    color: #d19a66
+}
+
+.cnblogs-markdown .hljs-symbol,
+.cnblogs-markdown .hljs-bullet,
+.cnblogs-markdown .hljs-link,
+.cnblogs-markdown .hljs-meta,
+.cnblogs-markdown .hljs-selector-id,
+.cnblogs-markdown .hljs-title {
+    color: #61aeee
+}
+
+.cnblogs-markdown .hljs-emphasis {
+    font-style: italic
+}
+
+.cnblogs-markdown .hljs-strong {
+    font-weight: bold
+}
+
+.cnblogs-markdown .hljs-link {
+    text-decoration: underline
+}

@@ -320,6 +320,11 @@ font-weight: normal;
    max-width: 1050px; 
 }
 
+/* #cnblogs_post_body p img {
+  margin: 0 5%;
+} */
+
+
 
 #cnblogs_post_body a {
   border-bottom: 0px dotted #333;

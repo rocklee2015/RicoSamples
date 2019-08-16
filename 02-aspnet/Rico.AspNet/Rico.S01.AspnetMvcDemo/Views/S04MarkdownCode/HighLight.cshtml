@@ -169,10 +169,12 @@
     <!--bootstrap-select.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.js"></script>
     <!--markdwon解析js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.2/marked.min.js"></script>
-    <script src="~/Scripts/mark/Parser.js"></script>
-    <script src="~/Scripts/mark/strapdown.js"></script>
-    <script src="~/Scripts/mark/mdjs.min.js"></script>
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.5.2/marked.min.js"></script>*@
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/marked/0.7.0/marked.min.js"></script>
+   
+    @*<script src="~/Scripts/mark/Parser.js"></script>
+        <script src="~/Scripts/mark/strapdown.js"></script>
+        <script src="~/Scripts/mark/mdjs.min.js"></script>*@
     <script>
     $(function () {
         $('#myTab li:eq(0) a').tab('show');
@@ -209,10 +211,11 @@
             async: false,
             dataType: "text",
             success: function (response, status, request) {
-                $('#mdjsDemo').html(Mdjs.md2html(response));  //mdjs
+                //$('#mdjsDemo').html(Mdjs.md2html(response));  //mdjs from 20190813 mdjs undefined
+                $('#mdjsDemo').html(marked(response));
                 $('#markedDemo').html(marked(response)); //marked
-                var parser = new HyperDown;
-                $('#hyperDownDemo').html(parser.makeHtml(response)); //HyperDown
+                //var parser = new HyperDown;
+                //$('#hyperDownDemo').html(parser.makeHtml(response)); //HyperDown
                 //$('pre code').each(function (i, e) { hljs.highlightBlock(e) });
                 hljs.initHighlightingOnLoad();
                 //SyntaxHighlighter.all(null);
