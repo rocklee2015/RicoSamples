@@ -1,10 +1,11 @@
-卷 ssd-work 的文件夹 PATH 列表
-卷序列号为 5CA5-7480
+Folder PATH listing
+Volume serial number is 36F0-364D
 D:.
     demo-1.bat
     demo-color.bat
+    demo.bat
     example1.txt
     tree_list.txt
     
-没有子文件夹 
+No subfolders exist 
 

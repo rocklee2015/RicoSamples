@@ -1,18 +1,17 @@
- 驱动器 C 中的卷没有标签。
- 卷的序列号是 2CB7-2FC5
+ Volume in drive C has no label.
+ Volume Serial Number is DC4D-2B55
 
- c:\ 的目录
+ Directory of c:\
 
-2018/08/30  09:20    <DIR>          AppData
-2018/06/25  13:51    <DIR>          Aria2Data
-2018/08/03  14:16    <DIR>          equeue-store
-2018/05/11  19:52    <DIR>          inetpub
-2017/11/28  09:15    <DIR>          Intel
-2018/04/12  07:38    <DIR>          PerfLogs
-2018/12/26  18:58    <DIR>          Program Files
-2018/12/26  18:40    <DIR>          Program Files (x86)
-2017/12/26  12:45             8,549 sgt.log
-2018/12/17  18:29    <DIR>          Users
-2018/12/13  16:21    <DIR>          Windows
-               1 个文件          8,549 字节
-              10 个目录 17,224,253,440 可用字节
+2019/07/16  10:16    <DIR>          Aria2Data
+2019/10/29  17:28    <DIR>          bat_example2
+2019/07/15  10:37    <DIR>          inetpub
+2019/07/17  10:25    <DIR>          Intel
+2019/07/26  16:07             1,487 logAIVCUUpdateHelper.log
+2006/12/01  23:37           904,704 msdia80.dll
+2019/10/28  11:49    <DIR>          Program Files
+2019/10/28  15:29    <DIR>          Program Files (x86)
+2019/10/29  14:02    <DIR>          Users
+2019/10/28  13:08    <DIR>          Windows
+               2 File(s)        906,191 bytes
+               8 Dir(s)  23,168,946,176 bytes free
