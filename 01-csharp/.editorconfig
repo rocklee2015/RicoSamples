@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS8123: 由于分配目标指定了其他名称或未指定名称，因此元组元素名称被忽略。
+dotnet_diagnostic.CS8123.severity = none
