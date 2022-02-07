@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rico.S01.ORM", "Rico.S01.ORM", "{3B1818BE-B356-49BD-B8D6-810904FAFDF6}"
 EndProject
@@ -76,6 +76,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S16.LuceneSimple", "Rico.S16.LuceneSimple\Rico.S16.LuceneSimple.csproj", "{7F71ECBE-DC4D-40FD-99A2-778F0B1EE3F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S10.Quartz307", "Rico.S10.Quartz307\Rico.S10.Quartz307.csproj", "{DAC1D4F3-8E47-4F98-BE6A-4E7687960DEA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rico.S17.Newtonjson", "Rico.S17.Newtonjson", "{CBD237E2-A62E-4596-AA60-F8A1131B00C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rico.S17.NewtonjsonDemo", "Rico.S17.NewtonjsonDemo\Rico.S17.NewtonjsonDemo.csproj", "{481DEDFB-2111-484F-9DFD-5CFA439D9A39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -167,6 +171,10 @@ Global
 		{DAC1D4F3-8E47-4F98-BE6A-4E7687960DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC1D4F3-8E47-4F98-BE6A-4E7687960DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC1D4F3-8E47-4F98-BE6A-4E7687960DEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{481DEDFB-2111-484F-9DFD-5CFA439D9A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{481DEDFB-2111-484F-9DFD-5CFA439D9A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{481DEDFB-2111-484F-9DFD-5CFA439D9A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{481DEDFB-2111-484F-9DFD-5CFA439D9A39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +201,7 @@ Global
 		{5FF84361-F47F-4515-9039-8B12DABB9ECF} = {88372010-808E-4F92-92AD-87601F4DC8A1}
 		{7F71ECBE-DC4D-40FD-99A2-778F0B1EE3F1} = {509EAEBE-4327-4179-B2FD-40742350A9A4}
 		{DAC1D4F3-8E47-4F98-BE6A-4E7687960DEA} = {082E3F77-D772-40D5-B815-6E979081DEAC}
+		{481DEDFB-2111-484F-9DFD-5CFA439D9A39} = {CBD237E2-A62E-4596-AA60-F8A1131B00C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {58FD5A91-20F7-4900-A7E3-6DA439CFC6A1}
